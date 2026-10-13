@@ -4,10 +4,11 @@ Odevzdání: cvičení 2. Kontroly jsou v samostatném listu [controls/iteration
 
 ## 1. Doplnit údaje
 
-- [ ] jména čtyř členů do záhlaví `project-specification.md`
-- [ ] jména a odpovědnosti do tabulky v [README.md](README.md)
-- [ ] jména mluvčích do `docs/presentation/iteration-01/slides.json` (pole `speakers`) a znovu sestavit prezentaci, nebo je přepsat přímo v zápatí snímků
-- [ ] jména v předávacích větách v souborech `speaker-1.md` až `speaker-3.md`
+- [x] jména čtyř členů do záhlaví `project-specification.md`
+- [x] jména do tabulky v [README.md](README.md)
+- [x] odpovědnosti členů do tabulky v [README.md](README.md)
+- [x] jména mluvčích do `docs/presentation/iteration-01/slides.json` (pole `speakers`) a znovu sestavit prezentaci, nebo je přepsat přímo v zápatí snímků
+- [x] jména v předávacích větách v souborech `speaker-1.md` až `speaker-3.md`
 
 ## 2. Potvrdit rozhodnutí, která udělala AI
 

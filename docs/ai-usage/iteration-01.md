@@ -25,21 +25,12 @@ Tento soubor popisuje jen to, co udělala a strojově zkontrolovala AI. Co uděl
 | Datová základna | 67 účinkujících (jména, charakteristiky, medailonky), 77 položek programu (názvy, popisy, štítky, časy), praktické informace (vstupenky, doprava, přístupnost, služby, časté dotazy, pravidla) |
 | Nástroje | skript `tools/validate_data.py` pro kontrolu konzistence dat |
 | Organizace | plán celého projektu v `docs/plan.md`, kontrolní list a seznam úkolů pro tým v `docs/team-work-flow/` |
+| Komunikace v týmu | česká zpráva pro členy týmu se seznamem toho, co má kdo zkontrolovat a rozhodnout (prompt 3) |
+| Odevzdání | skript `tools/package_submission.py`, který soubory zabalí do archivu a archiv ověří (prompt 4) |
+| Jména | doplnění jmen členů do specifikace, tabulky týmu, textů pro mluvčí a zápatí snímků (prompt 5) |
 | Prezentace | devět snímků v šabloně KIT (`tranzistor-iterace-01.odp`), skript `tools/build_presentation.py`, který je sestavuje, a texty pro čtyři mluvčí |
 
-## 3. Zadání (prompty)
-
-**Prompt 1** (v angličtině, s přiloženým úplným textem požadavků z Moodlu):
-
-> Hi, we need to create a study project for the university. We have done something simmilar in the PEF_CZU_ZJ/festival. For now the main theme is tech festival. _[vložené zadání z Moodlu]_ Pls safe the how used AI to the folder docs for each itteration. For now let's plan (md in the docs as well) the whole project and after let's do the first itteration to submit pls.
-
-**Prompt 2:**
-
-> Ok, extract the TYM parts to docs/team-work-flow and control from the team parts from all md files to the docs/team-work-flow/controls and make it for each file itteration. Now it's first itteration. After that pls make a presentation for 4 people. YOu can use @16-9_blue_cze.odp as tempalte for presentation + for each the czech text presentation file. All in docs/presentation/itteration-n pls. After we will done all of that i want you to provide advisory review
-
-AI si jako kontext přečetla dřívější projekt týmu ve složce `PEF_CZU_ZJ/festival` (specifikaci a strukturu dat hudebního festivalu). Z něj převzala pouze konvenci identifikátorů (`v…`, `p…`, `e…`) a jazyk výstupů. Koncept, obsah i formát dat jsou nové.
-
-## 4. Rozhodnutí, která AI udělala sama
+## 3. Rozhodnutí, která AI udělala sama
 
 Zadání určilo pouze téma „tech festival“. Následující volby jsou návrhem AI a tým je má potvrdit, nebo změnit:
 
@@ -53,9 +44,9 @@ Zadání určilo pouze téma „tech festival“. Následující volby jsou náv
 | Finalisté turnaje nejsou v datech uvedeni | Finále vzejde ze semifinále; u položky je uveden pouze komentátor. |
 | Plán v angličtině, výstupy v češtině | Stejně jako v předchozím projektu týmu. |
 
-## 5. Jak byl výstup ověřen
+## 4. Jak byl výstup ověřen
 
-### 5.1 Strojové kontroly
+### 4.1 Strojové kontroly
 
 | Kontrola | Postup | Výsledek |
 |---|---|---|
@@ -66,17 +57,19 @@ Zadání určilo pouze téma „tech festival“. Následující volby jsou náv
 
 Prezentace byla zkontrolována takto: vygenerovaný soubor `.odp` byl otevřen v aplikaci Microsoft PowerPoint, vyexportován do PDF a všech devět snímků bylo prohlédnuto (šablona se načetla, text nepřetéká a nezasahuje do zápatí). V LibreOffice soubor otevřen nebyl. Délka textů pro mluvčí byla spočítána: 512 slov, tedy asi 4 až 4,7 minuty.
 
+Archiv k odevzdání byl zkontrolován takto: skript ho po vytvoření znovu otevřel a porovnal kontrolní součty všech souborů se zdroji; archiv byl navíc rozbalen systémovým nástrojem `unzip` a nad rozbaleným `data.json` znovu proběhl kontrolní skript (0 chyb). Po doplnění jmen byla prezentace znovu vyexportována do PDF a všech devět snímků prohlédnuto. Soubor `.odp` mezitím tým ručně upravil v PowerPointu, proto AI jména doplnila přímo do něj a prezentaci znovu nesestavovala, aby úpravy nepřepsala.
+
 Tyto kontroly ověřují strukturu a vnitřní soulad. Neověřují kvalitu textů, věcnou správnost ani vhodnost obsahu.
 
-### 5.2 Ruční kontrola
+### 4.2 Ruční kontrola
 
 Ruční kontroly provádí tým podle kontrolního listu `docs/team-work-flow/controls/iteration-01.md` (K1–K9). AI je neprovedla a nemůže je nahradit.
 
-## 6. Co tým přijal, upravil a odmítl
+## 5. Co tým přijal, upravil a odmítl
 
 Zapisuje tým do `docs/team-work-flow/iteration-01.md`, kapitoly 2 a 3.
 
-## 7. Zjištěné limity a chyby
+## 6. Zjištěné limity a chyby
 
 - **Jména.** AI neumí zaručit, že vymyšlené jméno nenosí skutečný člověk nebo kapela. Jména je nutné vyhledat ručně.
 - **Údaje o skutečném místě.** Adresa, zastávka „Pražská tržnice“, stanice metra Vltavská a nádraží Praha-Holešovice jsou uvedeny z paměti modelu, nebyly ověřeny u zdroje. Čísla tramvajových linek AI záměrně neuvedla, protože se mění.

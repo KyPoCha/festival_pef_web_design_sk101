@@ -3,7 +3,7 @@
 |                     |                                 |
 | ------------------- | ------------------------------- |
 | **Tým**             | sk101                           |
-| **Členové**         | _doplnit jména čtyř členů týmu_ |
+| **Členové**         | Kyrylo Polishchuk, Daniel Šimůnek, Ngoc Tuan Nguyen, David Anderle |
 | **Verze dokumentu** | 1.0                             |
 | **Datová základna** | `data.json`, verze 1.0.0        |
 

@@ -2,6 +2,7 @@
 
 | | |
 |---|---|
+| **Mluvčí** | Kyrylo Polishchuk |
 | **Snímky** | 1 až 3 |
 | **Čas** | přibližně 60 sekund |
 | **Předává slovo** | mluvčímu 2 |
@@ -24,7 +25,7 @@ Z té pestrosti plyne účel webu. Program běží na pěti scénách souběžn�
 
 Web má návštěvníkovi pomoct najít to, co je pro něj, sestavit si vlastní plán a včas odhalit kolize. K tomu představuje účinkující, odpovídá na praktické otázky a na místě ukáže, co právě běží.
 
-Pro koho web navrhujeme, řekne _[jméno mluvčího 2]_.
+Pro koho web navrhujeme, řekne Daniel Šimůnek.
 
 ## Možné otázky
 

@@ -1,12 +1,17 @@
 {
   "footer": "Tranzistor 2027 · tým sk101 · cvičení 2",
-  "speakers": ["Mluvčí 1", "Mluvčí 2", "Mluvčí 3", "Mluvčí 4"],
+  "speakers": [
+    "Kyrylo Polishchuk",
+    "Daniel Šimůnek",
+    "Ngoc Tuan Nguyen",
+    "David Anderle"
+  ],
   "slides": [
     {
       "layout": "title",
       "title": "Tranzistor 2027",
       "subtitle": "Projektová specifikace a datová základna",
-      "corner": "Tým sk101 · cvičení 2"
+      "corner": ""
     },
     {
       "layout": "content",
@@ -51,7 +56,9 @@
       "speaker": 2,
       "title": "Informační architektura",
       "left": [
-        {"h": "Struktura webu"},
+        {
+          "h": "Struktura webu"
+        },
         "Úvod",
         "Program → detail položky",
         "Účinkující → detail účinkujícího",
@@ -61,7 +68,9 @@
         "O festivalu · Výsledky vyhledávání"
       ],
       "right": [
-        {"h": "Navigace a vazby"},
+        {
+          "h": "Navigace a vazby"
+        },
         "Pořadí nabídky: co a kdy → kdo → kde → jak",
         "Vyhledávání a Můj program v záhlaví každé stránky",
         "Drobečková navigace, nejvýše tři úrovně",
@@ -103,7 +112,7 @@
         "**data.json** – web je čistě klientský, JavaScript použije JSON bez převodu",
         "**Entity:** festival, dny, scény, témata, účinkující, položky programu, praktické informace",
         "**Vazby** přes identifikátory: položka programu → den, scéna, téma, účinkující",
-        "**Rozsah:** 3 dny · 5 scén · 67 účinkujících · 77 položek (minimum 3 · 2 · 60 · 60)",
+        "**Rozsah:** 3 dny · 5 scén · 67 účinkujících · 77 položek",
         "Konzistenci hlídá vlastní kontrolní skript: **0 chyb**"
       ]
     },
@@ -113,16 +122,22 @@
       "title": "Použití AI a ověření",
       "size": 15,
       "left": [
-        {"h": "Co vytvořila AI (Claude Code)"},
+        {
+          "h": "Co vytvořila AI"
+        },
         "Koncept festivalu, scény, témata",
         "Cílové skupiny, architekturu, scénáře",
         "Data: 67 medailonků, 77 popisů programu, praktické informace",
         "Kontrolní skript",
-        {"h": "Limity"},
+        {
+          "h": "Limity"
+        },
         "Jména a údaje o skutečném místě AI neumí zaručit"
       ],
       "right": [
-        {"h": "Jak jsme to ověřili"},
+        {
+          "h": "Jak jsme to ověřili"
+        },
         "**Skript:** vazby, kolize na scénách i u účinkujících, časy, kapacity",
         "**Test skriptu:** 14 záměrně vložených chyb, odhalil všech 14",
         "**Specifikace proti datům:** 25 identifikátorů a všechny počty ve scénářích",

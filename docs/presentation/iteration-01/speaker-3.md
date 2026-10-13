@@ -2,6 +2,7 @@
 
 | | |
 |---|---|
+| **Mluvčí** | Ngoc Tuan Nguyen |
 | **Snímky** | 6 a 7 |
 | **Čas** | přibližně 65 sekund |
 | **Přebírá slovo od** | mluvčího 2 |
@@ -23,7 +24,7 @@ Do vyhledávání napíše „malatova“ bez diakritiky, web řečnici najde a 
 
 Můj program ji upozorní, že se workshop kryje s přednáškou. Tahle kolize v datech skutečně je, takže na ní funkci ověříme.
 
-Jak data vznikla a jak jsme je kontrolovali, řekne _[jméno mluvčího 4]_.
+Jak data vznikla a jak jsme je kontrolovali, řekne David Anderle.
 
 ## Možné otázky
 

@@ -17,7 +17,7 @@ Tato složka obsahuje všechno, co musí udělat a zapsat **lidé z týmu**, ne 
 
 | Člen    | Hlavní odpovědnost                         | Mluvčí v prezentaci |
 | ------- | ------------------------------------------ | ------------------- |
-| _jméno_ | _např. data a obsah_                       | 1                   |
-| _jméno_ | _např. UX a prototyp_                      | 2                   |
-| _jméno_ | _např. HTML a CSS_                         | 3                   |
-| _jméno_ | _např. JavaScript, testování, dokumentace_ | 4                   |
+| Kyrylo Polishchuk | _např. data a obsah_                       | 1                   |
+| Daniel Šimůnek | _např. UX a prototyp_                      | 2                   |
+| Ngoc Tuan Nguyen | _např. HTML a CSS_                         | 3                   |
+| David Anderle | _např. JavaScript, testování, dokumentace_ | 4                   |

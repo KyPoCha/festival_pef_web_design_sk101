@@ -2,6 +2,7 @@
 
 | | |
 |---|---|
+| **Mluvčí** | Daniel Šimůnek |
 | **Snímky** | 4 a 5 |
 | **Čas** | přibližně 60 sekund |
 | **Přebírá slovo od** | mluvčího 1 |
@@ -21,7 +22,7 @@ Struktura webu má nejvýše tři úrovně. Hlavní nabídka je seřazená podle
 
 Vyhledávání a Můj program jsou v záhlaví každé stránky. Položka programu, účinkující a scéna na sebe vzájemně odkazují.
 
-Jak to funguje v konkrétních situacích, ukáže _[jméno mluvčího 3]_.
+Jak to funguje v konkrétních situacích, ukáže Ngoc Tuan Nguyen.
 
 ## Možné otázky
 

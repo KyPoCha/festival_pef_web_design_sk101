@@ -2,6 +2,7 @@
 
 | | |
 |---|---|
+| **Mluvčí** | David Anderle |
 | **Snímky** | 8 a 9 |
 | **Čas** | přibližně 70 sekund |
 | **Přebírá slovo od** | mluvčího 3 |
