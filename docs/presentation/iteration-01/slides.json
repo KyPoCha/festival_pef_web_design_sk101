@@ -1,0 +1,133 @@
+{
+  "footer": "Tranzistor 2027 · tým sk101 · cvičení 2",
+  "speakers": ["Mluvčí 1", "Mluvčí 2", "Mluvčí 3", "Mluvčí 4"],
+  "slides": [
+    {
+      "layout": "title",
+      "title": "Tranzistor 2027",
+      "subtitle": "Projektová specifikace a datová základna",
+      "corner": "Tým sk101 · cvičení 2"
+    },
+    {
+      "layout": "content",
+      "speaker": 1,
+      "title": "Festival Tranzistor",
+      "items": [
+        "Festival technologií, her a digitální kultury – **3. ročník**",
+        "**Pražská tržnice**, Praha 7 · pátek 4. – neděle 6. června 2027",
+        "Přes den přednášky, workshopy a herní turnaj, večer elektronická hudba",
+        "**5 scén · 7 témat · 67 účinkujících · 77 položek programu**",
+        "Fiktivní festival, není kopií žádné existující akce"
+      ]
+    },
+    {
+      "layout": "content",
+      "speaker": 1,
+      "title": "Účel webu",
+      "items": [
+        "**Problém:** 77 položek na 5 scénách, často souběžně, pro velmi různé publikum",
+        "Najít v programu to, co je pro mě",
+        "Sestavit si vlastní plán a včas odhalit kolize",
+        "Zjistit, kdo vystupuje, kdy a kde",
+        "Připravit se: vstupenky, doprava, přístupnost",
+        "Na místě: co běží právě teď"
+      ]
+    },
+    {
+      "layout": "content",
+      "speaker": 2,
+      "title": "Cílové skupiny",
+      "size": 18,
+      "items": [
+        "**Technologičtí nadšenci a studenti** – projít celý program a nic nepropásnout",
+        "**Profesionálové z oboru** – přednášky podle tématu, úrovně a jazyka",
+        "**Rodiny s dětmi a školy** – co je pro děti, cena, doprava, rezervace",
+        "**Večerní návštěvníci** – kdo hraje večer a kdy je turnaj",
+        "**Návštěvníci se specifickými potřebami** – bezbariérovost, tlumočení, web ovladatelný klávesnicí"
+      ]
+    },
+    {
+      "layout": "two",
+      "speaker": 2,
+      "title": "Informační architektura",
+      "left": [
+        {"h": "Struktura webu"},
+        "Úvod",
+        "Program → detail položky",
+        "Účinkující → detail účinkujícího",
+        "Scény → detail scény",
+        "Můj program",
+        "Praktické informace",
+        "O festivalu · Výsledky vyhledávání"
+      ],
+      "right": [
+        {"h": "Navigace a vazby"},
+        "Pořadí nabídky: co a kdy → kdo → kde → jak",
+        "Vyhledávání a Můj program v záhlaví každé stránky",
+        "Drobečková navigace, nejvýše tři úrovně",
+        "Položka programu ↔ účinkující ↔ scéna jsou vzájemně propojené"
+      ]
+    },
+    {
+      "layout": "content",
+      "speaker": 3,
+      "title": "Scénář 1 – Večer na Nábřeží",
+      "size": 18,
+      "items": [
+        "**Kdo:** večerní návštěvník, fanoušek hudby, mobilní telefon",
+        "**Cíl:** zjistit, kdo v sobotu večer hraje na scéně Nábřeží, a uložit si koncert",
+        "**Výchozí situace:** jede tramvají, web otevírá poprvé, účinkující nezná",
+        "**Průchod:** Program → filtr Sobota + Nábřeží → detail koncertu → Přidat do Mého programu",
+        "**Výsledek:** 6 položek seřazených podle času; koncert zůstane uložený i po zavření prohlížeče"
+      ]
+    },
+    {
+      "layout": "content",
+      "speaker": 3,
+      "title": "Scénář 2 – Bezpečnost pro profesionálku",
+      "size": 18,
+      "items": [
+        "**Kdo:** vývojářka, počítač, týden před festivalem",
+        "**Cíl:** sestavit si sobotní plán z tématu Bezpečnost a soukromí",
+        "**Výchozí situace:** pamatuje si jen příjmení „Malátová“",
+        "**Průchod:** hledání „malatova“ → detail řečnice → uložit dvě vystoupení → filtr tématu → uložit workshop",
+        "**Výsledek:** Můj program upozorní na kolizi workshopu (15:00–17:00) s přednáškou (16:30–17:15)"
+      ]
+    },
+    {
+      "layout": "content",
+      "speaker": 4,
+      "title": "Datová základna",
+      "size": 18,
+      "items": [
+        "**data.json** – web je čistě klientský, JavaScript použije JSON bez převodu",
+        "**Entity:** festival, dny, scény, témata, účinkující, položky programu, praktické informace",
+        "**Vazby** přes identifikátory: položka programu → den, scéna, téma, účinkující",
+        "**Rozsah:** 3 dny · 5 scén · 67 účinkujících · 77 položek (minimum 3 · 2 · 60 · 60)",
+        "Konzistenci hlídá vlastní kontrolní skript: **0 chyb**"
+      ]
+    },
+    {
+      "layout": "two",
+      "speaker": 4,
+      "title": "Použití AI a ověření",
+      "size": 15,
+      "left": [
+        {"h": "Co vytvořila AI (Claude Code)"},
+        "Koncept festivalu, scény, témata",
+        "Cílové skupiny, architekturu, scénáře",
+        "Data: 67 medailonků, 77 popisů programu, praktické informace",
+        "Kontrolní skript",
+        {"h": "Limity"},
+        "Jména a údaje o skutečném místě AI neumí zaručit"
+      ],
+      "right": [
+        {"h": "Jak jsme to ověřili"},
+        "**Skript:** vazby, kolize na scénách i u účinkujících, časy, kapacity",
+        "**Test skriptu:** 14 záměrně vložených chyb, odhalil všech 14",
+        "**Specifikace proti datům:** 25 identifikátorů a všechny počty ve scénářích",
+        "**Ruční kontrola týmem:** texty, jména, údaje o místě, průchod scénářů"
+      ]
+    }
+  ]
+}

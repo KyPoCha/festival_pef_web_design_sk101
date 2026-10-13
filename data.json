@@ -1,0 +1,3513 @@
+{
+  "meta": {
+    "title": "Tranzistor 2027 – datová základna",
+    "version": "1.0.0",
+    "updated": "2026-10-13",
+    "language": "cs",
+    "timezone": "Europe/Prague",
+    "note": "Festival, účinkující i program jsou fiktivní. Texty byly vygenerovány AI, za obsah odpovídá tým. Odkazy v doméně .example jsou záměrně nefunkční."
+  },
+  "festival": {
+    "id": "tranzistor-2027",
+    "name": "Tranzistor",
+    "fullName": "Tranzistor – festival technologií, her a digitální kultury",
+    "slogan": "Zapoj se.",
+    "edition": 3,
+    "year": 2027,
+    "startDate": "2027-06-04",
+    "endDate": "2027-06-06",
+    "character": "Multižánrový městský festival, který spojuje odborné přednášky, praktické workshopy, herní turnaj a večerní elektronickou hudbu.",
+    "description": "Tranzistor je třídenní festival pro všechny, které zajímá, jak technologie fungují a co s nimi jde dělat. Přes den nabízí přednášky a dílny od umělé inteligence po pájení, večer koncerty, hudbu programovanou naživo a světelné show. Jeden areál, pět scén a program pro odborníky, studenty i rodiny s dětmi.",
+    "themes": [
+      "AI a data",
+      "Web a vývoj",
+      "Hardware a robotika",
+      "Bezpečnost a soukromí",
+      "Hry a e-sport",
+      "Digitální umění a hudba",
+      "Technologie a společnost"
+    ],
+    "expectedAttendance": 12000,
+    "firstEditionYear": 2025,
+    "location": {
+      "name": "Pražská tržnice",
+      "streetAddress": "Bubenské nábřeží 306/13",
+      "postalCode": "170 00",
+      "city": "Praha 7 – Holešovice",
+      "country": "CZ",
+      "geo": {
+        "latitude": 50.0995,
+        "longitude": 14.4447
+      },
+      "note": "Rozmístění scén v areálu je fiktivní a slouží pouze pro účely projektu."
+    },
+    "organizer": {
+      "name": "Tranzistor Festival, z. s.",
+      "email": "info@tranzistor-festival.example"
+    },
+    "website": "https://tranzistor-festival.example",
+    "social": [
+      {
+        "platform": "Instagram",
+        "url": "https://instagram.example/tranzistorfestival"
+      },
+      {
+        "platform": "YouTube",
+        "url": "https://youtube.example/tranzistorfestival"
+      },
+      {
+        "platform": "Mastodon",
+        "url": "https://mastodon.example/@tranzistorfestival"
+      }
+    ]
+  },
+  "days": [
+    {
+      "id": "d1",
+      "date": "2027-06-04",
+      "weekday": "pátek",
+      "label": "Pátek 4. 6.",
+      "theme": "Zapojení",
+      "opens": "12:00",
+      "closes": "23:30",
+      "description": "Zahajovací den: odpolední přednášky, první workshopy, skupinová fáze turnaje a večerní koncerty."
+    },
+    {
+      "id": "d2",
+      "date": "2027-06-05",
+      "weekday": "sobota",
+      "label": "Sobota 5. 6.",
+      "theme": "Plný výkon",
+      "opens": "10:00",
+      "closes": "23:30",
+      "description": "Nejnabitější den festivalu: hlavní přednášky, semifinále turnaje, start game jamu a audiovizuální show."
+    },
+    {
+      "id": "d3",
+      "date": "2027-06-06",
+      "weekday": "neděle",
+      "label": "Neděle 6. 6.",
+      "theme": "Rodinná neděle",
+      "opens": "10:00",
+      "closes": "20:00",
+      "description": "Klidnější den s rodinnými dílnami, velkým finále turnaje a závěrečným koncertem."
+    }
+  ],
+  "venues": [
+    {
+      "id": "v01",
+      "slug": "mainframe",
+      "name": "Mainframe",
+      "kind": "Hlavní sál",
+      "indoor": true,
+      "capacity": 1800,
+      "zone": "Severní hala",
+      "description": "Největší sál festivalu. Přes den hostí hlavní přednášky a panelové diskuse, večer se mění v koncertní sál s velkoplošnou projekcí.",
+      "focus": [
+        "Hlavní přednášky",
+        "Panelové diskuse",
+        "Večerní koncerty"
+      ],
+      "facilities": [
+        "Sezení i stání",
+        "Simultánní tlumočení z angličtiny do češtiny",
+        "Velkoplošná projekce"
+      ],
+      "accessibility": {
+        "wheelchair": true,
+        "hearingLoop": true,
+        "note": "Bezbariérový vstup, vyhrazená místa pro vozíčkáře v první řadě, indukční smyčka v celém sále."
+      }
+    },
+    {
+      "id": "v02",
+      "slug": "terminal",
+      "name": "Terminal",
+      "kind": "Přednáškový sál",
+      "indoor": true,
+      "capacity": 450,
+      "zone": "Jižní hala",
+      "description": "Komornější sál pro odborné přednášky a diskuse. Blíž k řečníkům, víc prostoru na otázky.",
+      "focus": [
+        "Odborné přednášky",
+        "Diskuse"
+      ],
+      "facilities": [
+        "Sezení",
+        "Zásuvky u sedadel",
+        "Tichá zóna v zadní části"
+      ],
+      "accessibility": {
+        "wheelchair": true,
+        "hearingLoop": true,
+        "note": "Bezbariérový vstup, indukční smyčka v prvních pěti řadách."
+      }
+    },
+    {
+      "id": "v03",
+      "slug": "sandbox",
+      "name": "Sandbox",
+      "kind": "Workshopová dílna",
+      "indoor": true,
+      "capacity": 60,
+      "zone": "Dílny",
+      "description": "Dílna se stoly, nářadím a počítači. Tady se nesedí a neposlouchá – tady se pájí, programuje a staví. Místa je nutné si předem rezervovat.",
+      "focus": [
+        "Praktické workshopy",
+        "Rodinné dílny"
+      ],
+      "facilities": [
+        "Pracovní stoly",
+        "Zapůjčení notebooků",
+        "Páječky a nářadí"
+      ],
+      "accessibility": {
+        "wheelchair": true,
+        "hearingLoop": false,
+        "note": "Bezbariérový vstup, dva výškově nastavitelné pracovní stoly."
+      }
+    },
+    {
+      "id": "v04",
+      "slug": "arcade",
+      "name": "Arcade",
+      "kind": "Herní a e-sportová zóna",
+      "indoor": true,
+      "capacity": 350,
+      "zone": "Pasáž",
+      "description": "Herní zóna s turnajovým pódiem, hernou nezávislých her a koutem historických počítačů. Mimo program je herna volně přístupná.",
+      "focus": [
+        "Turnaj Tranzistor Cup",
+        "Nezávislé hry",
+        "Retro hraní"
+      ],
+      "facilities": [
+        "Turnajové pódium s projekcí",
+        "Herna",
+        "Kout historických počítačů"
+      ],
+      "accessibility": {
+        "wheelchair": true,
+        "hearingLoop": false,
+        "note": "Bezbariérový vstup, herní stanoviště s nastavitelnou výškou, k zapůjčení adaptivní ovladače."
+      }
+    },
+    {
+      "id": "v05",
+      "slug": "nabrezi",
+      "name": "Nábřeží",
+      "kind": "Venkovní scéna",
+      "indoor": false,
+      "capacity": 2500,
+      "zone": "Nábřežní louka",
+      "description": "Venkovní scéna na louce u Vltavy. Koncerty, hudba programovaná naživo a performance pod širým nebem. Program končí ve 22:00 kvůli nočnímu klidu.",
+      "focus": [
+        "Koncerty",
+        "Live coding",
+        "Performance"
+      ],
+      "facilities": [
+        "Stání a sezení na trávě",
+        "Občerstvení v dosahu",
+        "Stín pod plachtami"
+      ],
+      "accessibility": {
+        "wheelchair": true,
+        "hearingLoop": false,
+        "note": "Zpevněná přístupová cesta, vyvýšená plošina pro vozíčkáře s doprovodem."
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "id": "t01",
+      "name": "AI a data",
+      "description": "Strojové učení, jazykové modely, práce s daty a jejich vizualizace."
+    },
+    {
+      "id": "t02",
+      "name": "Web a vývoj",
+      "description": "Tvorba webu a aplikací, přístupnost, UX, nástroje a provoz."
+    },
+    {
+      "id": "t03",
+      "name": "Hardware a robotika",
+      "description": "Roboti, elektronika, 3D tisk, satelity a právo na opravu."
+    },
+    {
+      "id": "t04",
+      "name": "Bezpečnost a soukromí",
+      "description": "Etický hacking, šifrování, ochrana dat a digitální práva."
+    },
+    {
+      "id": "t05",
+      "name": "Hry a e-sport",
+      "description": "Herní design, nezávislá tvorba, retro hraní a turnaj Tranzistor Cup."
+    },
+    {
+      "id": "t06",
+      "name": "Digitální umění a hudba",
+      "description": "Elektronická hudba, live coding, generativní umění a instalace."
+    },
+    {
+      "id": "t07",
+      "name": "Technologie a společnost",
+      "description": "Vzdělávání, kariéra, udržitelnost a dopady technologií na každodenní život."
+    }
+  ],
+  "eventTypes": [
+    {
+      "id": "keynote",
+      "label": "Hlavní přednáška"
+    },
+    {
+      "id": "talk",
+      "label": "Přednáška"
+    },
+    {
+      "id": "panel",
+      "label": "Panelová diskuse"
+    },
+    {
+      "id": "workshop",
+      "label": "Workshop"
+    },
+    {
+      "id": "concert",
+      "label": "Koncert"
+    },
+    {
+      "id": "livecoding",
+      "label": "Live coding"
+    },
+    {
+      "id": "performance",
+      "label": "Performance"
+    },
+    {
+      "id": "tournament",
+      "label": "Turnaj"
+    },
+    {
+      "id": "show",
+      "label": "Herna a show"
+    }
+  ],
+  "performerTypes": [
+    {
+      "id": "speaker",
+      "label": "Řečník / řečnice"
+    },
+    {
+      "id": "lecturer",
+      "label": "Lektor / lektorka"
+    },
+    {
+      "id": "host",
+      "label": "Moderátor / moderátorka"
+    },
+    {
+      "id": "musician",
+      "label": "Hudební projekt"
+    },
+    {
+      "id": "artist",
+      "label": "Umělec / umělkyně"
+    },
+    {
+      "id": "team",
+      "label": "E-sportový tým"
+    },
+    {
+      "id": "collective",
+      "label": "Kolektiv / studio"
+    }
+  ],
+  "levels": [
+    {
+      "id": "all",
+      "label": "Pro všechny"
+    },
+    {
+      "id": "beginner",
+      "label": "Začátečníci"
+    },
+    {
+      "id": "intermediate",
+      "label": "Mírně pokročilí"
+    },
+    {
+      "id": "advanced",
+      "label": "Pokročilí"
+    }
+  ],
+  "languages": [
+    {
+      "id": "cs",
+      "label": "Čeština"
+    },
+    {
+      "id": "sk",
+      "label": "Slovenština"
+    },
+    {
+      "id": "en",
+      "label": "Angličtina"
+    }
+  ],
+  "countries": {
+    "AT": "Rakousko",
+    "CZ": "Česko",
+    "DE": "Německo",
+    "ES": "Španělsko",
+    "FR": "Francie",
+    "GB": "Spojené království",
+    "HU": "Maďarsko",
+    "IE": "Irsko",
+    "IT": "Itálie",
+    "JP": "Japonsko",
+    "KZ": "Kazachstán",
+    "NL": "Nizozemsko",
+    "NO": "Norsko",
+    "PL": "Polsko",
+    "PT": "Portugalsko",
+    "RO": "Rumunsko",
+    "SE": "Švédsko",
+    "SK": "Slovensko",
+    "TR": "Turecko"
+  },
+  "performers": [
+    {
+      "id": "p001",
+      "slug": "elena-havrankova",
+      "name": "Elena Havránková",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Výzkumnice strojového učení, Laboratoř otevřené inteligence",
+      "bio": "Vede výzkumnou skupinu, která zkoumá, jak jazykové modely pracují s nejistotou. Patnáct let učí stroje přiznat, že něco nevědí – a lidi, aby se jich na to ptali.",
+      "trackIds": [
+        "t01",
+        "t07"
+      ],
+      "headliner": true,
+      "website": "https://elena-havrankova.example"
+    },
+    {
+      "id": "p002",
+      "slug": "tomasz-wieliczko",
+      "name": "Tomasz Wieliczko",
+      "type": "speaker",
+      "country": "PL",
+      "tagline": "Datový inženýr a autor otevřených nástrojů pro zpracování dat",
+      "bio": "Staví datová potrubí pro městské dopravní podniky ve střední Evropě. Tvrdí, že nejlepší je takové potrubí, o kterém nikdo neví, protože prostě běží.",
+      "trackIds": [
+        "t01"
+      ],
+      "headliner": false,
+      "website": "https://tomasz-wieliczko.example"
+    },
+    {
+      "id": "p003",
+      "slug": "ngozi-adebayo-lindqvist",
+      "name": "Ngozi Adebayo-Lindqvist",
+      "type": "speaker",
+      "country": "SE",
+      "tagline": "Výzkumnice interpretovatelnosti umělé inteligence",
+      "bio": "Zabývá se tím, jak nahlédnout do neuronových sítí a pochopit, proč se rozhodují tak, jak se rozhodují. Ve Stockholmu vede nezávislou laboratoř pro audit algoritmů.",
+      "trackIds": [
+        "t01",
+        "t07"
+      ],
+      "headliner": true,
+      "website": "https://ngozi-adebayo-lindqvist.example"
+    },
+    {
+      "id": "p004",
+      "slug": "vojtech-skrivan",
+      "name": "Vojtěch Skřivan",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Počítačový lingvista",
+      "bio": "Učí jazykové modely skloňovat, časovat a rozumět českým vtipům. Spoluvytváří otevřené datové sady pro češtinu a slovenštinu.",
+      "trackIds": [
+        "t01"
+      ],
+      "headliner": false,
+      "website": "https://vojtech-skrivan.example"
+    },
+    {
+      "id": "p005",
+      "slug": "mirela-dragomir",
+      "name": "Mirela Dragomir",
+      "type": "speaker",
+      "country": "RO",
+      "tagline": "Inženýrka počítačového vidění",
+      "bio": "Vyvíjí systémy, které pomáhají lékařům číst rentgenové snímky. Ráda ukazuje, jak snadno lze kameru splést obyčejnou nálepkou.",
+      "trackIds": [
+        "t01"
+      ],
+      "headliner": false,
+      "website": "https://mirela-dragomir.example"
+    },
+    {
+      "id": "p006",
+      "slug": "kenji-moriwaki",
+      "name": "Kenji Moriwaki",
+      "type": "speaker",
+      "country": "JP",
+      "tagline": "Robotik, výzkum učení robotů od lidí",
+      "bio": "Staví roboty, kteří se učí pozorováním lidí při každodenních činnostech. Jeho tým naučil robotickou ruku skládat origami i loupat mandarinky.",
+      "trackIds": [
+        "t01",
+        "t03"
+      ],
+      "headliner": true,
+      "website": "https://kenji-moriwaki.example"
+    },
+    {
+      "id": "p007",
+      "slug": "sara-benesovska",
+      "name": "Sára Benešovská",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Datová novinářka",
+      "bio": "Převádí tabulky na příběhy a grafy, kterým rozumí i čtenář v tramvaji. Vede kurzy vizualizace dat pro redakce a neziskové organizace.",
+      "trackIds": [
+        "t01",
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://sara-benesovska.example"
+    },
+    {
+      "id": "p008",
+      "slug": "jonas-vrbata",
+      "name": "Jonáš Vrbata",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Frontendový vývojář a konzultant přístupnosti",
+      "bio": "Deset let opravuje weby, které nejdou ovládat klávesnicí. Školí vývojářské týmy a testuje s lidmi, kteří používají čtečky obrazovky.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://jonas-vrbata.example"
+    },
+    {
+      "id": "p009",
+      "slug": "ingrid-solheim",
+      "name": "Ingrid Solheim",
+      "type": "speaker",
+      "country": "NO",
+      "tagline": "Designérka návrhových systémů",
+      "bio": "Navrhuje design systémy pro severské veřejné služby. Věří, že dobrá komponenta je taková, kterou nejde použít špatně.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://ingrid-solheim.example"
+    },
+    {
+      "id": "p010",
+      "slug": "radim-koutecky",
+      "name": "Radim Koutecký",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Specialista na rychlost webu",
+      "bio": "Měří, proč se stránky načítají pomalu, a pak to opravuje. Jeho rekordem je zrychlení e-shopu z devíti sekund na jednu.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://radim-koutecky.example"
+    },
+    {
+      "id": "p011",
+      "slug": "lucia-ferrandis",
+      "name": "Lucía Ferrandis",
+      "type": "speaker",
+      "country": "ES",
+      "tagline": "Vývojářka, WebAssembly a systémové programování",
+      "bio": "Přenáší do prohlížeče aplikace, o kterých se říkalo, že tam nepatří. Přispívá do otevřených běhových prostředí pro WebAssembly.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://lucia-ferrandis.example"
+    },
+    {
+      "id": "p012",
+      "slug": "patrik-hrubon",
+      "name": "Patrik Hruboň",
+      "type": "speaker",
+      "country": "SK",
+      "tagline": "Správce open source knihoven",
+      "bio": "Ve volném čase udržuje knihovnu, kterou si každý týden stáhnou miliony vývojářů. Otevřeně mluví o tom, co obnáší být dobrovolným správcem cizí infrastruktury.",
+      "trackIds": [
+        "t02",
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://patrik-hrubon.example"
+    },
+    {
+      "id": "p013",
+      "slug": "daniela-storkova",
+      "name": "Daniela Štorková",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "UX výzkumnice",
+      "bio": "Zjišťuje, co lidé na webu skutečně dělají, ne co říkají, že dělají. Specializuje se na výzkum s malým rozpočtem a velkým dopadem.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://daniela-storkova.example"
+    },
+    {
+      "id": "p014",
+      "slug": "oisin-gallagher-byrne",
+      "name": "Oisín Gallagher-Byrne",
+      "type": "speaker",
+      "country": "IE",
+      "tagline": "Vývojář webových aplikací, které fungují offline",
+      "bio": "Vyvíjí aplikace pro terénní pracovníky na místech bez signálu. Prosazuje přístup, ve kterém je připojení příjemný bonus, ne podmínka.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://oisin-gallagher-byrne.example"
+    },
+    {
+      "id": "p015",
+      "slug": "marek-zdrahal",
+      "name": "Marek Zdráhal",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Platformní inženýr",
+      "bio": "Staví vývojářské platformy pro malé týmy, které si nemohou dovolit vlastní provozní oddělení. Sbírá historky o nočních výpadcích a učí, jak jim předcházet.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://marek-zdrahal.example"
+    },
+    {
+      "id": "p016",
+      "slug": "barbora-kolmanova",
+      "name": "Barbora Kolmanová",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Robotička, zakladatelka dílny Krokomat",
+      "bio": "Staví kráčející roboty, kteří zvládnou schody, štěrk i pražskou dlažbu. Její čtyřnohý robot Bedřich bývá nejfotografovanějším účastníkem festivalu.",
+      "trackIds": [
+        "t03"
+      ],
+      "headliner": true,
+      "website": "https://barbora-kolmanova.example"
+    },
+    {
+      "id": "p017",
+      "slug": "matteo-calvaresi",
+      "name": "Matteo Calvaresi",
+      "type": "speaker",
+      "country": "IT",
+      "tagline": "Propagátor otevřeného hardwaru",
+      "bio": "Navrhuje měřicí přístroje, jejichž plány si může kdokoli zdarma stáhnout a postavit. Jeho otevřené senzory kvality vzduchu běží ve školách po celé Itálii.",
+      "trackIds": [
+        "t03",
+        "t07"
+      ],
+      "headliner": true,
+      "website": "https://matteo-calvaresi.example"
+    },
+    {
+      "id": "p018",
+      "slug": "hana-simunkova",
+      "name": "Hana Šimůnková",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Návrhářka nositelné elektroniky",
+      "bio": "Všívá obvody do bund, rukavic a tanečních kostýmů. Propojuje textilní řemeslo s elektronikou a učí to studenty designu.",
+      "trackIds": [
+        "t03",
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://hana-simunkova.example"
+    },
+    {
+      "id": "p019",
+      "slug": "dietrich-vogelsang",
+      "name": "Dietrich Vogelsang",
+      "type": "speaker",
+      "country": "DE",
+      "tagline": "Inženýr, stavební 3D tisk",
+      "bio": "Tiskne z betonu zahradní domky, lavičky a jednou i celý rodinný dům. Střízlivě odděluje, co už 3D tisk umí, od toho, co slibují reklamy.",
+      "trackIds": [
+        "t03"
+      ],
+      "headliner": false,
+      "website": "https://dietrich-vogelsang.example"
+    },
+    {
+      "id": "p020",
+      "slug": "aigerim-nurlanova",
+      "name": "Aigerim Nurlanova",
+      "type": "speaker",
+      "country": "KZ",
+      "tagline": "Konstruktérka malých satelitů",
+      "bio": "Vedla studentský tým, který poslal na oběžnou dráhu satelit o velikosti krabice od bot. Dnes pomáhá univerzitám stavět vlastní družice.",
+      "trackIds": [
+        "t03"
+      ],
+      "headliner": true,
+      "website": "https://aigerim-nurlanova.example"
+    },
+    {
+      "id": "p021",
+      "slug": "ondrej-pazdera",
+      "name": "Ondřej Pazdera",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Opravář elektroniky a zastánce práva na opravu",
+      "bio": "V dílně na pražském Žižkově vrací do života telefony, notebooky i staré osmibitové počítače. Bojuje za to, aby výrobci zveřejňovali schémata a prodávali náhradní díly.",
+      "trackIds": [
+        "t03",
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://ondrej-pazdera.example"
+    },
+    {
+      "id": "p022",
+      "slug": "kristyna-malatova",
+      "name": "Kristýna Malátová",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Etická hackerka",
+      "bio": "Firmy jí platí za to, aby se jim nabourala do systémů dřív než někdo jiný. Zranitelnosti vysvětluje tak, aby jim rozuměl i člověk, který nikdy neviděl příkazovou řádku.",
+      "trackIds": [
+        "t04"
+      ],
+      "headliner": false,
+      "website": "https://kristyna-malatova.example"
+    },
+    {
+      "id": "p023",
+      "slug": "lars-hedenskog",
+      "name": "Lars Hedenskog",
+      "type": "speaker",
+      "country": "SE",
+      "tagline": "Kryptograf",
+      "bio": "Navrhuje přihlašovací systémy, které se obejdou bez hesel. Šifrování s veřejným klíčem umí vysvětlit pomocí dvou visacích zámků a krabice od bot.",
+      "trackIds": [
+        "t04"
+      ],
+      "headliner": false,
+      "website": "https://lars-hedenskog.example"
+    },
+    {
+      "id": "p024",
+      "slug": "zuzana-krizanova",
+      "name": "Zuzana Križanová",
+      "type": "speaker",
+      "country": "SK",
+      "tagline": "Právnička, digitální práva a soukromí",
+      "bio": "Pomáhá lidem domoci se práv, která mají ke svým datům. Sleduje evropskou regulaci technologií a překládá ji z právničtiny do lidské řeči.",
+      "trackIds": [
+        "t04",
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://zuzana-krizanova.example"
+    },
+    {
+      "id": "p025",
+      "slug": "rafael-monteverde",
+      "name": "Rafael Monteverde",
+      "type": "speaker",
+      "country": "PT",
+      "tagline": "Specialista na sociální inženýrství",
+      "bio": "Testuje odolnost firem tak, že se do nich zkusí dostat s úsměvem a v reflexní vestě. Učí zaměstnance rozpoznat podvodné e-maily i telefonáty.",
+      "trackIds": [
+        "t04"
+      ],
+      "headliner": false,
+      "website": "https://rafael-monteverde.example"
+    },
+    {
+      "id": "p026",
+      "slug": "petr-lunacek",
+      "name": "Petr Luňáček",
+      "type": "lecturer",
+      "country": "CZ",
+      "tagline": "Lektor bezpečnostních soutěží",
+      "bio": "Pořádá soutěže Capture the Flag pro střední školy. Věří, že nejlepší cesta k obraně vede přes bezpečně nacvičený útok.",
+      "trackIds": [
+        "t04"
+      ],
+      "headliner": false,
+      "website": "https://petr-lunacek.example"
+    },
+    {
+      "id": "p027",
+      "slug": "studio-mlha",
+      "name": "Studio Mlha",
+      "type": "collective",
+      "country": "CZ",
+      "tagline": "Nezávislé herní studio z Brna",
+      "bio": "Čtyřčlenné studio, které tvoří atmosférické adventury z moravské krajiny. Jejich prvotina vznikla na game jamu za jediný víkend.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://studio-mlha.example"
+    },
+    {
+      "id": "p028",
+      "slug": "tereza-vanousova",
+      "name": "Tereza Vaňousová",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Herní designérka",
+      "bio": "Navrhuje herní mechaniky, které hráč pochopí bez návodu. Mentoruje začínající tvůrce na game jamech po celé republice.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://tereza-vanousova.example"
+    },
+    {
+      "id": "p029",
+      "slug": "yuki-tanabe-hart",
+      "name": "Yuki Tanabe-Hart",
+      "type": "speaker",
+      "country": "GB",
+      "tagline": "Scenáristka her",
+      "bio": "Píše příběhy pro hry, ve kterých může hráč kdykoli odejít jinam. Zaměřuje se na vyprávění prostředím a dialogy, které se dají přeskočit beze ztráty smyslu.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://yuki-tanabe-hart.example"
+    },
+    {
+      "id": "p030",
+      "slug": "stribrni-lvi",
+      "name": "Stříbrní Lvi",
+      "type": "team",
+      "country": "CZ",
+      "tagline": "E-sportový tým z Prahy",
+      "bio": "Pětice hráčů, která loni vyhrála domácí ligu v týmové strategii. Na Tranzistoru obhajuje titul z minulého ročníku.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://stribrni-lvi.example"
+    },
+    {
+      "id": "p031",
+      "slug": "team-nordwind",
+      "name": "Team Nordwind",
+      "type": "team",
+      "country": "DE",
+      "tagline": "E-sportový tým z Hamburku",
+      "bio": "Disciplinovaný tým známý precizní obranou a dlouhými zápasy. V Praze hraje poprvé.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://team-nordwind.example"
+    },
+    {
+      "id": "p032",
+      "slug": "krakowskie-smoki",
+      "name": "Krakowskie Smoki",
+      "type": "team",
+      "country": "PL",
+      "tagline": "E-sportový tým z Krakova",
+      "bio": "Agresivní styl a hlasití fanoušci, kteří za týmem cestují přes hranice. Loni vypadli v semifinále a letos chtějí odvetu.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://krakowskie-smoki.example"
+    },
+    {
+      "id": "p033",
+      "slug": "tatranski-rysi",
+      "name": "Tatranskí Rysi",
+      "type": "team",
+      "country": "SK",
+      "tagline": "E-sportový tým z Popradu",
+      "bio": "Nováček turnaje složený ze studentů středních a vysokých škol. Do hlavní soutěže se probojoval z otevřené online kvalifikace.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://tatranski-rysi.example"
+    },
+    {
+      "id": "p034",
+      "slug": "pixel-babicka",
+      "name": "Pixel Babička",
+      "type": "host",
+      "country": "CZ",
+      "tagline": "Retro streamerka a moderátorka",
+      "bio": "V osmašedesáti letech streamuje hry z osmdesátých let a komentuje je po svém. Na festivalu provází retro programem a neodpouští podvádění.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://pixel-babicka.example"
+    },
+    {
+      "id": "p035",
+      "slug": "adam-reznicek",
+      "name": "Adam Řezníček",
+      "type": "host",
+      "country": "CZ",
+      "tagline": "E-sportový komentátor",
+      "bio": "Komentuje turnaje tak, že zápasu rozumí i ten, kdo hru vidí poprvé. Na Tranzistoru provází celým turnajem Tranzistor Cup.",
+      "trackIds": [
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://adam-reznicek.example"
+    },
+    {
+      "id": "p036",
+      "slug": "kolektiv-osmibit",
+      "name": "Kolektiv Osmibit",
+      "type": "collective",
+      "country": "CZ",
+      "tagline": "Sběratelé a opraváři historických počítačů",
+      "bio": "Parta nadšenců, která vozí po republice funkční počítače a konzole z osmdesátých a devadesátých let. Všechno se smí vyzkoušet – i joysticky.",
+      "trackIds": [
+        "t05",
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://kolektiv-osmibit.example"
+    },
+    {
+      "id": "p037",
+      "slug": "neonova-sova",
+      "name": "Neonová Sova",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Synthwave duo",
+      "bio": "Analogové syntezátory, saxofon a neonové projekce. Dvojice z Ostravy hraje hudbu k filmům, které nikdy nevznikly.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": true,
+      "website": "https://neonova-sova.example"
+    },
+    {
+      "id": "p038",
+      "slug": "algoritmia",
+      "name": "Algoritmia",
+      "type": "musician",
+      "country": "ES",
+      "tagline": "Live coding – hudba programovaná naživo",
+      "bio": "Barcelonská umělkyně píše hudbu jako kód přímo před publikem a promítá ho na plátno. Každé vystoupení je jiné, protože začíná prázdným editorem.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://algoritmia.example"
+    },
+    {
+      "id": "p039",
+      "slug": "dj-kernel-panic",
+      "name": "DJ Kernel Panic",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Techno DJ",
+      "bio": "Rezident pražských klubů, který míchá tvrdé techno se zvuky startujících počítačů. Jeho sety končí vždy přesně na čas – prý z úcty k sousedům.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://dj-kernel-panic.example"
+    },
+    {
+      "id": "p040",
+      "slug": "modularni-morava",
+      "name": "Modulární Morava",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Trio modulárních syntezátorů",
+      "bio": "Tři hráči, tři kufry plné kabelů a žádné předem připravené skladby. Improvizují z toho, co jim publikum napoví.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://modularni-morava.example"
+    },
+    {
+      "id": "p041",
+      "slug": "lumen-field",
+      "name": "Lumen Field",
+      "type": "musician",
+      "country": "NL",
+      "tagline": "Audiovizuální elektronický projekt",
+      "bio": "Nizozemské duo spojuje ambientní techno s laserovou a světelnou show řízenou zvukem v reálném čase. Na jejich koncerty se chodí dívat stejně jako poslouchat.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": true,
+      "website": "https://lumen-field.example"
+    },
+    {
+      "id": "p042",
+      "slug": "sum-a-signal",
+      "name": "Šum a Signál",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Experimentální elektronické duo",
+      "bio": "Nahrávají zvuky rozvoden, serveroven a tramvajových měníren a skládají z nich taneční hudbu. Na pódiu používají vlastnoručně postavené nástroje.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://sum-a-signal.example"
+    },
+    {
+      "id": "p043",
+      "slug": "bitova-hloubka",
+      "name": "Bitová Hloubka",
+      "type": "musician",
+      "country": "SK",
+      "tagline": "Chiptune projekt",
+      "bio": "Bratislavský hudebník skládá na upravených kapesních konzolích z devadesátých let. Zní jako hudba ze hry, kterou jste hráli v dětství, jen dvakrát rychlejší.",
+      "trackIds": [
+        "t06",
+        "t05"
+      ],
+      "headliner": false,
+      "website": "https://bitova-hloubka.example"
+    },
+    {
+      "id": "p044",
+      "slug": "voltage-sisters",
+      "name": "Voltage Sisters",
+      "type": "musician",
+      "country": "AT",
+      "tagline": "Electro-popové trio",
+      "bio": "Tři sestry z Vídně, tři syntezátory a refrény, které se nedají dostat z hlavy. Zpívají německy, anglicky a občas v jazyce Python.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://voltage-sisters.example"
+    },
+    {
+      "id": "p045",
+      "slug": "rano-v-serverovne",
+      "name": "Ráno v Serverovně",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Ambientní projekt",
+      "bio": "Pomalé plochy, šum ventilátorů a kytara protažená dlouhou řadou efektů. Hudba pro chvíle, kdy festival potřebuje zpomalit.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://rano-v-serverovne.example"
+    },
+    {
+      "id": "p046",
+      "slug": "katja-zimmerlin",
+      "name": "Katja Zimmerlin",
+      "type": "artist",
+      "country": "DE",
+      "tagline": "Generativní výtvarnice",
+      "bio": "Píše programy, které kreslí – a jejich kresby pak tiskne, vyšívá a promítá na budovy. Pro Lumen Field vytváří živé vizuály.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://katja-zimmerlin.example"
+    },
+    {
+      "id": "p047",
+      "slug": "filip-dostalek",
+      "name": "Filip Dostálek",
+      "type": "artist",
+      "country": "CZ",
+      "tagline": "Vizuální umělec, programování obrazu naživo",
+      "bio": "Programuje obraz naživo do rytmu hudby. Spolupracuje s kapelami, divadly a planetárii.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://filip-dostalek.example"
+    },
+    {
+      "id": "p048",
+      "slug": "orchestr-rozbitych-tiskaren",
+      "name": "Orchestr Rozbitých Tiskáren",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Hudební těleso z vyřazené elektroniky",
+      "bio": "Dvanáct jehličkových tiskáren, čtyři skenery a hromada disketových mechanik hraje skladby od Dvořáka po současný pop. Dirigent je člověk, hráči jsou stroje.",
+      "trackIds": [
+        "t06",
+        "t03"
+      ],
+      "headliner": false,
+      "website": "https://orchestr-rozbitych-tiskaren.example"
+    },
+    {
+      "id": "p049",
+      "slug": "sine-qua-nonet",
+      "name": "Sine Qua Nonet",
+      "type": "musician",
+      "country": "FR",
+      "tagline": "Electro-jazzový nonet",
+      "bio": "Devět hudebníků z Lyonu spojuje dechovou sekci se syntezátory a živými smyčkami. Jazz, při kterém se tančí.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://sine-qua-nonet.example"
+    },
+    {
+      "id": "p050",
+      "slug": "glitch-babylon",
+      "name": "Glitch Babylon",
+      "type": "musician",
+      "country": "GB",
+      "tagline": "Breakbeat a glitch",
+      "bio": "Londýnský producent staví skladby z chyb – přeskakujících nahrávek, poškozených souborů a padajícího spojení. Výsledek je překvapivě taneční.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://glitch-babylon.example"
+    },
+    {
+      "id": "p051",
+      "slug": "marie-kutalkova",
+      "name": "Marie Kutálková",
+      "type": "artist",
+      "country": "CZ",
+      "tagline": "Autorka interaktivních instalací",
+      "bio": "Vytváří prostory, které reagují na pohyb a hlas návštěvníků. Pro Tranzistor připravila zvukovou instalaci Ozvěny na nábřeží Vltavy.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://marie-kutalkova.example"
+    },
+    {
+      "id": "p052",
+      "slug": "subnet-mask",
+      "name": "Subnet Mask",
+      "type": "musician",
+      "country": "HU",
+      "tagline": "Drum and bass",
+      "bio": "Budapešťská dvojice hraje rychlý drum and bass s živými bicími. Na pódiu ji doprovází projekce generovaná ze síťového provozu festivalu.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": false,
+      "website": "https://subnet-mask.example"
+    },
+    {
+      "id": "p053",
+      "slug": "posledni-commit",
+      "name": "Poslední Commit",
+      "type": "musician",
+      "country": "CZ",
+      "tagline": "Indie-elektronická kapela",
+      "bio": "Pražská pětice, která se dala dohromady na firemním hackathonu a u hudby už zůstala. Písně o termínech, nočních směnách a lásce k dobře napsanému kódu.",
+      "trackIds": [
+        "t06"
+      ],
+      "headliner": true,
+      "website": "https://posledni-commit.example"
+    },
+    {
+      "id": "p054",
+      "slug": "magdalena-jirsova",
+      "name": "Magdaléna Jirsová",
+      "type": "host",
+      "country": "CZ",
+      "tagline": "Technologická novinářka a moderátorka",
+      "bio": "Píše o technologiích pro lidi, kteří je nepovažují za samozřejmost. Moderuje festivalové panelové diskuse a ptá se na to, na co se publikum zeptat bojí.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://magdalena-jirsova.example"
+    },
+    {
+      "id": "p055",
+      "slug": "bohumil-trnavsky",
+      "name": "Bohumil Trnavský",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Odborník na energetickou náročnost IT",
+      "bio": "Počítá, kolik elektřiny a vody spotřebují datová centra, a hledá způsoby, jak spotřebu snížit. Radí firmám, jak měřit uhlíkovou stopu softwaru.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://bohumil-trnavsky.example"
+    },
+    {
+      "id": "p056",
+      "slug": "chiara-bellandi",
+      "name": "Chiara Bellandi",
+      "type": "speaker",
+      "country": "IT",
+      "tagline": "Učitelka informatiky a autorka výukových materiálů",
+      "bio": "Dvacet let učí děti programovat – od želví grafiky po vlastní hry. Její pracovní listy jsou volně dostupné v devíti jazycích.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://chiara-bellandi.example"
+    },
+    {
+      "id": "p057",
+      "slug": "viktor-hlavacik",
+      "name": "Viktor Hlaváčik",
+      "type": "speaker",
+      "country": "SK",
+      "tagline": "Zakladatel technologického startupu",
+      "bio": "Založil tři firmy, z toho dvě zkrachovaly, a o všech mluví se stejnou upřímností. Dnes pomáhá začínajícím zakladatelům vyhnout se jeho chybám.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://viktor-hlavacik.example"
+    },
+    {
+      "id": "p058",
+      "slug": "simona-rybarova",
+      "name": "Simona Rybářová",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Kariérní poradkyně pro IT",
+      "bio": "Pomáhá lidem přejít do IT z úplně jiných oborů. Sama začínala jako zdravotní sestra a první kód napsala ve třiceti.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://simona-rybarova.example"
+    },
+    {
+      "id": "p059",
+      "slug": "emre-kahraman",
+      "name": "Emre Kahraman",
+      "type": "speaker",
+      "country": "TR",
+      "tagline": "Nevidomý vývojář a propagátor přístupnosti",
+      "bio": "Programuje se čtečkou obrazovky rychlostí, které vidící kolegové nestačí. Ukazuje, jak web vnímá člověk, který ho nikdy neviděl.",
+      "trackIds": [
+        "t02",
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://emre-kahraman.example"
+    },
+    {
+      "id": "p060",
+      "slug": "johana-perinova",
+      "name": "Johana Peřinová",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Psycholožka, digitální návyky",
+      "bio": "Zkoumá, co s námi dělají notifikace, nekonečné posouvání a práce z domova. Místo zákazů nabízí praktické rady.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://johana-perinova.example"
+    },
+    {
+      "id": "p061",
+      "slug": "stepan-louda",
+      "name": "Štěpán Louda",
+      "type": "speaker",
+      "country": "CZ",
+      "tagline": "Popularizátor dějin techniky",
+      "bio": "Sbírá příběhy československých počítačů a lidí, kteří je stavěli. Přednáší s originálními děrnými štítky v ruce.",
+      "trackIds": [
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://stepan-louda.example"
+    },
+    {
+      "id": "p062",
+      "slug": "dilna-pajka",
+      "name": "Dílna Pájka",
+      "type": "collective",
+      "country": "CZ",
+      "tagline": "Otevřená elektronická dílna",
+      "bio": "Komunitní dílna, kde si každý může postavit vlastní elektronickou hračku. Na festival vozí třicet páječek a nekonečnou trpělivost.",
+      "trackIds": [
+        "t03"
+      ],
+      "headliner": false,
+      "website": "https://dilna-pajka.example"
+    },
+    {
+      "id": "p063",
+      "slug": "alzbeta-novackova",
+      "name": "Alžběta Nováčková",
+      "type": "lecturer",
+      "country": "CZ",
+      "tagline": "Lektorka kreativního programování",
+      "bio": "Učí výtvarníky programovat a programátory kreslit. Vede kurzy pro úplné začátečníky, kteří si myslí, že na kód nemají hlavu.",
+      "trackIds": [
+        "t06",
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://alzbeta-novackova.example"
+    },
+    {
+      "id": "p064",
+      "slug": "jakub-tesarik",
+      "name": "Jakub Tesařík",
+      "type": "lecturer",
+      "country": "CZ",
+      "tagline": "Lektor robotiky pro děti",
+      "bio": "Vede kroužky robotiky na základních školách. Jeho žáci staví roboty, kteří krmí křečky, zalévají kytky a hlídají sušenky.",
+      "trackIds": [
+        "t03",
+        "t07"
+      ],
+      "headliner": false,
+      "website": "https://jakub-tesarik.example"
+    },
+    {
+      "id": "p065",
+      "slug": "wanjiru-kamau-stein",
+      "name": "Wanjiru Kamau-Stein",
+      "type": "lecturer",
+      "country": "DE",
+      "tagline": "Vývojářka mobilních aplikací",
+      "bio": "Vyvíjí aplikace pro zdravotníky ve východní Africe a učí mobilní vývoj v Berlíně. Sází na jednoduché nástroje, které zvládne i začátečník.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://wanjiru-kamau-stein.example"
+    },
+    {
+      "id": "p066",
+      "slug": "robin-vacula",
+      "name": "Robin Vacula",
+      "type": "lecturer",
+      "country": "CZ",
+      "tagline": "Lektor vývojářských nástrojů",
+      "bio": "Naučil pracovat s Gitem stovky studentů a několik zoufalých zkušených vývojářů. Slibuje, že po jeho workshopu už nikdo nesmaže kolegovi práci.",
+      "trackIds": [
+        "t02"
+      ],
+      "headliner": false,
+      "website": "https://robin-vacula.example"
+    },
+    {
+      "id": "p067",
+      "slug": "nikola-safrankova",
+      "name": "Nikola Šafránková",
+      "type": "lecturer",
+      "country": "CZ",
+      "tagline": "Lektorka práce s jazykovými modely",
+      "bio": "Učí lidi z neprogramátorských oborů, jak se strojů ptát tak, aby dostali užitečnou odpověď. Zároveň učí poznat, kdy odpovědi nevěřit.",
+      "trackIds": [
+        "t01"
+      ],
+      "headliner": false,
+      "website": "https://nikola-safrankova.example"
+    }
+  ],
+  "events": [
+    {
+      "id": "e001",
+      "slug": "prvni-pajeni-postav-si-blikajici-placku",
+      "title": "První pájení: postav si blikající placku",
+      "type": "workshop",
+      "trackId": "t03",
+      "dayId": "d1",
+      "venueId": "v03",
+      "start": "2027-06-04T13:00:00+02:00",
+      "end": "2027-06-04T15:00:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p062"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Naučíte se držet páječku a domů si odnesete vlastní blikající odznak. Veškerý materiál je v ceně. Vhodné pro děti od 10 let v doprovodu dospělého.",
+      "tags": [
+        "pájení",
+        "elektronika",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": true,
+      "capacity": 30
+    },
+    {
+      "id": "e002",
+      "slug": "indie-herna-zahrajte-si-ceske-hry-pred-vydanim",
+      "title": "Indie herna: zahrajte si české hry před vydáním",
+      "type": "show",
+      "trackId": "t05",
+      "dayId": "d1",
+      "venueId": "v04",
+      "start": "2027-06-04T13:00:00+02:00",
+      "end": "2027-06-04T14:30:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p027"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Rozpracované hry českých a slovenských nezávislých tvůrců, které si můžete zahrát jako první. Autoři stojí vedle vás a zajímá je, kde se zaseknete.",
+      "tags": [
+        "nezávislé hry",
+        "hraní",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e003",
+      "slug": "open-source-za-ktery-nikdo-neplati",
+      "title": "Open source, za který nikdo neplatí",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d1",
+      "venueId": "v02",
+      "start": "2027-06-04T13:30:00+02:00",
+      "end": "2027-06-04T14:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p012"
+      ],
+      "language": "sk",
+      "level": "all",
+      "description": "Na knihovnách udržovaných dobrovolníky stojí velká část internetu. Upřímná zpráva o tom, jak vypadá týden správce, kterému píšou tisíce cizích lidí.",
+      "tags": [
+        "open source",
+        "komunita"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e004",
+      "slug": "stroje-ktere-umeji-rict-nevim",
+      "title": "Stroje, které umějí říct „nevím“",
+      "type": "keynote",
+      "trackId": "t01",
+      "dayId": "d1",
+      "venueId": "v01",
+      "start": "2027-06-04T14:00:00+02:00",
+      "end": "2027-06-04T15:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p001"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Zahajovací přednáška festivalu. Proč jazykové modely sebejistě tvrdí nesmysly, jak se dá měřit jejich nejistota a co by se změnilo, kdyby uměly přiznat, že odpověď neznají.",
+      "tags": [
+        "umělá inteligence",
+        "jazykové modely",
+        "zahájení"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e005",
+      "slug": "jak-naucit-stroj-sklonovat",
+      "title": "Jak naučit stroj skloňovat",
+      "type": "talk",
+      "trackId": "t01",
+      "dayId": "d1",
+      "venueId": "v02",
+      "start": "2027-06-04T14:30:00+02:00",
+      "end": "2027-06-04T15:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p004"
+      ],
+      "language": "cs",
+      "level": "intermediate",
+      "description": "Sedm pádů, volný slovosled a vykání. Proč je čeština pro jazykové modely těžká, jak se jejich znalost češtiny měří a kde se nejčastěji pletou.",
+      "tags": [
+        "čeština",
+        "jazykové modely",
+        "lingvistika"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e006",
+      "slug": "jak-navrhnout-hru-kterou-pochopi-i-babicka",
+      "title": "Jak navrhnout hru, kterou pochopí i babička",
+      "type": "talk",
+      "trackId": "t05",
+      "dayId": "d1",
+      "venueId": "v04",
+      "start": "2027-06-04T15:00:00+02:00",
+      "end": "2027-06-04T15:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p028"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Dobrá hra se vysvětlí sama. Na příkladech ze známých her si ukážeme, jak hráče učit bez jediného řádku návodu.",
+      "tags": [
+        "herní design",
+        "srozumitelnost"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e007",
+      "slug": "web-ktery-prezije-vypadek-signalu",
+      "title": "Web, který přežije výpadek signálu",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d1",
+      "venueId": "v01",
+      "start": "2027-06-04T15:30:00+02:00",
+      "end": "2027-06-04T16:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p014"
+      ],
+      "language": "en",
+      "level": "intermediate",
+      "description": "Jak navrhnout webovou aplikaci, která funguje ve vlaku, ve sklepě i na festivalu s přetíženou sítí. Praktické vzory pro ukládání dat v prohlížeči a jejich pozdější synchronizaci.",
+      "tags": [
+        "offline",
+        "webové aplikace",
+        "synchronizace"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e008",
+      "slug": "hesla-jsou-mrtva-at-ziji-pristupove-klice",
+      "title": "Hesla jsou mrtvá. Ať žijí přístupové klíče?",
+      "type": "talk",
+      "trackId": "t04",
+      "dayId": "d1",
+      "venueId": "v02",
+      "start": "2027-06-04T15:30:00+02:00",
+      "end": "2027-06-04T16:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p023"
+      ],
+      "language": "en",
+      "level": "intermediate",
+      "description": "Jak funguje přihlašování bez hesla, co se stane, když ztratíte telefon, a proč je to přesto bezpečnější než heslo napsané na lístečku.",
+      "tags": [
+        "přihlašování",
+        "šifrování",
+        "hesla"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e009",
+      "slug": "kreativni-kodovani-nakresli-obraz-programem",
+      "title": "Kreativní kódování: nakresli obraz programem",
+      "type": "workshop",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v03",
+      "start": "2027-06-04T15:30:00+02:00",
+      "end": "2027-06-04T17:30:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p063"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Úplné základy programování na příkladu kreslení. Za dvě hodiny napíšete program, který vytvoří váš vlastní generativní obraz. Notebook zapůjčíme.",
+      "tags": [
+        "programování",
+        "generativní umění",
+        "začátečníci"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 40
+    },
+    {
+      "id": "e010",
+      "slug": "algoritmia-hudba-psana-nazivo",
+      "title": "Algoritmia: hudba psaná naživo",
+      "type": "livecoding",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v05",
+      "start": "2027-06-04T16:00:00+02:00",
+      "end": "2027-06-04T16:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p038"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Koncert, který začíná prázdnou obrazovkou. Algoritmia píše hudbu jako program přímo před publikem a každý řádek kódu je vidět na plátně.",
+      "tags": [
+        "live coding",
+        "elektronická hudba"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e011",
+      "slug": "pristupnost-neni-funkce-navic",
+      "title": "Přístupnost není funkce navíc",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d1",
+      "venueId": "v02",
+      "start": "2027-06-04T16:30:00+02:00",
+      "end": "2027-06-04T17:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p008"
+      ],
+      "language": "cs",
+      "level": "intermediate",
+      "description": "Pět nejčastějších chyb, kvůli kterým web nejde používat bez myši, a jak je opravit za jedno odpoledne. S živou ukázkou čtečky obrazovky.",
+      "tags": [
+        "přístupnost",
+        "frontend",
+        "čtečka obrazovky"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e012",
+      "slug": "tranzistor-cup-skupinova-faze",
+      "title": "Tranzistor Cup: skupinová fáze",
+      "type": "tournament",
+      "trackId": "t05",
+      "dayId": "d1",
+      "venueId": "v04",
+      "start": "2027-06-04T16:30:00+02:00",
+      "end": "2027-06-04T19:30:00+02:00",
+      "durationMinutes": 180,
+      "performerIds": [
+        "p030",
+        "p031",
+        "p032",
+        "p033",
+        "p035"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Čtyři týmy, každý s každým. První den turnaje v týmové strategii rozhodne o nasazení do sobotního semifinále. Komentuje Adam Řezníček.",
+      "tags": [
+        "e-sport",
+        "turnaj",
+        "Tranzistor Cup"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e013",
+      "slug": "pravo-na-opravu-proc-vas-telefon-nechce-abyste-ho-otevreli",
+      "title": "Právo na opravu: proč váš telefon nechce, abyste ho otevřeli",
+      "type": "talk",
+      "trackId": "t03",
+      "dayId": "d1",
+      "venueId": "v01",
+      "start": "2027-06-04T16:45:00+02:00",
+      "end": "2027-06-04T17:30:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p021"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Lepené baterie, párované součástky a chybějící schémata. Co se v Evropě mění a co můžete opravit sami už dnes – s ukázkou rozebraného telefonu na pódiu.",
+      "tags": [
+        "oprava",
+        "elektronika",
+        "udržitelnost"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e014",
+      "slug": "rano-v-serverovne",
+      "title": "Ráno v Serverovně",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v05",
+      "start": "2027-06-04T17:15:00+02:00",
+      "end": "2027-06-04T18:00:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p045"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Ambientní podvečer u řeky. Pomalé kytarové plochy a šum, u kterého se dobře leží na trávě.",
+      "tags": [
+        "ambient",
+        "kytara"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e015",
+      "slug": "umela-inteligence-ve-skole-tahak-nebo-ucitel",
+      "title": "Umělá inteligence ve škole: tahák, nebo učitel?",
+      "type": "panel",
+      "trackId": "t07",
+      "dayId": "d1",
+      "venueId": "v02",
+      "start": "2027-06-04T17:30:00+02:00",
+      "end": "2027-06-04T18:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p054",
+        "p064",
+        "p004",
+        "p060"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Učitel, lingvista a psycholožka o tom, jak jazykové modely mění domácí úkoly, zkoušení a vztah žáků k učení. Diskusi moderuje Magdaléna Jirsová.",
+      "tags": [
+        "vzdělávání",
+        "umělá inteligence",
+        "diskuse"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e016",
+      "slug": "satelit-velikosti-krabice-od-bot",
+      "title": "Satelit velikosti krabice od bot",
+      "type": "keynote",
+      "trackId": "t03",
+      "dayId": "d1",
+      "venueId": "v01",
+      "start": "2027-06-04T18:00:00+02:00",
+      "end": "2027-06-04T19:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p020"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Příběh studentského týmu, který postavil družici za cenu ojetého auta a dostal ji na oběžnou dráhu. Co se pokazilo, co fungovalo a proč je dnes vesmír dostupnější než kdy dřív.",
+      "tags": [
+        "vesmír",
+        "satelity",
+        "studentské projekty"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e017",
+      "slug": "git-bez-slz",
+      "title": "Git bez slz",
+      "type": "workshop",
+      "trackId": "t02",
+      "dayId": "d1",
+      "venueId": "v03",
+      "start": "2027-06-04T18:00:00+02:00",
+      "end": "2027-06-04T19:30:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p066"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Verzování kódu od první revize po vyřešený konflikt. Workshop pro všechny, kdo Git používají podle taháku a bojí se chybových hlášek.",
+      "tags": [
+        "Git",
+        "verzování",
+        "nástroje"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 40
+    },
+    {
+      "id": "e018",
+      "slug": "bitova-hloubka",
+      "title": "Bitová Hloubka",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v05",
+      "start": "2027-06-04T18:30:00+02:00",
+      "end": "2027-06-04T19:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p043"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Chiptune z kapesních konzolí. Rychlé melodie a zvuk osmibitových her v taneční podobě.",
+      "tags": [
+        "chiptune",
+        "retro"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e019",
+      "slug": "dejiny-ceskych-pocitacu-ve-45-minutach",
+      "title": "Dějiny českých počítačů ve 45 minutách",
+      "type": "talk",
+      "trackId": "t07",
+      "dayId": "d1",
+      "venueId": "v02",
+      "start": "2027-06-04T19:00:00+02:00",
+      "end": "2027-06-04T19:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p061"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Od prvních sálových počítačů přes osmibity v pionýrských domech až po dnešek. Příběhy lidí, kteří stavěli počítače navzdory nedostatku součástek.",
+      "tags": [
+        "historie",
+        "počítače",
+        "Československo"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e020",
+      "slug": "voltage-sisters",
+      "title": "Voltage Sisters",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v01",
+      "start": "2027-06-04T20:00:00+02:00",
+      "end": "2027-06-04T21:15:00+02:00",
+      "durationMinutes": 75,
+      "performerIds": [
+        "p044"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Vídeňské electro-popové trio otevírá večerní program v hlavním sále. Tři syntezátory, tři hlasy a refrény na první poslech.",
+      "tags": [
+        "electro-pop",
+        "syntezátory"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e021",
+      "slug": "retro-noc-s-pixel-babickou",
+      "title": "Retro noc s Pixel Babičkou",
+      "type": "show",
+      "trackId": "t05",
+      "dayId": "d1",
+      "venueId": "v04",
+      "start": "2027-06-04T20:00:00+02:00",
+      "end": "2027-06-04T21:30:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p034",
+        "p036"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Večer her z osmdesátých a devadesátých let na původních počítačích. Pixel Babička vyzve diváky na souboj o nejvyšší skóre.",
+      "tags": [
+        "retro",
+        "historické počítače",
+        "hraní"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e022",
+      "slug": "orchestr-rozbitych-tiskaren-symfonie-pro-dvanact-jehlicek",
+      "title": "Orchestr Rozbitých Tiskáren: Symfonie pro dvanáct jehliček",
+      "type": "performance",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v05",
+      "start": "2027-06-04T20:00:00+02:00",
+      "end": "2027-06-04T20:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p048"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Vyřazené tiskárny, skenery a disketové mechaniky hrají pod taktovkou živého dirigenta. Zazní klasika i známé filmové melodie.",
+      "tags": [
+        "performance",
+        "elektronika",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e023",
+      "slug": "subnet-mask",
+      "title": "Subnet Mask",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v05",
+      "start": "2027-06-04T21:00:00+02:00",
+      "end": "2027-06-04T22:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p052"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Drum and bass s živými bicími na závěr prvního dne pod širým nebem. Projekce vzniká ze skutečného síťového provozu festivalu.",
+      "tags": [
+        "drum and bass",
+        "živé bicí"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e024",
+      "slug": "neonova-sova-nocni-smena",
+      "title": "Neonová Sova: Noční směna",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d1",
+      "venueId": "v01",
+      "start": "2027-06-04T21:45:00+02:00",
+      "end": "2027-06-04T23:15:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p037",
+        "p047"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Hlavní koncert pátečního večera. Synthwave se saxofonem a živě programovanou projekcí Filipa Dostálka.",
+      "tags": [
+        "synthwave",
+        "projekce",
+        "hlavní koncert"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e025",
+      "slug": "data-nelzou-grafy-ano",
+      "title": "Data nelžou, grafy ano",
+      "type": "talk",
+      "trackId": "t01",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T10:00:00+02:00",
+      "end": "2027-06-05T10:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p007"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Useknutá osa, zavádějící barvy a průměr, který nic neříká. Naučíte se poznat graf, který vás má přesvědčit, místo aby vás informoval.",
+      "tags": [
+        "vizualizace dat",
+        "žurnalistika"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e026",
+      "slug": "robot-z-micro-bitu",
+      "title": "Robot z micro:bitu",
+      "type": "workshop",
+      "trackId": "t03",
+      "dayId": "d2",
+      "venueId": "v03",
+      "start": "2027-06-05T10:00:00+02:00",
+      "end": "2027-06-05T12:00:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p064"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Děti si ve dvojicích postaví a naprogramují jezdícího robota, který se vyhýbá překážkám. Pro děti od 8 do 14 let v doprovodu dospělého.",
+      "tags": [
+        "robotika",
+        "děti",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": true,
+      "capacity": 24
+    },
+    {
+      "id": "e027",
+      "slug": "robot-ktery-se-neboji-schodu",
+      "title": "Robot, který se nebojí schodů",
+      "type": "keynote",
+      "trackId": "t03",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T10:30:00+02:00",
+      "end": "2027-06-05T11:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p016"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Proč je chůze pro stroje tak těžká a co všechno se musí povést, aby robot vyšel do patra. Robot Bedřich to předvede přímo na pódiu.",
+      "tags": [
+        "robotika",
+        "kráčející roboti",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e028",
+      "slug": "pribeh-pro-hrace-ktery-neposloucha",
+      "title": "Příběh pro hráče, který neposlouchá",
+      "type": "talk",
+      "trackId": "t05",
+      "dayId": "d2",
+      "venueId": "v04",
+      "start": "2027-06-05T10:30:00+02:00",
+      "end": "2027-06-05T11:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p029"
+      ],
+      "language": "en",
+      "level": "intermediate",
+      "description": "Hráč přeskakuje dialogy a běží opačným směrem. Jak vyprávět příběh prostředím, předměty a herními pravidly místo dlouhých textů.",
+      "tags": [
+        "scenáristika",
+        "herní design"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e029",
+      "slug": "webassembly-mimo-prohlizec",
+      "title": "WebAssembly mimo prohlížeč",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T11:00:00+02:00",
+      "end": "2027-06-05T11:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p011"
+      ],
+      "language": "en",
+      "level": "advanced",
+      "description": "Technologie vzniklá pro prohlížeče se stěhuje na servery a do malých zařízení. Kdy dává smysl, kdy ne a jak vypadá první nasazení v praxi.",
+      "tags": [
+        "WebAssembly",
+        "systémové programování"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e030",
+      "slug": "rychly-web-neni-luxus",
+      "title": "Rychlý web není luxus",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T12:00:00+02:00",
+      "end": "2027-06-05T12:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p010"
+      ],
+      "language": "cs",
+      "level": "intermediate",
+      "description": "Každá sekunda načítání stojí návštěvníky i peníze. Jak změřit, co váš web zdržuje, a které tři úpravy mívají největší účinek.",
+      "tags": [
+        "rychlost webu",
+        "měření",
+        "frontend"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e031",
+      "slug": "design-system-ktery-prezil-tri-redesigny",
+      "title": "Design systém, který přežil tři redesigny",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T12:00:00+02:00",
+      "end": "2027-06-05T12:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p009"
+      ],
+      "language": "en",
+      "level": "intermediate",
+      "description": "Jak postavit knihovnu komponent, kterou vývojáři používají dobrovolně. Zkušenosti z pěti let práce pro veřejné služby v Norsku.",
+      "tags": [
+        "design systém",
+        "komponenty",
+        "UX"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e032",
+      "slug": "tranzistor-cup-semifinale",
+      "title": "Tranzistor Cup: semifinále",
+      "type": "tournament",
+      "trackId": "t05",
+      "dayId": "d2",
+      "venueId": "v04",
+      "start": "2027-06-05T12:00:00+02:00",
+      "end": "2027-06-05T15:00:00+02:00",
+      "durationMinutes": 180,
+      "performerIds": [
+        "p030",
+        "p031",
+        "p032",
+        "p033",
+        "p035"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Dva semifinálové zápasy na tři vítězné mapy. Dvojice určí pořadí z páteční skupinové fáze. Komentuje Adam Řezníček.",
+      "tags": [
+        "e-sport",
+        "turnaj",
+        "Tranzistor Cup"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e033",
+      "slug": "prompty-ktere-funguji",
+      "title": "Prompty, které fungují",
+      "type": "workshop",
+      "trackId": "t01",
+      "dayId": "d2",
+      "venueId": "v03",
+      "start": "2027-06-05T12:30:00+02:00",
+      "end": "2027-06-05T14:30:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p067"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Jak zadat jazykovému modelu úkol tak, aby byl výsledek použitelný, a jak si odpověď ověřit. Praktická cvičení na vlastních příkladech z práce či studia.",
+      "tags": [
+        "jazykové modely",
+        "prompty",
+        "ověřování"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 40
+    },
+    {
+      "id": "e034",
+      "slug": "co-kamera-vidi-a-co-si-jen-mysli",
+      "title": "Co kamera vidí a co si jen myslí",
+      "type": "talk",
+      "trackId": "t01",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T13:30:00+02:00",
+      "end": "2027-06-05T14:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p005"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Počítačové vidění pozná nádor na snímku, ale splete si želvu s puškou. Přednáška o tom, jak stroje vnímají obraz a proč se dají tak snadno oklamat.",
+      "tags": [
+        "počítačové vidění",
+        "umělá inteligence"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e035",
+      "slug": "nejslabsi-clanek-ma-jmeno-a-prijmeni",
+      "title": "Nejslabší článek má jméno a příjmení",
+      "type": "talk",
+      "trackId": "t04",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T13:30:00+02:00",
+      "end": "2027-06-05T14:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p025"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Většina útoků nezačíná kódem, ale telefonátem. Ukázky skutečných triků sociálního inženýrství a jednoduchá pravidla, jak jim nenaletět.",
+      "tags": [
+        "sociální inženýrství",
+        "podvody",
+        "bezpečnost"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e036",
+      "slug": "ozveny-komentovana-prohlidka-zvukove-instalace",
+      "title": "Ozvěny: komentovaná prohlídka zvukové instalace",
+      "type": "performance",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v05",
+      "start": "2027-06-05T14:00:00+02:00",
+      "end": "2027-06-05T14:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p051"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Autorka provede návštěvníky instalací, která vrací a proměňuje hlasy kolemjdoucích. Sraz u vstupu na nábřežní louku.",
+      "tags": [
+        "instalace",
+        "zvuk",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e037",
+      "slug": "datove-potrubi-ktere-se-nerozsype",
+      "title": "Datové potrubí, které se nerozsype",
+      "type": "talk",
+      "trackId": "t01",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T14:30:00+02:00",
+      "end": "2027-06-05T15:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p002"
+      ],
+      "language": "en",
+      "level": "advanced",
+      "description": "Zpožděná data, duplicitní záznamy a noční výpadky. Návrhové vzory pro zpracování dat, které se z chyby zotaví samo.",
+      "tags": [
+        "zpracování dat",
+        "architektura"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e038",
+      "slug": "kdo-hlida-algoritmy",
+      "title": "Kdo hlídá algoritmy?",
+      "type": "keynote",
+      "trackId": "t01",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T15:00:00+02:00",
+      "end": "2027-06-05T16:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p003"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Algoritmy rozhodují o půjčkách, pohovorech i sociálních dávkách. Jak se dá nezávisle prověřit, jestli rozhodují spravedlivě, a co dělat, když ne.",
+      "tags": [
+        "audit algoritmů",
+        "etika",
+        "umělá inteligence"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e039",
+      "slug": "capture-the-flag-pro-zacatecniky",
+      "title": "Capture the Flag pro začátečníky",
+      "type": "workshop",
+      "trackId": "t04",
+      "dayId": "d2",
+      "venueId": "v03",
+      "start": "2027-06-05T15:00:00+02:00",
+      "end": "2027-06-05T17:00:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p026"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Bezpečnostní soutěž na zkoušku. V týmech vyřešíte sérii úloh od skrytých zpráv po chybu ve webovém formuláři. Stačí notebook a zvědavost.",
+      "tags": [
+        "bezpečnost",
+        "soutěž",
+        "hacking"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 40
+    },
+    {
+      "id": "e040",
+      "slug": "zivy-kod-zivy-obraz",
+      "title": "Živý kód, živý obraz",
+      "type": "livecoding",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v05",
+      "start": "2027-06-05T15:15:00+02:00",
+      "end": "2027-06-05T16:00:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p047",
+        "p038"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Dva programátoři, dvě plátna. Algoritmia píše hudbu, Filip Dostálek obraz, a navzájem na sebe reagují v reálném čase.",
+      "tags": [
+        "live coding",
+        "vizuály"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e041",
+      "slug": "web-ocima-ktere-nevidi",
+      "title": "Web očima, které nevidí",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T15:30:00+02:00",
+      "end": "2027-06-05T16:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p059"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Nevidomý vývojář projde naživo několik známých webů se čtečkou obrazovky. Uslyšíte, co funguje, co ne a jak málo někdy stačí k nápravě.",
+      "tags": [
+        "přístupnost",
+        "čtečka obrazovky"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e042",
+      "slug": "od-vikendoveho-prototypu-k-vydane-hre",
+      "title": "Od víkendového prototypu k vydané hře",
+      "type": "talk",
+      "trackId": "t05",
+      "dayId": "d2",
+      "venueId": "v04",
+      "start": "2027-06-05T15:30:00+02:00",
+      "end": "2027-06-05T16:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p027"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Tři roky vývoje v kostce. Brněnské studio otevřeně o rozpočtu, vyhoření i o tom, proč z prototypu vyhodilo polovinu nápadů.",
+      "tags": [
+        "nezávislé hry",
+        "vývoj her"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e043",
+      "slug": "jak-jsem-se-nabourala-do-banky-a-dostala-za-to-zaplaceno",
+      "title": "Jak jsem se nabourala do banky (a dostala za to zaplaceno)",
+      "type": "talk",
+      "trackId": "t04",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T16:30:00+02:00",
+      "end": "2027-06-05T17:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p022"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Průběh skutečného bezpečnostního testu od prvního e-mailu po závěrečnou zprávu. Bez technického žargonu a s poučením pro každého, kdo má někde účet.",
+      "tags": [
+        "etický hacking",
+        "bezpečnost"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e044",
+      "slug": "obvod-na-rukavu-elektronika-ktera-se-da-vyprat",
+      "title": "Obvod na rukávu: elektronika, která se dá vyprat",
+      "type": "talk",
+      "trackId": "t03",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T16:30:00+02:00",
+      "end": "2027-06-05T17:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p018"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Vodivé nitě, ohebné baterie a senzory v látce. Kde nositelná elektronika opravdu pomáhá a proč je největším nepřítelem pračka.",
+      "tags": [
+        "nositelná elektronika",
+        "textil",
+        "design"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e045",
+      "slug": "game-jam-tranzistor-vyhlaseni-tematu-a-start",
+      "title": "Game Jam Tranzistor: vyhlášení tématu a start",
+      "type": "show",
+      "trackId": "t05",
+      "dayId": "d2",
+      "venueId": "v04",
+      "start": "2027-06-05T16:30:00+02:00",
+      "end": "2027-06-05T17:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p028"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Začíná čtyřiadvacetihodinová soutěž v tvorbě her. Tereza Vaňousová vyhlásí téma, týmy se rozdělí a mentoři poradí s prvními kroky. Přidat se může kdokoli.",
+      "tags": [
+        "game jam",
+        "tvorba her",
+        "soutěž"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e046",
+      "slug": "modularni-morava",
+      "title": "Modulární Morava",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v05",
+      "start": "2027-06-05T16:30:00+02:00",
+      "end": "2027-06-05T17:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p040"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Hodinová improvizace na modulární syntezátory. Nic není připravené předem a nic se nebude opakovat.",
+      "tags": [
+        "modulární syntezátory",
+        "improvizace"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e047",
+      "slug": "soukromi-je-tymovy-sport",
+      "title": "Soukromí je týmový sport",
+      "type": "panel",
+      "trackId": "t04",
+      "dayId": "d2",
+      "venueId": "v02",
+      "start": "2027-06-05T17:30:00+02:00",
+      "end": "2027-06-05T18:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p024",
+        "p023",
+        "p025",
+        "p022"
+      ],
+      "language": "en",
+      "level": "intermediate",
+      "description": "Právnička, kryptograf, sociální inženýr a etická hackerka o tom, proč se soukromí nedá ochránit o samotě. Diskusi vede Zuzana Križanová.",
+      "tags": [
+        "soukromí",
+        "digitální práva",
+        "diskuse"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e048",
+      "slug": "prvni-mobilni-aplikace-za-dve-hodiny",
+      "title": "První mobilní aplikace za dvě hodiny",
+      "type": "workshop",
+      "trackId": "t02",
+      "dayId": "d2",
+      "venueId": "v03",
+      "start": "2027-06-05T17:30:00+02:00",
+      "end": "2027-06-05T19:30:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p065"
+      ],
+      "language": "en",
+      "level": "beginner",
+      "description": "Od prázdného projektu k aplikaci, kterou si odnesete v telefonu. Workshop probíhá v angličtině s českým asistentem.",
+      "tags": [
+        "mobilní vývoj",
+        "aplikace",
+        "začátečníci"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 30
+    },
+    {
+      "id": "e049",
+      "slug": "kolik-elektriny-stoji-jedna-odpoved-chatbota",
+      "title": "Kolik elektřiny stojí jedna odpověď chatbota?",
+      "type": "panel",
+      "trackId": "t07",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T18:00:00+02:00",
+      "end": "2027-06-05T19:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p054",
+        "p055",
+        "p001",
+        "p015"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Datová centra, spotřeba vody a rostoucí účty za energie. Diskuse o tom, co o ekologické stopě umělé inteligence opravdu víme a co jsou jen odhady.",
+      "tags": [
+        "udržitelnost",
+        "energie",
+        "diskuse"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e050",
+      "slug": "sine-qua-nonet",
+      "title": "Sine Qua Nonet",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v05",
+      "start": "2027-06-05T18:00:00+02:00",
+      "end": "2027-06-05T19:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p049"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Devítičlenná kapela z Lyonu s dechovou sekcí a syntezátory. Electro-jazz na pomezí koncertu a taneční zábavy.",
+      "tags": [
+        "electro-jazz",
+        "dechy"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e051",
+      "slug": "exhibice-publikum-proti-profikum",
+      "title": "Exhibice: publikum proti profíkům",
+      "type": "show",
+      "trackId": "t05",
+      "dayId": "d2",
+      "venueId": "v04",
+      "start": "2027-06-05T19:00:00+02:00",
+      "end": "2027-06-05T21:00:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p030",
+        "p031",
+        "p035"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Losovaní diváci nastoupí proti profesionálním týmům – s několika znevýhodněními pro profesionály. Přihlásit se můžete na místě.",
+      "tags": [
+        "e-sport",
+        "exhibice",
+        "hraní"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e052",
+      "slug": "sum-a-signal",
+      "title": "Šum a Signál",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v05",
+      "start": "2027-06-05T19:30:00+02:00",
+      "end": "2027-06-05T20:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p042"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Taneční hudba ze zvuků rozvoden a serveroven. Duo hraje na nástroje, které si samo postavilo.",
+      "tags": [
+        "experimentální elektronika",
+        "terénní nahrávky"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e053",
+      "slug": "glitch-babylon",
+      "title": "Glitch Babylon",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T20:00:00+02:00",
+      "end": "2027-06-05T21:15:00+02:00",
+      "durationMinutes": 75,
+      "performerIds": [
+        "p050"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Taneční hudba poskládaná z chyb, výpadků a poškozených nahrávek. Londýnský producent poprvé v Praze.",
+      "tags": [
+        "breakbeat",
+        "glitch"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e054",
+      "slug": "dj-kernel-panic-bezpecne-vypnuti",
+      "title": "DJ Kernel Panic: Bezpečné vypnutí",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v05",
+      "start": "2027-06-05T20:45:00+02:00",
+      "end": "2027-06-05T22:00:00+02:00",
+      "durationMinutes": 75,
+      "performerIds": [
+        "p039"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Techno set, který uzavírá sobotní program pod širým nebem. Končí přesně ve 22:00.",
+      "tags": [
+        "techno",
+        "DJ set"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e055",
+      "slug": "lumen-field-svetelne-pole",
+      "title": "Lumen Field: Světelné pole",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d2",
+      "venueId": "v01",
+      "start": "2027-06-05T21:45:00+02:00",
+      "end": "2027-06-05T23:15:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p041",
+        "p046"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Hlavní koncert festivalu. Ambientní techno a světelná show řízená zvukem, doplněná živými vizuály Katji Zimmerlin. Vystoupení obsahuje stroboskopické efekty.",
+      "tags": [
+        "audiovizuální show",
+        "techno",
+        "hlavní koncert"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e056",
+      "slug": "ux-vyzkum-bez-rozpoctu",
+      "title": "UX výzkum bez rozpočtu",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d3",
+      "venueId": "v02",
+      "start": "2027-06-06T10:00:00+02:00",
+      "end": "2027-06-06T10:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p013"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Pět uživatelů, jedna kavárna a papírový prototyp. Metody výzkumu, které zvládne i jednočlenný tým za jedno odpoledne.",
+      "tags": [
+        "UX",
+        "výzkum",
+        "testování"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e057",
+      "slug": "rodinna-dilna-svetelny-brouk",
+      "title": "Rodinná dílna: světelný brouk",
+      "type": "workshop",
+      "trackId": "t03",
+      "dayId": "d3",
+      "venueId": "v03",
+      "start": "2027-06-06T10:00:00+02:00",
+      "end": "2027-06-06T12:00:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p062",
+        "p064"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Rodič a dítě společně postaví broučka, který se ve tmě rozsvítí. Bez pájení, vhodné pro děti od 6 let. Jedna rezervace platí pro dvojici.",
+      "tags": [
+        "elektronika",
+        "děti",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": true,
+      "capacity": 30
+    },
+    {
+      "id": "e058",
+      "slug": "dum-z-tiskarny-co-uz-jde-a-co-je-reklama",
+      "title": "Dům z tiskárny: co už jde a co je reklama",
+      "type": "talk",
+      "trackId": "t03",
+      "dayId": "d3",
+      "venueId": "v01",
+      "start": "2027-06-06T10:30:00+02:00",
+      "end": "2027-06-06T11:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p019"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Stavební 3D tisk bez přehnaných slibů. Kolik stojí vytištěný dům, jak dlouho vydrží a proč se zatím netiskne střecha.",
+      "tags": [
+        "3D tisk",
+        "stavebnictví"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e059",
+      "slug": "osmibitove-dopoledne-pro-rodiny",
+      "title": "Osmibitové dopoledne pro rodiny",
+      "type": "show",
+      "trackId": "t05",
+      "dayId": "d3",
+      "venueId": "v04",
+      "start": "2027-06-06T10:30:00+02:00",
+      "end": "2027-06-06T12:00:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p036",
+        "p034"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Rodiče ukážou dětem, na čem hráli oni. Historické počítače a konzole k volnému hraní, s výkladem Pixel Babičky.",
+      "tags": [
+        "retro",
+        "historické počítače",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e060",
+      "slug": "platforma-misto-hrdinu",
+      "title": "Platforma místo hrdinů",
+      "type": "talk",
+      "trackId": "t02",
+      "dayId": "d3",
+      "venueId": "v02",
+      "start": "2027-06-06T11:00:00+02:00",
+      "end": "2027-06-06T11:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p015"
+      ],
+      "language": "cs",
+      "level": "advanced",
+      "description": "Proč by provoz neměl stát na jednom člověku, který ví všechno. Jak malý tým postaví prostředí, kde se dá bezpečně nasazovat i v pátek.",
+      "tags": [
+        "provoz",
+        "nasazování",
+        "týmy"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e061",
+      "slug": "otevreny-hardware-plany-pro-vsechny",
+      "title": "Otevřený hardware: plány pro všechny",
+      "type": "keynote",
+      "trackId": "t03",
+      "dayId": "d3",
+      "venueId": "v01",
+      "start": "2027-06-06T12:00:00+02:00",
+      "end": "2027-06-06T13:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p017"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Co se stane, když zveřejníte návod na stavbu přístroje, který jinak stojí tisíce eur. Příběh senzorů kvality vzduchu, které si školy staví samy.",
+      "tags": [
+        "otevřený hardware",
+        "senzory",
+        "vzdělávání"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e062",
+      "slug": "do-it-bez-titulu",
+      "title": "Do IT bez titulu",
+      "type": "talk",
+      "trackId": "t07",
+      "dayId": "d3",
+      "venueId": "v02",
+      "start": "2027-06-06T12:00:00+02:00",
+      "end": "2027-06-06T12:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p058"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Kudy vedou cesty do oboru pro lidi bez informatického vzdělání. Konkrétní kroky, realistické platy a nejčastější omyly při hledání první práce.",
+      "tags": [
+        "kariéra",
+        "rekvalifikace"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e063",
+      "slug": "rano-v-serverovne-nedelni-probouzeni",
+      "title": "Ráno v Serverovně: nedělní probouzení",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d3",
+      "venueId": "v05",
+      "start": "2027-06-06T12:00:00+02:00",
+      "end": "2027-06-06T12:45:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p045"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Klidný polední koncert k obědu na trávě. Ambientní hudba pro pomalý začátek posledního dne.",
+      "tags": [
+        "ambient",
+        "kytara"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e064",
+      "slug": "generativni-plakat-kod-jako-stetec",
+      "title": "Generativní plakát: kód jako štětec",
+      "type": "workshop",
+      "trackId": "t06",
+      "dayId": "d3",
+      "venueId": "v03",
+      "start": "2027-06-06T12:30:00+02:00",
+      "end": "2027-06-06T14:30:00+02:00",
+      "durationMinutes": 120,
+      "performerIds": [
+        "p046",
+        "p063"
+      ],
+      "language": "cs",
+      "level": "beginner",
+      "description": "Naprogramujete si vlastní plakát a odnesete si ho vytištěný. Katja Zimmerlin ukáže svůj postup, Alžběta Nováčková provede úplné začátečníky.",
+      "tags": [
+        "generativní umění",
+        "programování",
+        "tisk"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 40
+    },
+    {
+      "id": "e065",
+      "slug": "tranzistor-cup-velke-finale",
+      "title": "Tranzistor Cup: velké finále",
+      "type": "tournament",
+      "trackId": "t05",
+      "dayId": "d3",
+      "venueId": "v04",
+      "start": "2027-06-06T13:00:00+02:00",
+      "end": "2027-06-06T16:00:00+02:00",
+      "durationMinutes": 180,
+      "performerIds": [
+        "p035"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Finálový zápas na čtyři vítězné mapy a souboj o třetí místo. Finalisté vzejdou ze sobotního semifinále. Komentuje Adam Řezníček.",
+      "tags": [
+        "e-sport",
+        "turnaj",
+        "Tranzistor Cup"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e066",
+      "slug": "tri-firmy-dva-krachy-jedno-pouceni",
+      "title": "Tři firmy, dva krachy, jedno poučení",
+      "type": "talk",
+      "trackId": "t07",
+      "dayId": "d3",
+      "venueId": "v01",
+      "start": "2027-06-06T13:30:00+02:00",
+      "end": "2027-06-06T14:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p057"
+      ],
+      "language": "sk",
+      "level": "all",
+      "description": "Upřímná přednáška o podnikání v technologiích. Co bývá v prezentacích pro investory zamlčeno a kdy je správné firmu zavřít.",
+      "tags": [
+        "startup",
+        "podnikání"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e067",
+      "slug": "kolik-uhliku-vazi-vas-web",
+      "title": "Kolik uhlíku váží váš web",
+      "type": "talk",
+      "trackId": "t07",
+      "dayId": "d3",
+      "venueId": "v02",
+      "start": "2027-06-06T13:30:00+02:00",
+      "end": "2027-06-06T14:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p055"
+      ],
+      "language": "cs",
+      "level": "intermediate",
+      "description": "Každé načtení stránky spotřebuje energii. Jak se dá stopa webu změřit a které úpravy šetří zároveň planetu i rozpočet.",
+      "tags": [
+        "udržitelnost",
+        "web",
+        "energie"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e068",
+      "slug": "algorave-pro-vsechny-beat-pise-publikum",
+      "title": "Algorave pro všechny: beat píše publikum",
+      "type": "livecoding",
+      "trackId": "t06",
+      "dayId": "d3",
+      "venueId": "v05",
+      "start": "2027-06-06T13:30:00+02:00",
+      "end": "2027-06-06T14:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p038"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Diváci navrhují změny v kódu a hned slyší, co udělaly. Hravý úvod do hudby programované naživo pro děti i dospělé.",
+      "tags": [
+        "live coding",
+        "interaktivní",
+        "pro rodiny"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e069",
+      "slug": "digitalni-klid-jak-nevyhoret-u-obrazovky",
+      "title": "Digitální klid: jak nevyhořet u obrazovky",
+      "type": "talk",
+      "trackId": "t07",
+      "dayId": "d3",
+      "venueId": "v02",
+      "start": "2027-06-06T14:30:00+02:00",
+      "end": "2027-06-06T15:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p060"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Co o pozornosti a únavě říká výzkum a co jsou jen mýty. Několik návyků, které si můžete vyzkoušet hned cestou domů.",
+      "tags": [
+        "duševní zdraví",
+        "návyky"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e070",
+      "slug": "prace-v-it-za-pet-let",
+      "title": "Práce v IT za pět let",
+      "type": "panel",
+      "trackId": "t07",
+      "dayId": "d3",
+      "venueId": "v01",
+      "start": "2027-06-06T15:00:00+02:00",
+      "end": "2027-06-06T16:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p054",
+        "p058",
+        "p057",
+        "p012",
+        "p013"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Které profese zaniknou, které vzniknou a co se má učit člověk, který právě začíná. Diskuse probíhá česky a slovensky.",
+      "tags": [
+        "kariéra",
+        "budoucnost práce",
+        "diskuse"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e071",
+      "slug": "pristupny-formular-krok-za-krokem",
+      "title": "Přístupný formulář krok za krokem",
+      "type": "workshop",
+      "trackId": "t02",
+      "dayId": "d3",
+      "venueId": "v03",
+      "start": "2027-06-06T15:00:00+02:00",
+      "end": "2027-06-06T16:30:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p008",
+        "p059"
+      ],
+      "language": "cs",
+      "level": "intermediate",
+      "description": "Společně opravíme formulář, který nejde vyplnit bez myši. Každou úpravu hned vyzkouší Emre Kahraman se čtečkou obrazovky.",
+      "tags": [
+        "přístupnost",
+        "formuláře",
+        "HTML"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": true,
+      "capacity": 40
+    },
+    {
+      "id": "e072",
+      "slug": "chiptune-odpoledne-bitova-hloubka-a-kolektiv-osmibit",
+      "title": "Chiptune odpoledne: Bitová Hloubka a Kolektiv Osmibit",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d3",
+      "venueId": "v05",
+      "start": "2027-06-06T15:00:00+02:00",
+      "end": "2027-06-06T16:00:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p043",
+        "p036"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Společné vystoupení na kapesní konzole a původní osmibitové počítače. Hudba a obraz z techniky staré čtyřicet let.",
+      "tags": [
+        "chiptune",
+        "retro"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e073",
+      "slug": "deti-a-kod-co-ve-tride-opravdu-funguje",
+      "title": "Děti a kód: co ve třídě opravdu funguje",
+      "type": "talk",
+      "trackId": "t07",
+      "dayId": "d3",
+      "venueId": "v02",
+      "start": "2027-06-06T15:30:00+02:00",
+      "end": "2027-06-06T16:15:00+02:00",
+      "durationMinutes": 45,
+      "performerIds": [
+        "p056"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Dvacet let zkušeností s výukou programování od první třídy. Proč začínat bez počítače a kdy děti samy řeknou, že chtějí víc.",
+      "tags": [
+        "vzdělávání",
+        "děti",
+        "programování"
+      ],
+      "familyFriendly": false,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e074",
+      "slug": "roboti-kteri-se-uci-od-lidi",
+      "title": "Roboti, kteří se učí od lidí",
+      "type": "keynote",
+      "trackId": "t01",
+      "dayId": "d3",
+      "venueId": "v01",
+      "start": "2027-06-06T16:30:00+02:00",
+      "end": "2027-06-06T17:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p006"
+      ],
+      "language": "en",
+      "level": "all",
+      "description": "Závěrečná přednáška festivalu. Jak se robot naučí novou činnost jen tím, že se dívá, a proč je skládání prádla těžší než šachy.",
+      "tags": [
+        "robotika",
+        "strojové učení",
+        "závěr"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e075",
+      "slug": "game-jam-tranzistor-prezentace-her-a-vyhlaseni-vitezu",
+      "title": "Game Jam Tranzistor: prezentace her a vyhlášení vítězů",
+      "type": "show",
+      "trackId": "t05",
+      "dayId": "d3",
+      "venueId": "v04",
+      "start": "2027-06-06T16:30:00+02:00",
+      "end": "2027-06-06T17:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p028",
+        "p029",
+        "p027"
+      ],
+      "language": "cs",
+      "level": "all",
+      "description": "Týmy předvedou hry, které vznikly za čtyřiadvacet hodin. Porota vybere vítěze a hry si pak můžete sami zahrát.",
+      "tags": [
+        "game jam",
+        "nezávislé hry",
+        "soutěž"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e076",
+      "slug": "modularni-morava-improvizace-na-prani",
+      "title": "Modulární Morava: improvizace na přání",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d3",
+      "venueId": "v05",
+      "start": "2027-06-06T16:30:00+02:00",
+      "end": "2027-06-06T17:30:00+02:00",
+      "durationMinutes": 60,
+      "performerIds": [
+        "p040"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Publikum určuje náladu, tempo a směr. Trio na závěr venkovního programu improvizuje podle pokynů diváků.",
+      "tags": [
+        "modulární syntezátory",
+        "improvizace"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    },
+    {
+      "id": "e077",
+      "slug": "posledni-commit-zaverecny-koncert",
+      "title": "Poslední Commit: závěrečný koncert",
+      "type": "concert",
+      "trackId": "t06",
+      "dayId": "d3",
+      "venueId": "v01",
+      "start": "2027-06-06T18:00:00+02:00",
+      "end": "2027-06-06T19:30:00+02:00",
+      "durationMinutes": 90,
+      "performerIds": [
+        "p053"
+      ],
+      "language": null,
+      "level": "all",
+      "description": "Tečka za třetím ročníkem. Indie-elektronická kapela z Prahy zahraje písně o termínech, nočních směnách a dobře napsaném kódu.",
+      "tags": [
+        "indie",
+        "elektronika",
+        "závěr"
+      ],
+      "familyFriendly": true,
+      "registrationRequired": false,
+      "capacity": null
+    }
+  ],
+  "practical": {
+    "tickets": [
+      {
+        "id": "tk01",
+        "name": "Třídenní vstupenka",
+        "priceCzk": 1890,
+        "validDayIds": [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        "description": "Vstup na všechny scény po celé tři dny včetně večerních koncertů."
+      },
+      {
+        "id": "tk02",
+        "name": "Třídenní studentská vstupenka",
+        "priceCzk": 1290,
+        "validDayIds": [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        "description": "Pro studenty do 26 let. Při vstupu je potřeba ukázat platný studentský průkaz."
+      },
+      {
+        "id": "tk03",
+        "name": "Jednodenní vstupenka",
+        "priceCzk": 790,
+        "validDayIds": [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        "description": "Vstup na jeden zvolený den včetně večerního programu. Den si vyberete při nákupu."
+      },
+      {
+        "id": "tk04",
+        "name": "Večerní vstupenka",
+        "priceCzk": 390,
+        "validDayIds": [
+          "d1",
+          "d2"
+        ],
+        "description": "Vstup v pátek nebo v sobotu od 19:00. Platí na koncerty a večerní herní program."
+      },
+      {
+        "id": "tk05",
+        "name": "Rodinná nedělní vstupenka",
+        "priceCzk": 1490,
+        "validDayIds": [
+          "d3"
+        ],
+        "description": "Dva dospělí a až tři děti do 15 let na celý nedělní program."
+      },
+      {
+        "id": "tk06",
+        "name": "Děti do 12 let",
+        "priceCzk": 0,
+        "validDayIds": [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        "description": "Děti do 12 let mají v doprovodu dospělého s platnou vstupenkou vstup zdarma."
+      }
+    ],
+    "workshopRegistration": "Workshopy ve scéně Sandbox jsou v ceně vstupenky, ale mají omezenou kapacitu. Místo si rezervujte předem na webu festivalu, rezervace propadá 10 minut před začátkem.",
+    "transport": [
+      {
+        "mode": "Tramvaj",
+        "description": "Zastávka Pražská tržnice je přímo u hlavního vstupu do areálu."
+      },
+      {
+        "mode": "Metro",
+        "description": "Stanice Vltavská na lince C, odtud asi 8 minut pěšky po nábřeží."
+      },
+      {
+        "mode": "Vlak",
+        "description": "Nádraží Praha-Holešovice, dále metrem jednu stanici na Vltavskou nebo asi 20 minut pěšky."
+      },
+      {
+        "mode": "Kolo",
+        "description": "Hlídaná úschovna kol u vstupu z nábřeží je pro návštěvníky zdarma."
+      },
+      {
+        "mode": "Auto",
+        "description": "V areálu se během festivalu neparkuje. Doporučujeme záchytná parkoviště P+R a cestu veřejnou dopravou."
+      }
+    ],
+    "accessibility": [
+      "Všechny scény mají bezbariérový přístup a vyhrazená místa pro vozíčkáře.",
+      "V sálech Mainframe a Terminal je instalována indukční smyčka.",
+      "Hlavní přednášky ve scéně Mainframe jsou simultánně tlumočeny z angličtiny do češtiny a opatřeny živými titulky.",
+      "Asistenční psi mají vstup povolen do všech prostor.",
+      "Klidová místnost s tlumeným světlem je otevřena po celou dobu festivalu v Jižní hale.",
+      "Doprovod držitele průkazu ZTP/P má vstup zdarma."
+    ],
+    "services": [
+      {
+        "name": "Občerstvení",
+        "description": "Stánky s jídlem včetně vegetariánských, veganských a bezlepkových variant jsou na Nábřežní louce a v Pasáži."
+      },
+      {
+        "name": "Pitná voda",
+        "description": "Zdarma u všech označených výdejních míst. Vlastní lahev s sebou."
+      },
+      {
+        "name": "Platby",
+        "description": "Na festivalu se platí pouze kartou nebo mobilem. Hotovost stánky nepřijímají."
+      },
+      {
+        "name": "Šatna a úschovna",
+        "description": "U hlavního vstupu, otevřeno po celou provozní dobu festivalu."
+      },
+      {
+        "name": "První pomoc",
+        "description": "Zdravotníci jsou ve stanu u vstupu na Nábřežní louku. V naléhavých případech volejte 112."
+      },
+      {
+        "name": "Dětský koutek",
+        "description": "V neděli od 10:00 do 18:00 v Dílnách, s dozorem pro děti od 4 let."
+      },
+      {
+        "name": "Wi-Fi a dobíjení",
+        "description": "Bezplatná síť Tranzistor pokrývá všechny haly. Dobíjecí stanice jsou v Jižní hale a v Pasáži."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Mohu si koupit vstupenku až na místě?",
+        "answer": "Ano, pokud nebude vyprodáno. Pokladna u hlavního vstupu je otevřena po celou provozní dobu festivalu. Večerní vstupenky se prodávají od 18:30."
+      },
+      {
+        "question": "Musím si rezervovat místo na přednášky?",
+        "answer": "Ne. Přednášky, koncerty a turnaj jsou přístupné do naplnění kapacity scény. Rezervace je nutná pouze na workshopy ve scéně Sandbox."
+      },
+      {
+        "question": "V jakém jazyce program probíhá?",
+        "answer": "Většina programu je v češtině nebo slovenštině, část v angličtině. Jazyk je uveden u každé položky programu. Hlavní přednášky ve scéně Mainframe jsou tlumočeny do češtiny."
+      },
+      {
+        "question": "Je festival vhodný pro děti?",
+        "answer": "Ano. Položky vhodné pro rodiny jsou v programu označené a neděle je rodinným dnem s dílnami a dětským koutkem. Děti do 12 let mají vstup zdarma."
+      },
+      {
+        "question": "Mohu z areálu odejít a vrátit se?",
+        "answer": "Ano. Při vstupu dostanete pásku na ruku, která platí po celou dobu platnosti vaší vstupenky."
+      },
+      {
+        "question": "Co se stane, když bude pršet?",
+        "answer": "Čtyři z pěti scén jsou kryté. Program scény Nábřeží se za silného deště nebo bouřky přesouvá do sálu Terminal; změny zveřejníme na webu."
+      },
+      {
+        "question": "Mohu si přinést vlastní jídlo a pití?",
+        "answer": "Ano, v nevratných nebo plastových obalech. Skleněné lahve a alkohol zakoupený mimo areál nejsou povoleny."
+      },
+      {
+        "question": "Mohu si na workshop přinést vlastní notebook?",
+        "answer": "Ano. Pro účastníky bez vlastního zařízení jsou ve scéně Sandbox připraveny notebooky k zapůjčení."
+      }
+    ],
+    "rules": [
+      "Vstup se zvířaty není povolen, s výjimkou asistenčních psů.",
+      "V halách platí zákaz kouření včetně elektronických cigaret.",
+      "Program scény Nábřeží končí ve 22:00 z ohledu na noční klid.",
+      "Fotografování pro vlastní potřebu je vítáno. Na workshopech s dětmi fotografujte jen se souhlasem rodičů.",
+      "Na festivalu platí zásady slušného chování. Obtěžování a diskriminace jsou důvodem k vykázání z areálu bez náhrady."
+    ]
+  }
+}
