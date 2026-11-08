@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /hledani.html
+
+Sitemap: https://tranzistor-festival.cz/sitemap.xml

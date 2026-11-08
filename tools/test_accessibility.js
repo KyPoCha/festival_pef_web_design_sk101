@@ -4,15 +4,18 @@
 //
 // Spuštění (Node.js 18+, Google Chrome):
 //   npm install --prefix /tmp/tranzistor-test playwright-core@1.48.2 axe-core@4.10.2
-//   NODE_PATH=/tmp/tranzistor-test/node_modules node tools/test_accessibility.js [složka-webu]
+//   NODE_PATH=/tmp/tranzistor-test/node_modules node tools/test_accessibility.js [složka-webu]   (výchozí web/, lze i prototype/)
 const { chromium } = require('playwright-core');
 const fs = require('fs'), path = require('path');
 const AXE = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
-const ROOT = path.resolve(process.argv[2] || path.join(__dirname, '..', 'prototype'));
+const ROOT = path.resolve(process.argv[2] || path.join(__dirname, '..', 'web'));
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const u = (p) => 'file://' + path.join(ROOT, p);
-const PAGES = ['index.html', 'program.html', 'udalost.html?id=e052', 'ucinkujici.html', 'ucinkujici-detail.html?id=p022', 'sceny.html',
-  'scena.html?id=v05', 'muj-program.html', 'prakticke-informace.html', 'hledani.html?q=malatova', 'hledani.html?q=xyz', 'o-festivalu.html'];
+// web/ má předgenerované detailní stránky, prototyp detail vybírá parametrem ?id=
+const STATIC = fs.existsSync(path.join(ROOT, 'program'));
+const PAGES = ['index.html', 'program.html', STATIC ? 'program/sum-a-signal.html' : 'udalost.html?id=e052', 'ucinkujici.html',
+  STATIC ? 'ucinkujici/kristyna-malatova.html' : 'ucinkujici-detail.html?id=p022', 'sceny.html', STATIC ? 'sceny/nabrezi.html' : 'scena.html?id=v05',
+  'muj-program.html', 'prakticke-informace.html', 'hledani.html?q=malatova', 'hledani.html?q=xyz', 'o-festivalu.html'];
 const SAVED = JSON.stringify(['e039', 'e043']);
 let failures = 0;
 const report = (ok, msg) => { console.log((ok ? 'PASS ' : 'FAIL ') + msg); if (!ok) failures++; };

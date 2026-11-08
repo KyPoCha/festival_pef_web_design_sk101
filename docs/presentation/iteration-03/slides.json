@@ -1,0 +1,163 @@
+{
+  "footer": "Tranzistor 2027 · tým sk101 · cvičení 4",
+  "speakers": [
+    "Kyrylo Polishchuk",
+    "Daniel Šimůnek",
+    "Ngoc Tuan Nguyen",
+    "David Anderle"
+  ],
+  "slides": [
+    {
+      "layout": "title",
+      "title": "Tranzistor 2027",
+      "subtitle": "První funkční implementace webu",
+      "corner": ""
+    },
+    {
+      "layout": "content",
+      "speaker": 1,
+      "title": "Co jsme od minula udělali",
+      "size": 19,
+      "items": [
+        "**Z prototypu web:** 157 stránek s obsahem přímo v HTML",
+        "Všech **šest interaktivních funkcí** funguje i na webu",
+        "**Rešerše** aktuálních doporučení a trendů v UX a designu",
+        "**SEO a AEO:** metadata, strukturovaná data, mapa webu",
+        "Automatické testy a test přístupnosti zopakovány na webu"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 1,
+      "title": "Z prototypu web: předgenerované stránky",
+      "images": [
+        "img/s-bez-js.png"
+      ],
+      "items": [
+        "Prototyp: jedna šablona s parametrem ?id=, obsah doplňoval JavaScript",
+        "Web: **vlastní stránka** pro každou položku, účinkujícího a scénu",
+        "Čitelné adresy: **program/sum-a-signal.html**",
+        "Obsah přečte vyhledávač i AI a zobrazí se **bez JavaScriptu** (vlevo)",
+        "Stránky vytváří náš skript z data.json; web dál běží bez serveru"
+      ]
+    },
+    {
+      "layout": "two",
+      "speaker": 2,
+      "title": "Doporučení a trendy v UX",
+      "size": 14,
+      "left": [
+        {
+          "h": "Doporučení a zdroj"
+        },
+        "**WCAG 2.2 AA** – fokus pod lištami, velikost cílů (W3C)",
+        "**Navigace v dosahu palce** – 3–5 cílů dole",
+        "**Vrátit místo dialogu** (Nielsen Norman Group)",
+        "**Tmavý vzhled** s vlastní prací s kontrastem",
+        "**Omezení pohybu** podle nastavení systému",
+        "**Progressive enhancement**, Core Web Vitals (web.dev)"
+      ],
+      "right": [
+        {
+          "h": "Jak je to na webu"
+        },
+        "Fokus nezajede pod záhlaví ani spodní lištu",
+        "Spodní lišta s pěti sekcemi a počtem uložených",
+        "Odebrání z Mého programu s tlačítkem „Vrátit“",
+        "Kontrast ověřen výpočtem, nejnižší 7,4 : 1",
+        "Animace jen bez omezení pohybu",
+        "Obsah v HTML, bez knihoven, obrázky s rozměry"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 2,
+      "title": "Od mobilu k desktopu",
+      "images": [
+        "img/s-uvod.png",
+        "img/s-desktop.png"
+      ],
+      "items": [
+        "**Navrženo od šířky 360 px**, širší rozložení od 600 a 900 px",
+        "Mobil: spodní lišta, sbalené filtry, prvky aspoň 44 px",
+        "Desktop: menu nahoře, filtry v panelu, dva sloupce karet",
+        "Vzhled zvolený týmem v iteraci 2, beze změny"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 3,
+      "title": "Scénář 1 na webu",
+      "images": [
+        "img/s-program.png",
+        "img/s-detail.png"
+      ],
+      "items": [
+        "Program → **Sobota + Nábřeží**",
+        "Zobrazí se **6 z 77 položek** podle času",
+        "Detail koncertu → **Do Mého programu**",
+        "Potvrzení s možností **Vrátit**, počet v rohu hvězdičky",
+        "Odkaz zpět vrátí program s filtry"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 3,
+      "title": "Scénář 2 na webu",
+      "images": [
+        "img/s-hledani.png",
+        "img/s-muj-program.png"
+      ],
+      "items": [
+        "Hledání **„malatova“** bez diakritiky: řečnice a obě vystoupení",
+        "Uložení přednášky, panelu a workshopu",
+        "Můj program **upozorní na kolizi** 16:30–17:00",
+        "Po odebrání jedné položky upozornění zmizí"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 4,
+      "title": "Web pro vyhledávače a AI",
+      "images": [
+        "img/s-og.png"
+      ],
+      "items": [
+        "Každá stránka: **vlastní titulek, popis**, kanonická adresa",
+        "**Náhled pro sdílení** (vlevo) na všech stránkách",
+        "**JSON-LD:** festival, akce, účinkující, scény, časté dotazy",
+        "**sitemap.xml** (155 stránek), **robots.txt**, **llms.txt**",
+        "Data odpovídají tomu, co je vidět na stránce"
+      ]
+    },
+    {
+      "layout": "two",
+      "speaker": 4,
+      "title": "Testy a použití AI",
+      "size": 14,
+      "left": [
+        {
+          "h": "Co vytvořila AI (Claude Code)"
+        },
+        "Generátor stránek, metadata a JSON-LD",
+        "Úprava stylů a skriptu z prototypu",
+        "Rešerše doporučení se zdroji",
+        {
+          "h": "Chyby, které odhalil test"
+        },
+        "Převod stylů změnil vzhled 24 stránek",
+        "Stejné titulky u dvou stránek",
+        "Bez JavaScriptu nefunkční tlačítka"
+      ],
+      "right": [
+        {
+          "h": "Jak jsme to ověřili"
+        },
+        "**Test webu:** 125 kontrol – všech 157 stránek, odkazy, metadata, scénáře S1–S5, stav bez JavaScriptu",
+        "**Přístupnost:** WCAG 2.2 AA, klávesnice, šířka 320 px – 45 kontrol bez chyby",
+        "**Vzhled:** snímky webu a prototypu porovnány po pixelech",
+        "**Data:** kontrolní skript, 0 chyb"
+      ]
+    }
+  ]
+}

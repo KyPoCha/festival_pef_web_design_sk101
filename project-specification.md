@@ -4,7 +4,7 @@
 | ------------------- | ------------------------------- |
 | **Tým**             | sk101                           |
 | **Členové**         | Kyrylo Polishchuk, Daniel Šimůnek, Ngoc Tuan Nguyen, David Anderle |
-| **Verze dokumentu** | 1.1 (iterace 2, změny v kapitole 8) |
+| **Verze dokumentu** | 1.2 (iterace 3, změny v kapitole 8) |
 | **Datová základna** | `data.json`, verze 1.1.1        |
 
 Festival, všichni účinkující i program jsou fiktivní. Texty v této specifikaci a v datové základně byly vygenerovány AI, za výsledek odpovídá tým (viz kapitola 7).
@@ -90,11 +90,11 @@ Vedlejší skupinou jsou média a partneři, kteří hledají základní údaje 
 ```
 Úvod (index.html)
 ├── Program (program.html)
-│   └── Detail položky programu (udalost.html?id=…)
+│   └── Detail položky programu (program/<název-položky>.html)
 ├── Účinkující (ucinkujici.html)
-│   └── Detail účinkujícího (ucinkujici-detail.html?id=…)
+│   └── Detail účinkujícího (ucinkujici/<jméno>.html)
 ├── Scény (sceny.html)
-│   └── Detail scény (scena.html?id=…)
+│   └── Detail scény (sceny/<název-scény>.html)
 ├── Můj program (muj-program.html)
 ├── Praktické informace (prakticke-informace.html)
 │   ├── #vstupenky
@@ -107,14 +107,14 @@ Vedlejší skupinou jsou média a partneři, kteří hledají základní údaje 
 └── Výsledky vyhledávání (hledani.html?q=…)
 ```
 
-Web má nejvýše tři úrovně. Každá stránka druhé a třetí úrovně má drobečkovou navigaci (například _Úvod › Účinkující › Kristýna Malátová_).
+Detailní stránky mají čitelnou adresu odvozenou ze `slug` v `data.json`, například `program/sum-a-signal.html` nebo `ucinkujici/kristyna-malatova.html`. Web má nejvýše tři úrovně. Každá stránka druhé a třetí úrovně má drobečkovou navigaci (například _Úvod › Účinkující › Kristýna Malátová_).
 
 ### 4.2 Hlavní navigace
 
 | Prvek                   | Obsah                                                                                                                                   |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **Záhlaví**             | logo (odkaz na Úvod) · Program · Účinkující · Scény · Praktické informace · Můj program (s počtem uložených položek) · vyhledávací pole |
-| **Mobilní zobrazení**   | logo, vyhledávání a Můj program zůstávají viditelné, ostatní položky jsou ve sbalitelné nabídce                                         |
+| **Mobilní zobrazení**   | logo, vyhledávání a Můj program zůstávají v záhlaví; Úvod, Program, Účinkující, Scény a Můj plán jsou ve spodní liště, ostatní položky ve sbalitelné nabídce |
 | **Drobečková navigace** | na všech stránkách kromě úvodní                                                                                                         |
 | **Zápatí**              | O festivalu · Vstupenky · Přístupnost · Časté dotazy · kontakt na pořadatele · sociální sítě                                            |
 | **Kontextové odkazy**   | položka programu ↔ účinkující ↔ scéna (viz 4.3)                                                                                         |
@@ -291,3 +291,20 @@ Vazby jsou jednoznačné a jsou strojově kontrolovány skriptem:
 | Vygenerování obsahu `data.json` (jména, medailonky, názvy a popisy programu, praktické informace) | Claude Code (Claude Opus) | Strojově skriptem (0 chyb). Skript sám byl ověřen 14 záměrně vloženými chybami a všechny odhalil. Ruční kontrola textů týmem – viz níže.                         |
 
 **Zjištěné limity AI:** AI neumí zaručit, že vymyšlené jméno nenosí skutečný člověk, a údaje o reálném místě uvádí z paměti bez ověření. Časovou konzistenci programu AI navrhla správně, spolehnout se na to ale nedá, proto ji kontroluje skript, ne další dotaz na AI.
+
+---
+
+## 8. Změny oproti verzi 1.0
+
+| Verze | Co se změnilo | Proč | Podnět |
+|---|---|---|---|
+| 1.1 | Do `data.json` doplněny obrázky festivalu, scén a účinkujících (cesta a alternativní text). | Zadání vyžaduje obrázky vytvořené AI a výpisy i detaily je potřebují. | Zpětná vazba k datové základně po cvičení 2: v datech něco chybí. |
+| 1.1 | Doplněno schéma areálu a poloha scén na něm. | Kapitola 4.4 slibuje na stránce Scény schéma areálu, data ho neobsahovala. | Kontrola dat proti specifikaci (iterace 2). |
+| 1.1 | Doplněna historie předchozích ročníků. | Kapitola 4.4 slibuje na stránce O festivalu historii ročníků. | Kontrola dat proti specifikaci (iterace 2). |
+| 1.1 | Doplněn kontakt pro média a odkaz na prodej vstupenek. | Média jsou vedlejší cílovou skupinou (kapitola 3); úvodní stránka má výzvu k nákupu vstupenek. | Kontrola dat proti specifikaci (iterace 2). |
+| 1.1 | Třem účastníkům panelových diskusí doplněno téma Technologie a společnost. | Filtr účinkujících podle tématu by je jinak u jejich panelu nenašel. | Rozšířený kontrolní skript (iterace 2). |
+| 1.1 (data 1.1.1) | Web, e-maily a odkaz na vstupenky festivalu používají doménu tranzistor-festival.cz místo .example. | Adresy v doméně .example působily jako ukázka. | Rozhodnutí týmu (iterace 2). |
+| 1.1 | Na mobilu je pět hlavních sekcí ve spodní liště (kapitola 4.2). | Sekce jsou v dosahu palce. | Hlasování týmu o vzhledu (iterace 2). |
+| 1.2 | Detailní stránky mají vlastní soubory s čitelnou adresou (`program/<slug>.html`, `ucinkujici/<slug>.html`, `sceny/<slug>.html`) místo jedné šablony s parametrem `?id=` (kapitola 4.1). | Obsah je přímo v HTML: stránku přečte vyhledávač i nástroj umělé inteligence a zobrazí se i bez JavaScriptu; adresa je čitelná a dá se sdílet. | Zadání iterace 3 a požadavek na SEO a AEO. |
+
+Rozsah dat, identifikátory, program, scénáře ani obsah stránek se nezměnily.

@@ -1,0 +1,24 @@
+# Tranzistor 2027
+
+> Tranzistor – festival technologií, her a digitální kultury. Tranzistor je třídenní festival pro všechny, které zajímá, jak technologie fungují a co s nimi jde dělat. Přes den nabízí přednášky a dílny od umělé inteligence po pájení, večer koncerty, hudbu programovanou naživo a světelné show. Jeden areál, pět scén a program pro odborníky, studenty i rodiny s dětmi.
+
+- Termín: 2027-06-04 až 2027-06-06 (pátek až neděle)
+- Místo: Pražská tržnice, Bubenské nábřeží 306/13, 170 00 Praha 7 – Holešovice
+- Rozsah: 5 scén, 77 položek programu, 67 účinkujících
+- Kontakt: info@tranzistor-festival.cz
+
+## Dny
+- Pátek 4. 6. (pátek): 12:00–23:30, Zapojení
+- Sobota 5. 6. (sobota): 10:00–23:30, Plný výkon
+- Neděle 6. 6. (neděle): 10:00–20:00, Rodinná neděle
+
+## Hlavní stránky
+- [Tranzistor 2027 – festival technologií, her a digitální kultury](https://tranzistor-festival.cz/)
+- [Program – Tranzistor 2027](https://tranzistor-festival.cz/program.html)
+- [Účinkující – Tranzistor 2027](https://tranzistor-festival.cz/ucinkujici.html)
+- [Scény a areál – Tranzistor 2027](https://tranzistor-festival.cz/sceny.html)
+- [Praktické informace – Tranzistor 2027](https://tranzistor-festival.cz/prakticke-informace.html)
+- [O festivalu – Tranzistor 2027](https://tranzistor-festival.cz/o-festivalu.html)
+
+## Data
+- Kompletní program, účinkující a scény jsou na stránkách v sekcích program/, ucinkujici/ a sceny/; seznam všech adres je v https://tranzistor-festival.cz/sitemap.xml
