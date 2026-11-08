@@ -1,11 +1,38 @@
 {
   "meta": {
     "title": "Tranzistor 2027 – datová základna",
-    "version": "1.0.0",
-    "updated": "2026-10-13",
+    "version": "1.1.1",
+    "updated": "2026-11-08",
     "language": "cs",
     "timezone": "Europe/Prague",
-    "note": "Festival, účinkující i program jsou fiktivní. Texty byly vygenerovány AI, za obsah odpovídá tým. Odkazy v doméně .example jsou záměrně nefunkční."
+    "note": "Festival, účinkující i program jsou fiktivní. Texty byly vygenerovány AI, za obsah odpovídá tým. Doména tranzistor-festival.cz nebyla v době vytvoření registrovaná; odkazy účinkujících a sociálních sítí v doméně .example jsou záměrně nefunkční.",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-10-13",
+        "changes": [
+          "První verze datové základny (cvičení 2)."
+        ]
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-11-08",
+        "changes": [
+          "Doplněny obrázky festivalu, scén a účinkujících (cesta k souboru a alternativní text).",
+          "Doplněno schéma areálu a poloha scén na schématu.",
+          "Doplněna historie předchozích ročníků.",
+          "Doplněn kontakt pro média a odkaz na prodej vstupenek.",
+          "Opravena témata u tří účastníků panelových diskusí, aby odpovídala jejich vystoupením."
+        ]
+      },
+      {
+        "version": "1.1.1",
+        "date": "2026-11-08",
+        "changes": [
+          "Web, e-maily a odkaz na vstupenky festivalu přesunuty z domény .example na tranzistor-festival.cz, aby web nepůsobil jako ukázka."
+        ]
+      }
+    ]
   },
   "festival": {
     "id": "tranzistor-2027",
@@ -43,9 +70,10 @@
     },
     "organizer": {
       "name": "Tranzistor Festival, z. s.",
-      "email": "info@tranzistor-festival.example"
+      "email": "info@tranzistor-festival.cz",
+      "pressEmail": "media@tranzistor-festival.cz"
     },
-    "website": "https://tranzistor-festival.example",
+    "website": "https://tranzistor-festival.cz",
     "social": [
       {
         "platform": "Instagram",
@@ -58,6 +86,35 @@
       {
         "platform": "Mastodon",
         "url": "https://mastodon.example/@tranzistorfestival"
+      }
+    ],
+    "image": {
+      "src": "images/festival/hero.svg",
+      "alt": "Ilustrace: tranzistor a stylizované plošné spoje v barvách festivalu"
+    },
+    "areaMap": {
+      "src": "images/festival/areal.svg",
+      "alt": "Schéma areálu Pražské tržnice s pěti scénami festivalu a řekou Vltavou"
+    },
+    "ticketShopUrl": "https://tranzistor-festival.cz/vstupenky",
+    "history": [
+      {
+        "edition": 1,
+        "year": 2025,
+        "startDate": "2025-06-07",
+        "endDate": "2025-06-08",
+        "attendance": 5200,
+        "venueCount": 3,
+        "summary": "Dvoudenní premiéra ve třech halách. Hlavní hvězdou byl live coding na nábřeží, který se stal tradicí."
+      },
+      {
+        "edition": 2,
+        "year": 2026,
+        "startDate": "2026-06-05",
+        "endDate": "2026-06-07",
+        "attendance": 8700,
+        "venueCount": 4,
+        "summary": "První třídenní ročník. Přibyla herní zóna Arcade a první ročník turnaje Tranzistor Cup."
       }
     ]
   },
@@ -117,6 +174,14 @@
         "wheelchair": true,
         "hearingLoop": true,
         "note": "Bezbariérový vstup, vyhrazená místa pro vozíčkáře v první řadě, indukční smyčka v celém sále."
+      },
+      "image": {
+        "src": "images/venues/mainframe.svg",
+        "alt": "Ilustrace: velký sál s pódiem, projekčním plátnem a řadami sedadel"
+      },
+      "mapPosition": {
+        "x": 28,
+        "y": 30
       }
     },
     {
@@ -141,6 +206,14 @@
         "wheelchair": true,
         "hearingLoop": true,
         "note": "Bezbariérový vstup, indukční smyčka v prvních pěti řadách."
+      },
+      "image": {
+        "src": "images/venues/terminal.svg",
+        "alt": "Ilustrace: přednáškový sál se stupňovitým hledištěm a řečnickým pultem"
+      },
+      "mapPosition": {
+        "x": 62,
+        "y": 30
       }
     },
     {
@@ -165,6 +238,14 @@
         "wheelchair": true,
         "hearingLoop": false,
         "note": "Bezbariérový vstup, dva výškově nastavitelné pracovní stoly."
+      },
+      "image": {
+        "src": "images/venues/sandbox.svg",
+        "alt": "Ilustrace: dílenský stůl s páječkou, deskami plošných spojů a notebookem"
+      },
+      "mapPosition": {
+        "x": 80,
+        "y": 58
       }
     },
     {
@@ -190,6 +271,14 @@
         "wheelchair": true,
         "hearingLoop": false,
         "note": "Bezbariérový vstup, herní stanoviště s nastavitelnou výškou, k zapůjčení adaptivní ovladače."
+      },
+      "image": {
+        "src": "images/venues/arcade.svg",
+        "alt": "Ilustrace: herní automaty a turnajové pódium s velkou obrazovkou"
+      },
+      "mapPosition": {
+        "x": 46,
+        "y": 58
       }
     },
     {
@@ -215,6 +304,14 @@
         "wheelchair": true,
         "hearingLoop": false,
         "note": "Zpevněná přístupová cesta, vyvýšená plošina pro vozíčkáře s doprovodem."
+      },
+      "image": {
+        "src": "images/venues/nabrezi.svg",
+        "alt": "Ilustrace: venkovní pódium na louce u řeky za soumraku"
+      },
+      "mapPosition": {
+        "x": 30,
+        "y": 84
       }
     }
   ],
@@ -390,7 +487,11 @@
         "t07"
       ],
       "headliner": true,
-      "website": "https://elena-havrankova.example"
+      "website": "https://elena-havrankova.example",
+      "image": {
+        "src": "images/performers/elena-havrankova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Elena Havránková"
+      }
     },
     {
       "id": "p002",
@@ -404,7 +505,11 @@
         "t01"
       ],
       "headliner": false,
-      "website": "https://tomasz-wieliczko.example"
+      "website": "https://tomasz-wieliczko.example",
+      "image": {
+        "src": "images/performers/tomasz-wieliczko.svg",
+        "alt": "Abstraktní ilustrace k profilu: Tomasz Wieliczko"
+      }
     },
     {
       "id": "p003",
@@ -419,7 +524,11 @@
         "t07"
       ],
       "headliner": true,
-      "website": "https://ngozi-adebayo-lindqvist.example"
+      "website": "https://ngozi-adebayo-lindqvist.example",
+      "image": {
+        "src": "images/performers/ngozi-adebayo-lindqvist.svg",
+        "alt": "Abstraktní ilustrace k profilu: Ngozi Adebayo-Lindqvist"
+      }
     },
     {
       "id": "p004",
@@ -430,10 +539,15 @@
       "tagline": "Počítačový lingvista",
       "bio": "Učí jazykové modely skloňovat, časovat a rozumět českým vtipům. Spoluvytváří otevřené datové sady pro češtinu a slovenštinu.",
       "trackIds": [
-        "t01"
+        "t01",
+        "t07"
       ],
       "headliner": false,
-      "website": "https://vojtech-skrivan.example"
+      "website": "https://vojtech-skrivan.example",
+      "image": {
+        "src": "images/performers/vojtech-skrivan.svg",
+        "alt": "Abstraktní ilustrace k profilu: Vojtěch Skřivan"
+      }
     },
     {
       "id": "p005",
@@ -447,7 +561,11 @@
         "t01"
       ],
       "headliner": false,
-      "website": "https://mirela-dragomir.example"
+      "website": "https://mirela-dragomir.example",
+      "image": {
+        "src": "images/performers/mirela-dragomir.svg",
+        "alt": "Abstraktní ilustrace k profilu: Mirela Dragomir"
+      }
     },
     {
       "id": "p006",
@@ -462,7 +580,11 @@
         "t03"
       ],
       "headliner": true,
-      "website": "https://kenji-moriwaki.example"
+      "website": "https://kenji-moriwaki.example",
+      "image": {
+        "src": "images/performers/kenji-moriwaki.svg",
+        "alt": "Abstraktní ilustrace k profilu: Kenji Moriwaki"
+      }
     },
     {
       "id": "p007",
@@ -477,7 +599,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://sara-benesovska.example"
+      "website": "https://sara-benesovska.example",
+      "image": {
+        "src": "images/performers/sara-benesovska.svg",
+        "alt": "Abstraktní ilustrace k profilu: Sára Benešovská"
+      }
     },
     {
       "id": "p008",
@@ -491,7 +617,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://jonas-vrbata.example"
+      "website": "https://jonas-vrbata.example",
+      "image": {
+        "src": "images/performers/jonas-vrbata.svg",
+        "alt": "Abstraktní ilustrace k profilu: Jonáš Vrbata"
+      }
     },
     {
       "id": "p009",
@@ -505,7 +635,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://ingrid-solheim.example"
+      "website": "https://ingrid-solheim.example",
+      "image": {
+        "src": "images/performers/ingrid-solheim.svg",
+        "alt": "Abstraktní ilustrace k profilu: Ingrid Solheim"
+      }
     },
     {
       "id": "p010",
@@ -519,7 +653,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://radim-koutecky.example"
+      "website": "https://radim-koutecky.example",
+      "image": {
+        "src": "images/performers/radim-koutecky.svg",
+        "alt": "Abstraktní ilustrace k profilu: Radim Koutecký"
+      }
     },
     {
       "id": "p011",
@@ -533,7 +671,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://lucia-ferrandis.example"
+      "website": "https://lucia-ferrandis.example",
+      "image": {
+        "src": "images/performers/lucia-ferrandis.svg",
+        "alt": "Abstraktní ilustrace k profilu: Lucía Ferrandis"
+      }
     },
     {
       "id": "p012",
@@ -548,7 +690,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://patrik-hrubon.example"
+      "website": "https://patrik-hrubon.example",
+      "image": {
+        "src": "images/performers/patrik-hrubon.svg",
+        "alt": "Abstraktní ilustrace k profilu: Patrik Hruboň"
+      }
     },
     {
       "id": "p013",
@@ -559,10 +705,15 @@
       "tagline": "UX výzkumnice",
       "bio": "Zjišťuje, co lidé na webu skutečně dělají, ne co říkají, že dělají. Specializuje se na výzkum s malým rozpočtem a velkým dopadem.",
       "trackIds": [
-        "t02"
+        "t02",
+        "t07"
       ],
       "headliner": false,
-      "website": "https://daniela-storkova.example"
+      "website": "https://daniela-storkova.example",
+      "image": {
+        "src": "images/performers/daniela-storkova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Daniela Štorková"
+      }
     },
     {
       "id": "p014",
@@ -576,7 +727,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://oisin-gallagher-byrne.example"
+      "website": "https://oisin-gallagher-byrne.example",
+      "image": {
+        "src": "images/performers/oisin-gallagher-byrne.svg",
+        "alt": "Abstraktní ilustrace k profilu: Oisín Gallagher-Byrne"
+      }
     },
     {
       "id": "p015",
@@ -587,10 +742,15 @@
       "tagline": "Platformní inženýr",
       "bio": "Staví vývojářské platformy pro malé týmy, které si nemohou dovolit vlastní provozní oddělení. Sbírá historky o nočních výpadcích a učí, jak jim předcházet.",
       "trackIds": [
-        "t02"
+        "t02",
+        "t07"
       ],
       "headliner": false,
-      "website": "https://marek-zdrahal.example"
+      "website": "https://marek-zdrahal.example",
+      "image": {
+        "src": "images/performers/marek-zdrahal.svg",
+        "alt": "Abstraktní ilustrace k profilu: Marek Zdráhal"
+      }
     },
     {
       "id": "p016",
@@ -604,7 +764,11 @@
         "t03"
       ],
       "headliner": true,
-      "website": "https://barbora-kolmanova.example"
+      "website": "https://barbora-kolmanova.example",
+      "image": {
+        "src": "images/performers/barbora-kolmanova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Barbora Kolmanová"
+      }
     },
     {
       "id": "p017",
@@ -619,7 +783,11 @@
         "t07"
       ],
       "headliner": true,
-      "website": "https://matteo-calvaresi.example"
+      "website": "https://matteo-calvaresi.example",
+      "image": {
+        "src": "images/performers/matteo-calvaresi.svg",
+        "alt": "Abstraktní ilustrace k profilu: Matteo Calvaresi"
+      }
     },
     {
       "id": "p018",
@@ -634,7 +802,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://hana-simunkova.example"
+      "website": "https://hana-simunkova.example",
+      "image": {
+        "src": "images/performers/hana-simunkova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Hana Šimůnková"
+      }
     },
     {
       "id": "p019",
@@ -648,7 +820,11 @@
         "t03"
       ],
       "headliner": false,
-      "website": "https://dietrich-vogelsang.example"
+      "website": "https://dietrich-vogelsang.example",
+      "image": {
+        "src": "images/performers/dietrich-vogelsang.svg",
+        "alt": "Abstraktní ilustrace k profilu: Dietrich Vogelsang"
+      }
     },
     {
       "id": "p020",
@@ -662,7 +838,11 @@
         "t03"
       ],
       "headliner": true,
-      "website": "https://aigerim-nurlanova.example"
+      "website": "https://aigerim-nurlanova.example",
+      "image": {
+        "src": "images/performers/aigerim-nurlanova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Aigerim Nurlanova"
+      }
     },
     {
       "id": "p021",
@@ -677,7 +857,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://ondrej-pazdera.example"
+      "website": "https://ondrej-pazdera.example",
+      "image": {
+        "src": "images/performers/ondrej-pazdera.svg",
+        "alt": "Abstraktní ilustrace k profilu: Ondřej Pazdera"
+      }
     },
     {
       "id": "p022",
@@ -691,7 +875,11 @@
         "t04"
       ],
       "headliner": false,
-      "website": "https://kristyna-malatova.example"
+      "website": "https://kristyna-malatova.example",
+      "image": {
+        "src": "images/performers/kristyna-malatova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Kristýna Malátová"
+      }
     },
     {
       "id": "p023",
@@ -705,7 +893,11 @@
         "t04"
       ],
       "headliner": false,
-      "website": "https://lars-hedenskog.example"
+      "website": "https://lars-hedenskog.example",
+      "image": {
+        "src": "images/performers/lars-hedenskog.svg",
+        "alt": "Abstraktní ilustrace k profilu: Lars Hedenskog"
+      }
     },
     {
       "id": "p024",
@@ -720,7 +912,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://zuzana-krizanova.example"
+      "website": "https://zuzana-krizanova.example",
+      "image": {
+        "src": "images/performers/zuzana-krizanova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Zuzana Križanová"
+      }
     },
     {
       "id": "p025",
@@ -734,7 +930,11 @@
         "t04"
       ],
       "headliner": false,
-      "website": "https://rafael-monteverde.example"
+      "website": "https://rafael-monteverde.example",
+      "image": {
+        "src": "images/performers/rafael-monteverde.svg",
+        "alt": "Abstraktní ilustrace k profilu: Rafael Monteverde"
+      }
     },
     {
       "id": "p026",
@@ -748,7 +948,11 @@
         "t04"
       ],
       "headliner": false,
-      "website": "https://petr-lunacek.example"
+      "website": "https://petr-lunacek.example",
+      "image": {
+        "src": "images/performers/petr-lunacek.svg",
+        "alt": "Abstraktní ilustrace k profilu: Petr Luňáček"
+      }
     },
     {
       "id": "p027",
@@ -762,7 +966,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://studio-mlha.example"
+      "website": "https://studio-mlha.example",
+      "image": {
+        "src": "images/performers/studio-mlha.svg",
+        "alt": "Abstraktní ilustrace k profilu: Studio Mlha"
+      }
     },
     {
       "id": "p028",
@@ -776,7 +984,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://tereza-vanousova.example"
+      "website": "https://tereza-vanousova.example",
+      "image": {
+        "src": "images/performers/tereza-vanousova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Tereza Vaňousová"
+      }
     },
     {
       "id": "p029",
@@ -790,7 +1002,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://yuki-tanabe-hart.example"
+      "website": "https://yuki-tanabe-hart.example",
+      "image": {
+        "src": "images/performers/yuki-tanabe-hart.svg",
+        "alt": "Abstraktní ilustrace k profilu: Yuki Tanabe-Hart"
+      }
     },
     {
       "id": "p030",
@@ -804,7 +1020,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://stribrni-lvi.example"
+      "website": "https://stribrni-lvi.example",
+      "image": {
+        "src": "images/performers/stribrni-lvi.svg",
+        "alt": "Abstraktní ilustrace k profilu: Stříbrní Lvi"
+      }
     },
     {
       "id": "p031",
@@ -818,7 +1038,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://team-nordwind.example"
+      "website": "https://team-nordwind.example",
+      "image": {
+        "src": "images/performers/team-nordwind.svg",
+        "alt": "Abstraktní ilustrace k profilu: Team Nordwind"
+      }
     },
     {
       "id": "p032",
@@ -832,7 +1056,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://krakowskie-smoki.example"
+      "website": "https://krakowskie-smoki.example",
+      "image": {
+        "src": "images/performers/krakowskie-smoki.svg",
+        "alt": "Abstraktní ilustrace k profilu: Krakowskie Smoki"
+      }
     },
     {
       "id": "p033",
@@ -846,7 +1074,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://tatranski-rysi.example"
+      "website": "https://tatranski-rysi.example",
+      "image": {
+        "src": "images/performers/tatranski-rysi.svg",
+        "alt": "Abstraktní ilustrace k profilu: Tatranskí Rysi"
+      }
     },
     {
       "id": "p034",
@@ -860,7 +1092,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://pixel-babicka.example"
+      "website": "https://pixel-babicka.example",
+      "image": {
+        "src": "images/performers/pixel-babicka.svg",
+        "alt": "Abstraktní ilustrace k profilu: Pixel Babička"
+      }
     },
     {
       "id": "p035",
@@ -874,7 +1110,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://adam-reznicek.example"
+      "website": "https://adam-reznicek.example",
+      "image": {
+        "src": "images/performers/adam-reznicek.svg",
+        "alt": "Abstraktní ilustrace k profilu: Adam Řezníček"
+      }
     },
     {
       "id": "p036",
@@ -889,7 +1129,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://kolektiv-osmibit.example"
+      "website": "https://kolektiv-osmibit.example",
+      "image": {
+        "src": "images/performers/kolektiv-osmibit.svg",
+        "alt": "Abstraktní ilustrace k profilu: Kolektiv Osmibit"
+      }
     },
     {
       "id": "p037",
@@ -903,7 +1147,11 @@
         "t06"
       ],
       "headliner": true,
-      "website": "https://neonova-sova.example"
+      "website": "https://neonova-sova.example",
+      "image": {
+        "src": "images/performers/neonova-sova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Neonová Sova"
+      }
     },
     {
       "id": "p038",
@@ -917,7 +1165,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://algoritmia.example"
+      "website": "https://algoritmia.example",
+      "image": {
+        "src": "images/performers/algoritmia.svg",
+        "alt": "Abstraktní ilustrace k profilu: Algoritmia"
+      }
     },
     {
       "id": "p039",
@@ -931,7 +1183,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://dj-kernel-panic.example"
+      "website": "https://dj-kernel-panic.example",
+      "image": {
+        "src": "images/performers/dj-kernel-panic.svg",
+        "alt": "Abstraktní ilustrace k profilu: DJ Kernel Panic"
+      }
     },
     {
       "id": "p040",
@@ -945,7 +1201,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://modularni-morava.example"
+      "website": "https://modularni-morava.example",
+      "image": {
+        "src": "images/performers/modularni-morava.svg",
+        "alt": "Abstraktní ilustrace k profilu: Modulární Morava"
+      }
     },
     {
       "id": "p041",
@@ -959,7 +1219,11 @@
         "t06"
       ],
       "headliner": true,
-      "website": "https://lumen-field.example"
+      "website": "https://lumen-field.example",
+      "image": {
+        "src": "images/performers/lumen-field.svg",
+        "alt": "Abstraktní ilustrace k profilu: Lumen Field"
+      }
     },
     {
       "id": "p042",
@@ -973,7 +1237,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://sum-a-signal.example"
+      "website": "https://sum-a-signal.example",
+      "image": {
+        "src": "images/performers/sum-a-signal.svg",
+        "alt": "Abstraktní ilustrace k profilu: Šum a Signál"
+      }
     },
     {
       "id": "p043",
@@ -988,7 +1256,11 @@
         "t05"
       ],
       "headliner": false,
-      "website": "https://bitova-hloubka.example"
+      "website": "https://bitova-hloubka.example",
+      "image": {
+        "src": "images/performers/bitova-hloubka.svg",
+        "alt": "Abstraktní ilustrace k profilu: Bitová Hloubka"
+      }
     },
     {
       "id": "p044",
@@ -1002,7 +1274,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://voltage-sisters.example"
+      "website": "https://voltage-sisters.example",
+      "image": {
+        "src": "images/performers/voltage-sisters.svg",
+        "alt": "Abstraktní ilustrace k profilu: Voltage Sisters"
+      }
     },
     {
       "id": "p045",
@@ -1016,7 +1292,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://rano-v-serverovne.example"
+      "website": "https://rano-v-serverovne.example",
+      "image": {
+        "src": "images/performers/rano-v-serverovne.svg",
+        "alt": "Abstraktní ilustrace k profilu: Ráno v Serverovně"
+      }
     },
     {
       "id": "p046",
@@ -1030,7 +1310,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://katja-zimmerlin.example"
+      "website": "https://katja-zimmerlin.example",
+      "image": {
+        "src": "images/performers/katja-zimmerlin.svg",
+        "alt": "Abstraktní ilustrace k profilu: Katja Zimmerlin"
+      }
     },
     {
       "id": "p047",
@@ -1044,7 +1328,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://filip-dostalek.example"
+      "website": "https://filip-dostalek.example",
+      "image": {
+        "src": "images/performers/filip-dostalek.svg",
+        "alt": "Abstraktní ilustrace k profilu: Filip Dostálek"
+      }
     },
     {
       "id": "p048",
@@ -1059,7 +1347,11 @@
         "t03"
       ],
       "headliner": false,
-      "website": "https://orchestr-rozbitych-tiskaren.example"
+      "website": "https://orchestr-rozbitych-tiskaren.example",
+      "image": {
+        "src": "images/performers/orchestr-rozbitych-tiskaren.svg",
+        "alt": "Abstraktní ilustrace k profilu: Orchestr Rozbitých Tiskáren"
+      }
     },
     {
       "id": "p049",
@@ -1073,7 +1365,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://sine-qua-nonet.example"
+      "website": "https://sine-qua-nonet.example",
+      "image": {
+        "src": "images/performers/sine-qua-nonet.svg",
+        "alt": "Abstraktní ilustrace k profilu: Sine Qua Nonet"
+      }
     },
     {
       "id": "p050",
@@ -1087,7 +1383,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://glitch-babylon.example"
+      "website": "https://glitch-babylon.example",
+      "image": {
+        "src": "images/performers/glitch-babylon.svg",
+        "alt": "Abstraktní ilustrace k profilu: Glitch Babylon"
+      }
     },
     {
       "id": "p051",
@@ -1101,7 +1401,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://marie-kutalkova.example"
+      "website": "https://marie-kutalkova.example",
+      "image": {
+        "src": "images/performers/marie-kutalkova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Marie Kutálková"
+      }
     },
     {
       "id": "p052",
@@ -1115,7 +1419,11 @@
         "t06"
       ],
       "headliner": false,
-      "website": "https://subnet-mask.example"
+      "website": "https://subnet-mask.example",
+      "image": {
+        "src": "images/performers/subnet-mask.svg",
+        "alt": "Abstraktní ilustrace k profilu: Subnet Mask"
+      }
     },
     {
       "id": "p053",
@@ -1129,7 +1437,11 @@
         "t06"
       ],
       "headliner": true,
-      "website": "https://posledni-commit.example"
+      "website": "https://posledni-commit.example",
+      "image": {
+        "src": "images/performers/posledni-commit.svg",
+        "alt": "Abstraktní ilustrace k profilu: Poslední Commit"
+      }
     },
     {
       "id": "p054",
@@ -1143,7 +1455,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://magdalena-jirsova.example"
+      "website": "https://magdalena-jirsova.example",
+      "image": {
+        "src": "images/performers/magdalena-jirsova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Magdaléna Jirsová"
+      }
     },
     {
       "id": "p055",
@@ -1157,7 +1473,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://bohumil-trnavsky.example"
+      "website": "https://bohumil-trnavsky.example",
+      "image": {
+        "src": "images/performers/bohumil-trnavsky.svg",
+        "alt": "Abstraktní ilustrace k profilu: Bohumil Trnavský"
+      }
     },
     {
       "id": "p056",
@@ -1171,7 +1491,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://chiara-bellandi.example"
+      "website": "https://chiara-bellandi.example",
+      "image": {
+        "src": "images/performers/chiara-bellandi.svg",
+        "alt": "Abstraktní ilustrace k profilu: Chiara Bellandi"
+      }
     },
     {
       "id": "p057",
@@ -1185,7 +1509,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://viktor-hlavacik.example"
+      "website": "https://viktor-hlavacik.example",
+      "image": {
+        "src": "images/performers/viktor-hlavacik.svg",
+        "alt": "Abstraktní ilustrace k profilu: Viktor Hlaváčik"
+      }
     },
     {
       "id": "p058",
@@ -1199,7 +1527,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://simona-rybarova.example"
+      "website": "https://simona-rybarova.example",
+      "image": {
+        "src": "images/performers/simona-rybarova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Simona Rybářová"
+      }
     },
     {
       "id": "p059",
@@ -1214,7 +1546,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://emre-kahraman.example"
+      "website": "https://emre-kahraman.example",
+      "image": {
+        "src": "images/performers/emre-kahraman.svg",
+        "alt": "Abstraktní ilustrace k profilu: Emre Kahraman"
+      }
     },
     {
       "id": "p060",
@@ -1228,7 +1564,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://johana-perinova.example"
+      "website": "https://johana-perinova.example",
+      "image": {
+        "src": "images/performers/johana-perinova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Johana Peřinová"
+      }
     },
     {
       "id": "p061",
@@ -1242,7 +1582,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://stepan-louda.example"
+      "website": "https://stepan-louda.example",
+      "image": {
+        "src": "images/performers/stepan-louda.svg",
+        "alt": "Abstraktní ilustrace k profilu: Štěpán Louda"
+      }
     },
     {
       "id": "p062",
@@ -1256,7 +1600,11 @@
         "t03"
       ],
       "headliner": false,
-      "website": "https://dilna-pajka.example"
+      "website": "https://dilna-pajka.example",
+      "image": {
+        "src": "images/performers/dilna-pajka.svg",
+        "alt": "Abstraktní ilustrace k profilu: Dílna Pájka"
+      }
     },
     {
       "id": "p063",
@@ -1271,7 +1619,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://alzbeta-novackova.example"
+      "website": "https://alzbeta-novackova.example",
+      "image": {
+        "src": "images/performers/alzbeta-novackova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Alžběta Nováčková"
+      }
     },
     {
       "id": "p064",
@@ -1286,7 +1638,11 @@
         "t07"
       ],
       "headliner": false,
-      "website": "https://jakub-tesarik.example"
+      "website": "https://jakub-tesarik.example",
+      "image": {
+        "src": "images/performers/jakub-tesarik.svg",
+        "alt": "Abstraktní ilustrace k profilu: Jakub Tesařík"
+      }
     },
     {
       "id": "p065",
@@ -1300,7 +1656,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://wanjiru-kamau-stein.example"
+      "website": "https://wanjiru-kamau-stein.example",
+      "image": {
+        "src": "images/performers/wanjiru-kamau-stein.svg",
+        "alt": "Abstraktní ilustrace k profilu: Wanjiru Kamau-Stein"
+      }
     },
     {
       "id": "p066",
@@ -1314,7 +1674,11 @@
         "t02"
       ],
       "headliner": false,
-      "website": "https://robin-vacula.example"
+      "website": "https://robin-vacula.example",
+      "image": {
+        "src": "images/performers/robin-vacula.svg",
+        "alt": "Abstraktní ilustrace k profilu: Robin Vacula"
+      }
     },
     {
       "id": "p067",
@@ -1328,7 +1692,11 @@
         "t01"
       ],
       "headliner": false,
-      "website": "https://nikola-safrankova.example"
+      "website": "https://nikola-safrankova.example",
+      "image": {
+        "src": "images/performers/nikola-safrankova.svg",
+        "alt": "Abstraktní ilustrace k profilu: Nikola Šafránková"
+      }
     }
   ],
   "events": [

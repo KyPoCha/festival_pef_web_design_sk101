@@ -1,0 +1,422 @@
+<title>Tranzistor: komponenty a pohyb</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a single reading column; each decision is a row of option tiles with a live phone preview. */
+:root {
+  --paper: #f4f3ef;
+  --surface: #ffffff;
+  --ink: #171a2c;
+  --muted: #545a72;
+  --line: #d6d4cc;
+  --accent: #1d2a63;
+  --accent-ink: #ffffff;
+  --signal: #ffd23f;
+  --picked: #e9edff;
+  --ok: #17663a;
+  --sans: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12141d; --surface: #1b1e2b; --ink: #eceef6; --muted: #a6acc4; --line: #30354a;
+    --accent: #ffd23f; --accent-ink: #12141d; --picked: #262c48; --ok: #6fd99a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12141d; --surface: #1b1e2b; --ink: #eceef6; --muted: #a6acc4; --line: #30354a;
+  --accent: #ffd23f; --accent-ink: #12141d; --picked: #262c48; --ok: #6fd99a; color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--sans); }
+.wrap { max-width: 76rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 1.5rem 4rem; }
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; max-width: 68ch; }
+a { color: inherit; }
+.eyebrow { font: 600 0.78rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.intro { display: grid; gap: 0.8rem; margin-bottom: 2rem; }
+.steps { display: grid; gap: 0.5rem; padding: 0; margin: 0.4rem 0 0; list-style: none; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.6rem; align-items: baseline; }
+.steps li::before { counter-increment: step; content: counter(step); font: 600 0.9rem var(--mono); color: var(--accent); }
+.status { font: 500 0.9rem var(--mono); color: var(--muted); }
+.status.is-ok { color: var(--ok); }
+.decision { border-top: 2px solid var(--ink); padding-top: 1.2rem; margin-top: 2.4rem; display: grid; gap: 1rem; }
+.decision__head { display: grid; gap: 0.35rem; }
+.tiles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+.tile { position: relative; display: grid; gap: 0.7rem; align-content: start; background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: 0.9rem; cursor: pointer; }
+.tile:hover { border-color: var(--muted); }
+.tile.is-picked { border-color: var(--accent); background: var(--picked); }
+.tile > input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.tile:has(> input:focus-visible) { outline: 3px solid var(--signal); outline-offset: 3px; }
+.tile__top { display: flex; gap: 0.6rem; align-items: baseline; flex-wrap: wrap; }
+.tile__letter { font: 600 0.85rem var(--mono); background: var(--ink); color: var(--paper); border-radius: 6px; padding: 0.05rem 0.45rem; }
+.tile__name { font-weight: 700; font-size: 1.05rem; }
+.rec { font: 600 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 999px; padding: 0 0.5rem; }
+.tile__desc { color: var(--muted); font-size: 0.95rem; }
+.proscons { display: grid; gap: 0.15rem; font-size: 0.9rem; margin: 0; padding: 0; list-style: none; }
+.proscons li { padding-left: 1.2rem; text-indent: -1.2rem; }
+.proscons .plus::before { content: "+ "; font-family: var(--mono); color: var(--ok); font-weight: 600; }
+.proscons .minus::before { content: "− "; font-family: var(--mono); color: var(--muted); font-weight: 600; }
+.votes { display: flex; flex-wrap: wrap; gap: 0.3rem; min-height: 1.6rem; align-items: center; }
+.vote { font: 500 0.8rem var(--sans); background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 0.05rem 0.55rem; }
+.vote.is-me { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.votes__none { font-size: 0.85rem; color: var(--muted); }
+.note label { display: block; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+.note textarea { width: 100%; min-height: 4.2rem; font: inherit; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 8px; padding: 0.5rem 0.6rem; resize: vertical; }
+.note textarea:focus { outline: 3px solid var(--signal); outline-offset: 1px; border-color: var(--accent); }
+.summary { margin-top: 3rem; background: var(--surface); border: 2px solid var(--ink); border-radius: 12px; padding: 1.1rem; display: grid; gap: 0.8rem; }
+.summary table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.summary th, .summary td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.summary th { font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+.code { font: 500 0.88rem var(--mono); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 0.5rem 0.6rem; overflow-x: auto; white-space: nowrap; }
+.btn { font: 600 0.95rem var(--sans); background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 8px; padding: 0.55rem 1rem; min-height: 44px; cursor: pointer; justify-self: start; }
+.btn:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.copy-area { width: 100%; min-height: 7rem; font: 500 0.85rem var(--mono); background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 0.5rem; }
+
+/* phone preview frame: the prototype's own stylesheet, scoped to .proto, sized by container queries */
+.phone { position: relative; width: 100%; max-width: 340px; height: 470px; overflow: hidden; border-radius: 18px; border: 6px solid var(--ink); background: #fff; container-type: inline-size; container-name: proto; justify-self: center; }
+.phone .proto { height: 100%; overflow: hidden; font-size: 15px; }
+.phone .proto[data-ui-nav="bottom"] .tab-bar { position: absolute; }
+.phone .proto .toast { position: absolute; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.preview-col { display: grid; gap: 0.5rem; justify-items: center; width: 100%; }
+.phone-slot { display: block; width: 100%; max-width: 340px; }
+.phone-slot .phone { max-width: none; }
+.replay { font: 600 0.85rem var(--sans); color: var(--accent); background: transparent; border: 1.5px solid var(--accent); border-radius: 999px; padding: 0.3rem 0.9rem; min-height: 36px; cursor: pointer; }
+.replay:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.phone .badge.preview-bump { animation: tz-bump 1.4s ease-in-out infinite; }
+.phone .proto .day-switch, .phone .proto .page-nav { position: static; }
+.phone .proto .full-bleed { margin-inline: 0; }
+.phone .proto .hero__inner { padding: 1.4rem 0 1.6rem; }
+.phone .proto .hero h1 { font-size: 2.5rem; }
+.phone .proto[data-ui-hero="type"] .hero h1 { font-size: 3rem; }
+.phone .proto .hero__word { font-size: 6.5rem; }
+.general textarea { min-height: 6rem; }
+
+/*PROTO_CSS*/
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <p class="eyebrow">Tranzistor 2027 · výběr vzhledu · kolo 2</p>
+    <h1>Komponenty a pohyb</h1>
+    <p>V prvním kole jsme vybrali tmavý vzhled Kyber, spodní lištu, dlaždice a textové tlačítko. Teď jde o komponenty, které působily nedotaženě, a o animace. Každý náhled je skutečný kód webu na šířce telefonu. Vyberte variantu, nebo napište poznámku, co by se mělo změnit.</p>
+    <ol class="steps">
+      <li><span>Klikněte na variantu. Volba se uloží a uvidí ji celý tým.</span></li>
+      <li><span>U animací si ukázku přehrajete tlačítkem pod telefonem.</span></li>
+      <li><span>Dole je místo pro další připomínky a souhrn s odkazem do webu.</span></li>
+    </ol>
+    <p><strong>Rozhodnuto 8. 11. 2026:</strong> ve všech osmi bodech varianta A. Zvolené styly platí na celém webu jako společná pravidla pro karty, skládací bloky, seznamy a tabulky.</p>
+    <p class="status" id="save-status" role="status">Načítám uložené volby…</p>
+  </header>
+
+  <main id="decisions"></main>
+
+  <section class="note general decision" aria-labelledby="general-title">
+    <h2 id="general-title">Další připomínky</h2>
+    <label for="note-general">Co dalšího na webu působí nedotaženě nebo by mělo vypadat jinak?</label>
+    <textarea id="note-general" data-note="general" placeholder="Např. stránka, komponenta a co přesně změnit"></textarea>
+  </section>
+
+  <section class="summary" aria-labelledby="summary-title">
+    <h2 id="summary-title">Souhrn</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th scope="col">Rozhodnutí</th><th scope="col">Vaše volba</th><th scope="col">Hlasy týmu</th></tr></thead>
+      <tbody id="summary-rows"></tbody>
+    </table></div>
+    <p>Vybranou kombinaci otevřete ve webu připojením tohoto parametru k adrese libovolné stránky:</p>
+    <p class="code" id="ui-param">?ui=</p>
+    <button class="btn" type="button" id="copy">Zkopírovat souhrn</button>
+    <textarea class="copy-area" id="copy-fallback" aria-label="Souhrn k ručnímu zkopírování" hidden readonly></textarea>
+  </section>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  /*ICONS_JS*/
+  function icon(n, cls) { return '<svg class="icon' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="' + ICONS[n] + '"/></svg>'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  // Kolo 1 je rozhodnuté; kolo 2 vychází z doporučení.
+  var BASE = { theme: 'kyber', nav: 'bottom', card: 'tile', save: 'text' };
+  var DEFAULTS = { alert: 'panel', toast: 'undo', pagenav: 'chips', faq: 'cards', services: 'cards', motion: 'subtle', accent: 'green', hero: 'circuit' };
+
+  // ---------- ukázkový obsah (skutečná data festivalu) ----------
+  function card(c, ui) {
+    var on = !!c.saved;
+    return '<li><article class="card event-card event-card--' + c.track + (c.conflict ? ' is-conflict' : '') + '">' +
+      '<p class="event-card__time">' + icon('clock', 'icon--time') + c.start + '<span>do ' + c.end + '</span></p>' +
+      '<div class="event-card__body"><h4><a href="#">' + esc(c.title) + '</a></h4>' +
+      '<p class="event-card__where">' + icon('place', 'icon--inline') + esc(c.where) + '</p>' +
+      '<p class="tags"><span class="tag tag--track tag--' + c.track + '">' + c.trackName + '</span> <span class="tag">' + c.type + '</span></p>' +
+      (c.clash ? '<p class="clash-note">' + icon('warning') + 'Kryje se s: ' + esc(c.clash) + '</p>' : '') + '</div>' +
+      '<div class="event-card__actions"><button type="button" class="save" aria-pressed="' + on + '">' + icon(on ? 'check' : 'add') + '<span class="save__text">' + (on ? 'V Mém programu' : 'Do Mého programu') + '</span></button></div></article></li>';
+  }
+  var CONCERTS = [
+    { start: '18:00', end: '19:00', title: 'Sine Qua Nonet', where: 'Nábřeží · Sine Qua Nonet', track: 't06', trackName: 'Digitální umění a hudba', type: 'Koncert', saved: true },
+    { start: '19:30', end: '20:30', title: 'Šum a Signál', where: 'Nábřeží · Šum a Signál', track: 't06', trackName: 'Digitální umění a hudba', type: 'Koncert' },
+    { start: '20:45', end: '22:00', title: 'DJ Kernel Panic: Bezpečné vypnutí', where: 'Nábřeží · DJ Kernel Panic', track: 't06', trackName: 'Digitální umění a hudba', type: 'Koncert' }
+  ];
+  var CLASH = [
+    { start: '15:00', end: '17:00', title: 'Capture the Flag pro začátečníky', where: 'Sandbox · Petr Luňáček', track: 't04', trackName: 'Bezpečnost a soukromí', type: 'Workshop', saved: true, conflict: true, clash: 'Jak jsem se nabourala do banky (a dostala za to zaplaceno)' },
+    { start: '16:30', end: '17:15', title: 'Jak jsem se nabourala do banky (a dostala za to zaplaceno)', where: 'Mainframe · Kristýna Malátová', track: 't04', trackName: 'Bezpečnost a soukromí', type: 'Přednáška', saved: true, conflict: true, clash: 'Capture the Flag pro začátečníky' }
+  ];
+  var CLASH_ITEM = '<li class="clash"><span class="clash__time">so 16:30–17:00 <span class="clash__len">(30 min)</span></span><a href="#">Capture the Flag pro začátečníky</a>' +
+    '<span class="clash__vs">kryje se s</span><a href="#">Jak jsem se nabourala do banky (a dostala za to zaplaceno)</a></li>';
+  var ADVICE = 'Jednu z položek odeberte, nebo počítejte s přesunem mezi scénami.';
+  function alertHtml(v) {
+    if (v === 'strip') return '<details class="notice conflict-strip" open><summary>' + icon('warning') + '<span>1 časová kolize</span><span class="conflict-strip__more">Zobrazit</span></summary><ul class="clashes">' + CLASH_ITEM + '</ul><p>' + ADVICE + '</p></details>';
+    if (v === 'inline') return '<p class="notice conflict-line">' + icon('warning') + '<span><strong>1 časová kolize.</strong> Kolidující položky jsou níže označené červeně.</span></p>';
+    return '<section class="notice conflict-panel"><div class="conflict-panel__head"><span class="conflict-panel__icon">' + icon('warning') + '</span><div><h2>1 časová kolize</h2><p>' + ADVICE + '</p></div></div><ul class="clashes">' + CLASH_ITEM + '</ul></section>';
+  }
+  var PAGENAV = [['ticket', 'Vstupenky'], ['train', 'Doprava'], ['accessible', 'Přístupnost'], ['cafe', 'Služby'], ['info', 'Pravidla'], ['help', 'Časté dotazy']];
+  var FAQ = [['Mohu si koupit vstupenku až na místě?', 'Ano, pokud nebude vyprodáno. Pokladna u hlavního vstupu je otevřena po celou provozní dobu festivalu.'],
+    ['Musím si rezervovat místo na přednášky?', ''], ['V jakém jazyce program probíhá?', ''], ['Je festival vhodný pro děti?', '']];
+  var SERVICES = [['restaurant', 'Občerstvení', 'Stánky s jídlem včetně vegetariánských, veganských a bezlepkových variant.'],
+    ['water', 'Pitná voda', 'Zdarma u všech označených výdejních míst. Vlastní lahev s sebou.'],
+    ['card', 'Platby', 'Platí se pouze kartou nebo mobilem.'], ['hospital', 'První pomoc', 'Zdravotníci ve stanu u vstupu na Nábřežní louku.']];
+  function heroCircuitSvg() {
+    var paths = '', dots = '';
+    for (var i = 0; i < 9; i++) {
+      var y = 40 + i * 62, x = (i * 97) % 260, w = 300 + (i * 131) % 420;
+      var d = 'M' + x + ' ' + y + ' h' + w + ' l36 36 h' + (120 + (i * 53) % 260);
+      paths += '<path class="trace" d="' + d + '"/><path class="pulse" style="animation-delay:' + (i * 0.7).toFixed(1) + 's" d="' + d + '"/>';
+      dots += '<circle cx="' + x + '" cy="' + y + '" r="6"/>';
+    }
+    return '<svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">' + paths + dots + '</svg>';
+  }
+  var HERO_ART = 'data:image/svg+xml;base64,/*HERO_SVG*/';
+
+  // ---------- telefon ----------
+  function attrs(ui) { return Object.keys(ui).map(function (k) { return 'data-ui-' + k + '="' + ui[k] + '"'; }).join(' '); }
+  function header() {
+    return '<header class="site-header"><div class="site-header__bar container"><a class="logo" href="#"><span class="logo__mark"></span>Tranzistor <span class="logo__year">2027</span></a>' +
+      '<button class="menu-toggle" type="button">' + icon('menu') + '<span class="menu-toggle__text">Menu</span></button>' +
+      '<form class="search"><input type="search" placeholder="Hledat účinkující, program…"><button type="button">' + icon('search') + '<span class="search__text">Hledat</span></button></form></div></header>';
+  }
+  function tabbar(bump) {
+    return '<nav class="tab-bar"><ul>' + [['home', 'Úvod'], ['program', 'Program'], ['people', 'Účinkující'], ['place', 'Scény'], ['star', 'Můj plán']].map(function (t, i) {
+      var badge = t[0] === 'star' ? '<span class="badge badge--corner' + (bump ? ' preview-bump' : '') + '" data-count="3">3</span>' : '';
+      return '<li><a href="#"' + (i === 1 ? ' aria-current="page"' : '') + '><span class="tab-bar__icon">' + icon(t[0]) + badge + '</span><span class="tab-bar__label">' + t[1] + '</span></a></li>';
+    }).join('') + '</ul></nav>';
+  }
+  function phone(ui, inner, opts) {
+    opts = opts || {};
+    return '<div class="phone" inert aria-hidden="true"><div class="proto js" ' + attrs(ui) + '>' + (opts.header ? header() : '') +
+      '<main>' + inner + '</main>' + tabbar(opts.bump) + (opts.after || '') + '</div></div>';
+  }
+  function preview(key, value) {
+    var ui = Object.assign({}, BASE, DEFAULTS);
+    ui[key] = value;
+    var c = '<div class="container">';
+    if (key === 'alert') {
+      var cards = CLASH.map(function (x) { return card(x, ui); }).join('');
+      return phone(ui, c + '<h1 style="font-size:1.6rem;margin:0.7rem 0 0.3rem">Můj program</h1><p>3 uložené položky</p>' + alertHtml(value) +
+        '<section class="day-group"><h3>Sobota 5. 6. <small>· Plný výkon</small></h3><ol class="event-list">' + cards + '</ol></section></div>');
+    }
+    if (key === 'toast') {
+      var t = value === 'pulse' ? '' : '<div class="toast is-shown">' + (value === 'quiet' ? '' : icon('check', 'toast__icon')) +
+        '<span class="toast__text">Přidáno do Mého programu: Sine Qua Nonet</span>' + (value === 'undo' ? '<button type="button" class="toast__undo">' + icon('undo') + 'Vrátit</button>' : '') + '</div>';
+      return phone(ui, c + '<section class="day-group"><h3>Sobota 5. 6. <small>· Plný výkon</small></h3><ol class="event-list">' + CONCERTS.slice(0, 2).map(function (x) { return card(x, ui); }).join('') + '</ol></section></div>', { bump: value === 'pulse', after: t });
+    }
+    if (key === 'pagenav') {
+      var nav = '<nav class="page-nav"><ul>' + PAGENAV.map(function (p, i) {
+        return '<li><a href="#"' + (i === 0 ? ' aria-current="location"' : '') + '><span class="page-nav__icon">' + icon(p[0]) + '</span>' + p[1] + '</a></li>';
+      }).join('') + '</ul></nav>';
+      return phone(ui, c + '<h1 style="font-size:1.6rem;margin:0.7rem 0 0.6rem">Praktické informace</h1>' + nav +
+        '<h2 style="margin-top:0.8rem">Vstupenky</h2><div class="card"><strong>Třídenní vstupenka</strong><p style="margin:0.3rem 0 0"><span class="price" style="font-family:var(--mono);font-weight:700;color:var(--yellow)">1 890 Kč</span> · pá · so · ne</p></div></div>');
+    }
+    if (key === 'faq') {
+      return phone(ui, c + '<section class="faq"><h2 style="margin-top:0.8rem">Časté dotazy</h2>' + FAQ.map(function (f, i) {
+        return '<details class="faq-item"' + (i === 0 ? ' open' : '') + '><summary><span class="faq-item__q">' + f[0] + '</span><span class="faq-item__icon">' +
+          icon('expand', 'faq-item__chevron') + icon('add', 'faq-item__plus') + icon('remove', 'faq-item__minus') + '</span></summary><div class="faq-item__a"><p>' + f[1] + '</p></div></details>';
+      }).join('') + '</section></div>');
+    }
+    if (key === 'services') {
+      return phone(ui, c + '<h2 style="margin-top:0.8rem">Služby v areálu</h2><ul class="services">' + SERVICES.map(function (s) {
+        return '<li class="services__item"><span class="services__icon">' + icon(s[0]) + '</span><div><h3 class="services__name">' + s[1] + '</h3><p>' + s[2] + '</p></div></li>';
+      }).join('') + '</ul></div>');
+    }
+    if (key === 'motion') {
+      return phone(ui, c + '<div class="day-switch"><div class="chips"><label><input type="radio" name="d' + value + '"><span>Vše</span></label><label><input type="radio" name="d' + value + '" checked><span>So <small>5. 6.</small></span></label></div></div>' +
+        '<section class="day-group"><h3>Sobota 5. 6. <small>· Plný výkon</small></h3><ol class="event-list">' + CONCERTS.map(function (x) { return card(x, ui); }).join('') + '</ol></section></div>',
+        { after: '<div class="toast is-shown">' + icon('check', 'toast__icon') + '<span class="toast__text">Přidáno do Mého programu</span><button type="button" class="toast__undo">' + icon('undo') + 'Vrátit</button></div>' });
+    }
+    // accent + hero: úvodní stránka
+    var hero = '<section class="hero full-bleed"><img class="hero__art" src="' + HERO_ART + '" alt=""><div class="hero__circuit">' + heroCircuitSvg() + '</div>' +
+      '<span class="hero__word">Tranzistor</span><div class="hero__inner container"><p class="hero__pill">4.–6. 6. 2027 · Pražská tržnice, Praha 7</p>' +
+      '<h1>Tranzistor <span>2027</span></h1><p class="hero__slogan">Zapoj se.</p><ul class="hero__stats"><li><strong>3</strong> dny</li><li><strong>5</strong> scén</li><li><strong>77</strong> položek</li></ul>' +
+      '<p class="hero__actions"><a class="button button--accent" href="#">Prohlédnout program</a></p></div></section>';
+    var below = key === 'accent' ? '<div class="container"><div class="countdown card" style="margin-top:1rem"><p class="countdown__label">Do zahájení zbývá</p><p class="countdown__value"><strong>207</strong> dní</p></div>' +
+      '<ol class="event-list" style="margin-top:0.8rem">' + card(CONCERTS[0], ui) + '</ol></div>' : '';
+    return phone(ui, hero + below, { header: true });
+  }
+
+  var DECISIONS = [
+    { key: 'alert', title: 'Upozornění na časovou kolizi', question: 'Jak má Můj program upozornit, že se dvě uložené položky kryjí?', options: [
+      { value: 'panel', letter: 'A', name: 'Panel s ikonou', rec: true, desc: 'Výrazný panel nahoře: ikona, počet kolizí, rada a každá kolize jako řádek s časem překryvu.', plus: ['Hned je vidět, co a kdy se kryje', 'Odkazy na obě položky'], minus: ['Zabírá místo nad programem'] },
+      { value: 'strip', letter: 'B', name: 'Pruh s rozbalením', desc: 'Úzký pruh „1 časová kolize“, podrobnosti po rozbalení.', plus: ['Šetří místo', 'Nepřebije zbytek stránky'], minus: ['Podrobnosti o klepnutí dál'] },
+      { value: 'inline', letter: 'C', name: 'Přímo u karet', desc: 'Krátká věta nahoře; každá kolidující karta má červenou poznámku, s čím se kryje.', plus: ['Informace je u položky, kterou řeším'], minus: ['Celkový přehled kolizí chybí'] }
+    ]},
+    { key: 'toast', title: 'Potvrzení po uložení', question: 'Co uživatel uvidí, když si položku uloží?', options: [
+      { value: 'undo', letter: 'A', name: 'Lišta s „Vrátit“', rec: true, desc: 'Lišta vyjede zdola s potvrzením a tlačítkem Vrátit.', plus: ['Omyl jde napravit jedním klepnutím', 'Jasná zpětná vazba'], minus: ['Na chvíli zakryje kus obsahu'] },
+      { value: 'pulse', letter: 'B', name: 'Pulz odznaku', desc: 'Žádná lišta; počet u hvězdičky ve spodní liště poskočí. Čtečka obrazovky potvrzení přečte.', plus: ['Nic nezakrývá', 'Ukazuje, kam se položka uložila'], minus: ['Snadno se přehlédne', 'Nejde vrátit'] },
+      { value: 'quiet', letter: 'C', name: 'Jednoduchá lišta', desc: 'Lišta jen s textem, bez ikony a bez Vrátit.', plus: ['Nejjednodušší'], minus: ['Působí strohé', 'Nejde vrátit'] }
+    ]},
+    { key: 'pagenav', title: 'Navigace po stránce Praktické informace', question: 'Jak se přeskakuje mezi Vstupenkami, Dopravou, Přístupností a dalšími částmi?', options: [
+      { value: 'chips', letter: 'A', name: 'Čipy s ikonami', rec: true, desc: 'Vodorovný pás čipů, drží se nahoře a zvýrazní část, kterou právě čtete.', plus: ['Zabere jeden řádek', 'Je pořád po ruce'], minus: ['Část čipů je schovaná za okrajem'] },
+      { value: 'tiles', letter: 'B', name: 'Dlaždice', desc: 'Šest dlaždic s ikonou nahoře na stránce.', plus: ['Všechny části najednou', 'Velké cíle pro prst'], minus: ['Nedrží se při posouvání', 'Zabírá výšku'] },
+      { value: 'tabs', letter: 'C', name: 'Záložky', desc: 'Podtržené záložky jako v aplikaci, drží se nahoře.', plus: ['Známý vzor z aplikací'], minus: ['Méně výrazné', 'Část záložek mimo obrazovku'] }
+    ]},
+    { key: 'faq', title: 'Časté dotazy', question: 'Jak mají vypadat otázky a odpovědi?', options: [
+      { value: 'cards', letter: 'A', name: 'Karty se šipkou', rec: true, desc: 'Každá otázka je karta, šipka se při otevření otočí a odpověď plynule vyjede.', plus: ['Jasně oddělené otázky', 'Zřejmé, že jde otevřít'], minus: ['Delší stránka'] },
+      { value: 'plus', letter: 'B', name: 'Seznam s plus a mínus', desc: 'Otázky oddělené čarou, kulaté tlačítko plus/mínus vpravo.', plus: ['Vzdušné', 'Výrazný stav otevřeno/zavřeno'], minus: ['Méně kompaktní'] },
+      { value: 'plain', letter: 'C', name: 'Původní', desc: 'Prostý seznam bez ikon.', plus: ['Nejkratší'], minus: ['Není poznat, že otázka jde otevřít'] }
+    ]},
+    { key: 'services', title: 'Služby v areálu', question: 'Jak zobrazit občerstvení, vodu, platby, první pomoc a další služby?', options: [
+      { value: 'cards', letter: 'A', name: 'Karty s ikonami', rec: true, desc: 'Každá služba jako karta s ikonou; na širší obrazovce ve sloupcích.', plus: ['Rychle se najde, co hledám', 'Odpovídá zbytku webu'], minus: ['Delší na telefonu'] },
+      { value: 'list', letter: 'B', name: 'Seznam s ikonami', desc: 'Řádky oddělené čarou s menší ikonou.', plus: ['Kompaktní', 'Ikony pomáhají při čtení'], minus: ['Méně výrazné'] },
+      { value: 'plain', letter: 'C', name: 'Původní', desc: 'Název a popis bez ikon.', plus: ['Nejkratší'], minus: ['Působí jako text dokumentu'] }
+    ]},
+    { key: 'motion', title: 'Animace', question: 'Kolik pohybu má web mít? Kdo má v systému vypnuté animace, nedostane žádné.', options: [
+      { value: 'subtle', letter: 'A', name: 'Jemné', rec: true, desc: 'Obsah se při načtení lehce vysune, lišta potvrzení vyjede, tlačítka reagují na stisk, obvod v úvodu jemně pulzuje.', plus: ['Web působí živě, ale nezdržuje'], minus: [] },
+      { value: 'lively', letter: 'B', name: 'Výrazné', desc: 'Navíc postupné objevování karet, svítící tečka u dnů, rychlejší pulz obvodu, zvednutí karet pod kurzorem.', plus: ['Silná festivalová atmosféra'], minus: ['Může rušit při rychlém hledání', 'Na slabších telefonech náročnější'] },
+      { value: 'none', letter: 'C', name: 'Žádné', desc: 'Bez animací, jen změna barvy tlačítek.', plus: ['Nejrychlejší, nic neruší'], minus: ['Působí staticky'] }
+    ]},
+    { key: 'accent', title: 'Akcentová barva', question: 'Jaká barva má svítit na tlačítkách, časech a aktivních prvcích?', options: [
+      { value: 'green', letter: 'A', name: 'Neonová zelená', rec: true, desc: 'Současná barva, nápad z prototypu člena týmu.', plus: ['Nejvyšší kontrast na tmavém pozadí', 'Barva „zapnutého obvodu“'], minus: ['Blízko zeleným štítkům témat'] },
+      { value: 'cyan', letter: 'B', name: 'Azurová', desc: 'Chladná elektrická modrá.', plus: ['Klidnější, technická'], minus: ['Splývá s odkazy'] },
+      { value: 'amber', letter: 'C', name: 'Jantarová', desc: 'Teplá oranžovožlutá jako displeje starých přístrojů.', plus: ['Teplejší, výrazná'], minus: ['Plete se s barvou upozornění'] }
+    ]},
+    { key: 'hero', title: 'Úvodní obrázek', question: 'Co má být za názvem festivalu na úvodní stránce?', options: [
+      { value: 'circuit', letter: 'A', name: 'Živý obvod', rec: true, desc: 'Cesty plošného spoje, po kterých běží svítící signál.', plus: ['Pohyb bez rušení textu', 'Lehké, bez obrázku'], minus: ['Bez animací je statický'] },
+      { value: 'transistor', letter: 'B', name: 'Kresba tranzistoru', desc: 'Současná ilustrace se značkou tranzistoru.', plus: ['Odkazuje na název festivalu'], minus: ['Na telefonu je většinou mimo obrazovku'] },
+      { value: 'type', letter: 'C', name: 'Typografický', desc: 'Obří obrysový nápis TRANZISTOR za názvem, větší titulek.', plus: ['Výrazný a čistý'], minus: ['Bez obrazového motivu'] }
+    ]}
+  ];
+
+  // ---------- stav ----------
+  var LOCAL = 'tranzistor-picker-2';
+  var mine = { choices: {}, notes: {} };
+  var everyone = {}, names = {}, myId = null, db = null, user = null, saving = false, again = false, timer = null;
+  try { var saved = JSON.parse(localStorage.getItem(LOCAL) || 'null'); if (saved) mine = saved; } catch (e) { /* bez úložiště */ }
+  var statusEl = document.getElementById('save-status');
+  function status(text, ok) { statusEl.textContent = text; statusEl.classList.toggle('is-ok', !!ok); }
+
+  function buildDecisions() {
+    document.getElementById('decisions').innerHTML = DECISIONS.map(function (d) {
+      return '<section class="decision" aria-labelledby="h-' + d.key + '"><div class="decision__head"><p class="eyebrow">Rozhodnutí</p>' +
+        '<h2 id="h-' + d.key + '">' + d.title + '</h2><p>' + d.question + '</p></div>' +
+        '<div class="tiles" role="radiogroup" aria-labelledby="h-' + d.key + '">' + d.options.map(function (o) {
+          var id = 'pick-' + d.key + '-' + o.value;
+          return '<label class="tile" for="' + id + '"><input type="radio" name="pick-' + d.key + '" id="' + id + '" value="' + o.value + '">' +
+            '<span class="tile__top"><span class="tile__letter">' + o.letter + '</span><span class="tile__name">' + o.name + '</span>' +
+            (o.rec ? '<span class="rec">Doporučení AI</span>' : '') + '</span><span class="tile__desc">' + o.desc + '</span>' +
+            '<span class="preview-col"><span class="phone-slot" data-preview="' + d.key + ':' + o.value + '">' + preview(d.key, o.value) + '</span>' +
+            (d.key === 'motion' && o.value !== 'none' ? '<button type="button" class="replay" data-replay="' + d.key + ':' + o.value + '">Přehrát ukázku</button>' : '') + '</span>' +
+            '<ul class="proscons">' + o.plus.map(function (p) { return '<li class="plus">' + p + '</li>'; }).join('') +
+            o.minus.map(function (m) { return '<li class="minus">' + m + '</li>'; }).join('') + '</ul>' +
+            '<span class="votes" data-votes="' + d.key + ':' + o.value + '"></span></label>';
+        }).join('') + '</div><div class="note"><label for="note-' + d.key + '">Poznámka k rozhodnutí (nepovinná)</label>' +
+        '<textarea id="note-' + d.key + '" data-note="' + d.key + '" placeholder="Co by se mělo na vybrané variantě změnit"></textarea></div></section>';
+    }).join('');
+  }
+  function votersFor(key, value, all) { return Object.keys(all).filter(function (id) { return all[id].choices && all[id].choices[key] === value; }); }
+  function render() {
+    var all = Object.assign({}, everyone); all[myId || 'me'] = mine;
+    DECISIONS.forEach(function (d) {
+      document.querySelectorAll('input[name="pick-' + d.key + '"]').forEach(function (r) { r.checked = r.value === mine.choices[d.key]; r.closest('.tile').classList.toggle('is-picked', r.checked); });
+      var note = document.getElementById('note-' + d.key);
+      if (document.activeElement !== note) note.value = mine.notes[d.key] || '';
+      d.options.forEach(function (o) {
+        var box = document.querySelector('[data-votes="' + d.key + ':' + o.value + '"]'), v = votersFor(d.key, o.value, all);
+        box.innerHTML = v.length ? v.map(function (id) {
+          var me = id === myId || id === 'me', s = document.createElement('span');
+          s.className = 'vote' + (me ? ' is-me' : ''); s.textContent = me ? 'Vy' : (names[id] || 'Člen týmu'); return s.outerHTML;
+        }).join('') : '<span class="votes__none">Zatím bez hlasu</span>';
+      });
+    });
+    var g = document.getElementById('note-general'); if (document.activeElement !== g) g.value = mine.notes.general || '';
+    document.getElementById('summary-rows').innerHTML = DECISIONS.map(function (d) {
+      var pick = d.options.filter(function (o) { return o.value === mine.choices[d.key]; })[0];
+      return '<tr><th scope="row">' + d.title + '</th><td>' + (pick ? pick.letter + ' ' + pick.name : '<em>nevybráno</em>') + '</td><td>' +
+        d.options.map(function (o) { return o.letter + ': ' + votersFor(d.key, o.value, all).length; }).join(' · ') + '</td></tr>';
+    }).join('');
+    document.getElementById('ui-param').textContent = '?ui=' + DECISIONS.map(function (d) { return d.key + ':' + (mine.choices[d.key] || DEFAULTS[d.key]); }).join(',');
+  }
+  function summaryText() {
+    var lines = ['Tranzistor – komponenty a pohyb (kolo 2)'];
+    DECISIONS.forEach(function (d) {
+      var pick = d.options.filter(function (o) { return o.value === mine.choices[d.key]; })[0], note = (mine.notes[d.key] || '').trim();
+      lines.push(d.title + ': ' + (pick ? pick.letter + ' ' + pick.name : 'nevybráno') + (note ? ' | poznámka: ' + note : ''));
+    });
+    if ((mine.notes.general || '').trim()) lines.push('Další připomínky: ' + mine.notes.general.trim());
+    lines.push('Web: ' + document.getElementById('ui-param').textContent);
+    return lines.join('\n');
+  }
+  function keepLocal() { try { localStorage.setItem(LOCAL, JSON.stringify(mine)); } catch (e) { /* bez úložiště */ } }
+  function scheduleSave() { keepLocal(); if (!db || !myId) return; clearTimeout(timer); status('Ukládám…'); timer = setTimeout(flush, 600); }
+  function flush() {
+    if (saving) { again = true; return; }
+    saving = true;
+    db.collection('picks').doc(myId).set({ choices: mine.choices, notes: mine.notes, updatedAt: new Date().toISOString() })
+      .then(function () { status('Uloženo. Volbu vidí celý tým.', true); },
+            function (e) { status(e && e.code === 'not_granted' ? 'Nemáte oprávnění ukládat. Zkopírujte souhrn dole a pošlete ho do chatu.' : 'Uložení se nepodařilo. Zkuste to za chvíli znovu.'); })
+      .then(function () { saving = false; if (again) { again = false; flush(); } });
+  }
+  document.addEventListener('change', function (e) {
+    var r = e.target;
+    if (r.matches('input[type="radio"][name^="pick-"]')) { mine.choices[r.name.slice(5)] = r.value; render(); scheduleSave(); }
+  });
+  document.addEventListener('input', function (e) { var t = e.target; if (t.matches('textarea[data-note]')) { mine.notes[t.dataset.note] = t.value; scheduleSave(); } });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-replay]');
+    if (!b) return;
+    e.preventDefault();
+    var kv = b.getAttribute('data-replay').split(':');
+    document.querySelector('[data-preview="' + kv[0] + ':' + kv[1] + '"]').innerHTML = preview(kv[0], kv[1]);
+  });
+  document.getElementById('copy').addEventListener('click', function () {
+    var text = summaryText(), area = document.getElementById('copy-fallback');
+    function fallback() { area.hidden = false; area.value = text; area.focus(); area.select(); status('Souhrn je označený, zkopírujte ho klávesami Ctrl+C / Cmd+C.'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { status('Souhrn je ve schránce.', true); }, fallback); else fallback();
+  });
+
+  buildDecisions();
+  render();
+
+  var use = window.claude && window.claude.use ? window.claude.use.bind(window.claude) : null;
+  if (!use) { status('Tato verze stránky volby neukládá. Vyberte varianty a souhrn dole pošlete do chatu.'); return; }
+  Promise.all([use('db'), use('user')]).then(function (caps) {
+    db = caps[0]; user = caps[1];
+    if (!db || !user) { status('Volby se ukládají jen v tomto prohlížeči. Souhrn dole pošlete do chatu.'); return null; }
+    return user.id();
+  }).then(function (id) {
+    if (!db || !user) return;
+    if (!id) { status('Pro sdílené hlasování se přihlaste. Zatím se volby ukládají jen v tomto prohlížeči.'); return; }
+    myId = id;
+    var first = true, slow = setTimeout(function () { status('Uložené volby se zatím nepodařilo načíst. Můžete vybírat, uloží se později.'); }, 10000);
+    db.collection('picks').onSnapshot(function (snap) {
+      if (!snap.metadata.fromCache) clearTimeout(slow);
+      var next = {};
+      snap.docs.forEach(function (doc) {
+        if (!doc.exists) return;
+        var body = doc.data() || {};
+        if (doc.id === myId) { if (first && body.choices) mine = { choices: Object.assign({}, body.choices), notes: Object.assign({}, body.notes || {}) }; }
+        else next[doc.id] = { choices: body.choices || {}, notes: body.notes || {} };
+      });
+      if (first) { first = false; status('Volby se ukládají a vidí je celý tým.', true); }
+      everyone = next;
+      var ids = Object.keys(everyone);
+      if (ids.length) user.profiles(ids).then(function (ps) { ids.forEach(function (i) { names[i] = (ps[i] && ps[i].name) || ''; }); render(); }, render);
+      else render();
+    }, function () { clearTimeout(slow); status('Sdílené volby nejsou dostupné. Souhrn dole pošlete do chatu.'); });
+  });
+})();
+</script>

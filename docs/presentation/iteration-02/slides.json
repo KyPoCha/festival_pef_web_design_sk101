@@ -1,0 +1,160 @@
+{
+  "footer": "Tranzistor 2027 · tým sk101 · cvičení 3",
+  "speakers": [
+    "Kyrylo Polishchuk",
+    "Daniel Šimůnek",
+    "Ngoc Tuan Nguyen",
+    "David Anderle"
+  ],
+  "slides": [
+    {
+      "layout": "title",
+      "title": "Tranzistor 2027",
+      "subtitle": "UX návrh, prototyp a interaktivní funkce",
+      "corner": ""
+    },
+    {
+      "layout": "content",
+      "speaker": 1,
+      "title": "Co jsme od minula udělali",
+      "size": 19,
+      "items": [
+        "**Prototyp celého webu:** 11 stránek ze sitemapy, mobil i desktop, všech 77 položek programu",
+        "**Šest interaktivních funkcí**, které pokrývají klíčové scénáře",
+        "**Oprava datové základny** podle zpětné vazby",
+        "**Hlasování o vzhledu:** čtyři rozhodnutí s variantami na živých náhledech"
+      ]
+    },
+    {
+      "layout": "two",
+      "speaker": 1,
+      "title": "Co chybělo v datové základně",
+      "size": 15,
+      "left": [
+        {
+          "h": "Chybělo"
+        },
+        "Obrázky festivalu, scén a účinkujících",
+        "Schéma areálu pro stránku Scény",
+        "Historie ročníků pro stránku O festivalu",
+        "Kontakt pro média, odkaz na vstupenky",
+        "Téma u tří účastníků panelů"
+      ],
+      "right": [
+        {
+          "h": "Co jsme udělali"
+        },
+        "Data porovnána se zadáním a se specifikací",
+        "Doplněno ve verzi **1.1.0**, rozsah a program beze změny",
+        "Kontrolní skript rozšířen o nová pravidla",
+        "**Stará data: 83 chyb, nová: 0**",
+        "Změny zapsány ve specifikaci, kapitola 8"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 2,
+      "title": "Prototyp od mobilu",
+      "images": [
+        "img/s-uvod.png",
+        "img/s-detail.png"
+      ],
+      "items": [
+        "**Navrženo od šířky 360 px**, desktop přidává sloupce a postranní filtry",
+        "Ovládací prvky aspoň 44 px, filtry na mobilu sbalené",
+        "Vyhledávání a Můj program v záhlaví každé stránky",
+        "Drobečková navigace, odkaz zpět vrací filtry",
+        "Funguje po otevření ze souboru, bez internetu"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 2,
+      "title": "Varianty vzhledu a rozhodnutí týmu",
+      "images": [
+        "img/s-picker.png"
+      ],
+      "items": [
+        "Čtyři rozhodnutí, varianty na živých náhledech telefonu",
+        "Tým hlasoval na sdílené stránce",
+        "**Zvoleno:** Kyber · spodní lišta · dlaždice · textové tlačítko",
+        "Spodní lišta a tmavý vzhled pocházejí z prototypu člena týmu",
+        "Podle poznámky z hlasování: ikony ve stylu Material, počet uložených v rohu hvězdičky"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 3,
+      "title": "Scénář 1 v prototypu",
+      "images": [
+        "img/s-program.png",
+        "img/s-signal.png"
+      ],
+      "items": [
+        "Program → filtr **Sobota + Nábřeží**",
+        "Zobrazí se **6 z 77 položek** podle času",
+        "Detail koncertu → **Do Mého programu**",
+        "Potvrzení a počet uložených v záhlaví",
+        "Vpravo původní varianta Signál pro srovnání"
+      ]
+    },
+    {
+      "layout": "shots",
+      "speaker": 3,
+      "title": "Scénář 2 v prototypu",
+      "images": [
+        "img/s-hledani.png",
+        "img/s-muj-program.png"
+      ],
+      "items": [
+        "Hledání **„malatova“** bez diakritiky najde řečnici i obě její vystoupení",
+        "Uložení přednášky, panelu a workshopu",
+        "Můj program **upozorní na kolizi** 16:30–17:00",
+        "Kolidující karty jsou zvýrazněné",
+        "Po odebrání jedné položky upozornění zmizí"
+      ]
+    },
+    {
+      "layout": "content",
+      "speaker": 4,
+      "title": "Interaktivní funkce",
+      "size": 17,
+      "items": [
+        "**Filtr programu** podle 7 kritérií, uložený v adrese – zúžit 77 položek",
+        "**Můj program** bez registrace – vlastní plán návštěvy",
+        "**Upozornění na kolize** – zjistit předem, že se dvě položky kryjí",
+        "**Vyhledávání** bez diakritiky se stránkou výsledků – najít útržek jména",
+        "**Právě teď na scénách** podle času – rozhodnout se na místě",
+        "**Filtr a řazení účinkujících** – projít 67 jmen podle typu a tématu"
+      ]
+    },
+    {
+      "layout": "two",
+      "speaker": 4,
+      "title": "Použití AI a ověření",
+      "size": 14,
+      "left": [
+        {
+          "h": "Co vytvořila AI (Claude Code)"
+        },
+        "Prototyp: HTML, CSS, JavaScript",
+        "Ilustrace SVG a schéma areálu",
+        "Doplnění dat a nová pravidla kontroly",
+        {
+          "h": "Chyby, které odhalil test"
+        },
+        "Záhlaví na mobilu přetékalo o 67 px",
+        "Ve variantě Kyber zmizely barvy témat"
+      ],
+      "right": [
+        {
+          "h": "Jak jsme to ověřili"
+        },
+        "**Test v prohlížeči:** 190 kontrol – 11 stránek na mobilu i desktopu, scénáře S1–S5, varianty",
+        "**Přístupnost:** WCAG 2.2 AA, klávesnice, zvětšení – 45 kontrol bez chyby",
+        "**Kontrolní skript dat:** 0 chyb, shoda dat webu s data.json",
+        "**Ručně:** WAVE (10 z 10) a vlastní telefony"
+      ]
+    }
+  ]
+}

@@ -3,11 +3,16 @@
 
 Použití:  python3 tools/validate_data.py [cesta/k/data.json]
 
+Pokud existují složky prototype/ nebo web/ se souborem js/data.js, skript navíc
+ověří, že js/data.js obsahuje stejná data jako data.json a že ve složce existují
+všechny obrázky, na které data odkazují.
+
 Skript používá pouze standardní knihovnu Pythonu 3.9+. Je to vývojový nástroj
 týmu, web samotný ho ke spuštění nepotřebuje. Při nalezení chyby končí
 návratovým kódem 1.
 """
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from datetime import date, datetime, time, timedelta
@@ -15,6 +20,8 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 MIN_DAYS, MIN_VENUES, MIN_PERFORMERS, MIN_EVENTS = 3, 2, 60, 60
+IMAGE_SRC = re.compile(r"^images/[a-z0-9/_-]+\.(svg|png|jpe?g|webp)$")
+DATA_JS_PREFIX = "window.TRANZISTOR_DATA = "
 WEEKDAYS = ["pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle"]
 
 errors = []
@@ -49,6 +56,38 @@ def index(items, kind):
     return by_id
 
 
+def check_image(image, owner):
+    """Obrázek je objekt {src, alt}; src je relativní cesta v rámci webu."""
+    if not isinstance(image, dict):
+        err(f"{owner}: chybí obrázek (pole image se src a alt)")
+        return
+    if not IMAGE_SRC.match(str(image.get("src", ""))):
+        err(f"{owner}: neplatná cesta k obrázku '{image.get('src')}'")
+    if not str(image.get("alt", "")).strip():
+        err(f"{owner}: obrázek nemá alternativní text")
+
+
+def image_paths(data):
+    paths = [data["festival"].get("image"), data["festival"].get("areaMap")]
+    paths += [v.get("image") for v in data["venues"]] + [p.get("image") for p in data["performers"]]
+    return [i["src"] for i in paths if isinstance(i, dict) and i.get("src")]
+
+
+def check_site(site, data, raw):
+    """Ověří odvozený soubor js/data.js a existenci obrázků ve složce webu."""
+    data_js = site / "js" / "data.js"
+    text = data_js.read_text(encoding="utf-8").strip()
+    if DATA_JS_PREFIX in text:  # první řádek je komentář „vygenerováno z data.json“
+        text = text[text.index(DATA_JS_PREFIX):]
+    if not text.startswith(DATA_JS_PREFIX) or not text.endswith(";"):
+        err(f"{data_js}: neočekávaný formát, vygenerujte ho znovu (tools/build_web_data.py)")
+    elif json.loads(text[len(DATA_JS_PREFIX):-1]) != raw:
+        err(f"{data_js}: neodpovídá data.json, vygenerujte ho znovu (tools/build_web_data.py)")
+    for src in image_paths(data):
+        if not (site / src).is_file():
+            err(f"{site.name}/{src}: obrázek neexistuje")
+
+
 def require_text(item, fields, kind):
     for field in fields:
         value = item.get(field)
@@ -68,6 +107,17 @@ def main():
         return report(path, data)
 
     festival = data["festival"]
+    check_image(festival.get("image"), "festival")
+    check_image(festival.get("areaMap"), "schéma areálu")
+    editions = [h.get("edition") for h in festival.get("history", [])]
+    if editions != list(range(1, festival.get("edition", 1))):
+        err(f"festival.history: ročníky {editions} neodpovídají aktuálnímu {festival.get('edition')}. ročníku")
+    for h in festival.get("history", []):
+        hs, he = date.fromisoformat(h["startDate"]), date.fromisoformat(h["endDate"])
+        if hs > he or hs.year != h.get("year") or h.get("year", 9999) >= festival.get("year", 0):
+            err(f"festival.history: neplatná data {h.get('edition')}. ročníku")
+        if h.get("year", 0) < festival.get("firstEditionYear", 0):
+            err(f"festival.history: {h.get('edition')}. ročník je starší než firstEditionYear")
     tz = ZoneInfo(data["meta"]["timezone"])
     days = index(data["days"], "den")
     venues = index(data["venues"], "scéna")
@@ -107,6 +157,10 @@ def main():
         require_text(v, ("slug", "name", "kind", "zone", "description"), "scéna")
         if not isinstance(v.get("capacity"), int) or v["capacity"] <= 0:
             err(f"scéna {v['id']}: neplatná kapacita")
+        check_image(v.get("image"), f"scéna {v['id']}")
+        pos = v.get("mapPosition") or {}
+        if not all(isinstance(pos.get(k), (int, float)) and 0 <= pos[k] <= 100 for k in ("x", "y")):
+            err(f"scéna {v['id']}: mapPosition musí mít x a y v rozsahu 0–100")
 
     # --- účinkující
     for p in performers.values():
@@ -117,6 +171,7 @@ def main():
             err(f"účinkující {p['id']}: neznámá země '{p.get('country')}'")
         if not p.get("trackIds"):
             err(f"účinkující {p['id']}: žádné téma")
+        check_image(p.get("image"), f"účinkující {p['id']}")
         for t in p.get("trackIds", []):
             if t not in tracks:
                 err(f"účinkující {p['id']}: neznámé téma '{t}'")
@@ -188,6 +243,13 @@ def main():
                     name = names_by_id.get(key, {}).get("name", key)
                     err(f"kolize – {label} {name}: {id1} a {id2} se překrývají")
 
+    # --- témata účinkujícího pokrývají témata jeho vystoupení
+    for e in events.values():
+        for pid in e.get("performerIds", []):
+            if pid in performers and e.get("trackId") not in performers[pid].get("trackIds", []):
+                err(f"účinkující {pid} ({performers[pid]['name']}) vystupuje v tématu {e.get('trackId')} "
+                    f"({e['id']}), ale nemá ho v trackIds")
+
     # --- každá entita je v programu použita
     for pid, p in performers.items():
         if pid not in by_performer:
@@ -215,6 +277,14 @@ def main():
         for (s1, e1, id1), (s2, e2, id2) in zip(slots, slots[1:]):
             if timedelta(0) <= (s2 - e1) < timedelta(minutes=15) and events[id1]["venueId"] != events[id2]["venueId"]:
                 warn(f"{performers[pid]['name']}: jen {(s2 - e1).seconds // 60} min na přesun mezi {id1} a {id2}")
+
+    # --- odvozená data pro web
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    for name in ("prototype", "web"):
+        site = path.resolve().parent / name
+        if (site / "js" / "data.js").is_file():
+            check_site(site, data, raw)
+            print(f"  zkontrolována složka {name}/ (js/data.js a obrázky)")
 
     return report(path, data)
 

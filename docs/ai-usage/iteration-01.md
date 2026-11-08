@@ -25,9 +25,9 @@ Tento soubor popisuje jen to, co udělala a strojově zkontrolovala AI. Co uděl
 | Datová základna | 67 účinkujících (jména, charakteristiky, medailonky), 77 položek programu (názvy, popisy, štítky, časy), praktické informace (vstupenky, doprava, přístupnost, služby, časté dotazy, pravidla) |
 | Nástroje | skript `tools/validate_data.py` pro kontrolu konzistence dat |
 | Organizace | plán celého projektu v `docs/plan.md`, kontrolní list a seznam úkolů pro tým v `docs/team-work-flow/` |
-| Komunikace v týmu | česká zpráva pro členy týmu se seznamem toho, co má kdo zkontrolovat a rozhodnout (prompt 3) |
-| Odevzdání | skript `tools/package_submission.py`, který soubory zabalí do archivu a archiv ověří (prompt 4) |
-| Jména | doplnění jmen členů do specifikace, tabulky týmu, textů pro mluvčí a zápatí snímků (prompt 5) |
+| Komunikace v týmu | česká zpráva pro členy týmu se seznamem toho, co má kdo zkontrolovat a rozhodnout |
+| Odevzdání | skript `tools/package_submission.py`, který soubory zabalí do archivu a archiv ověří |
+| Jména | doplnění jmen členů do specifikace, tabulky týmu, textů pro mluvčí a zápatí snímků |
 | Prezentace | devět snímků v šabloně KIT (`tranzistor-iterace-01.odp`), skript `tools/build_presentation.py`, který je sestavuje, a texty pro čtyři mluvčí |
 
 ## 3. Rozhodnutí, která AI udělala sama

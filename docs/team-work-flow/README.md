@@ -5,6 +5,7 @@ Tato složka obsahuje všechno, co musí udělat a zapsat **lidé z týmu**, ne 
 | Iterace                            | Úkoly týmu                         | Kontrolní list                                       | Stav         |
 | ---------------------------------- | ---------------------------------- | ---------------------------------------------------- | ------------ |
 | 1 – specifikace a data (cvičení 2) | [iteration-01.md](iteration-01.md) | [controls/iteration-01.md](controls/iteration-01.md) | rozpracováno |
+| 2 – UX návrh, prototyp a funkce (cvičení 3) | [iteration-02.md](iteration-02.md) | [controls/iteration-02.md](controls/iteration-02.md) | rozpracováno |
 
 ## Jak se složka používá
 

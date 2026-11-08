@@ -19,13 +19,18 @@ Formát slides.json:
         {"layout": "two", "speaker": 2, "title": "...", "left": [...], "right": [...]}
       ]
     }
+        {"layout": "shots", "speaker": 3, "title": "...", "images": ["img/a.png", ...], "items": [...]}
 Položka seznamu je řetězec (odrážka), {"sub": "..."} (odrážka druhé úrovně)
 nebo {"h": "..."} (mezititulek bez odrážky). **Text** mezi hvězdičkami je tučný.
+Rozložení „shots“ dá obrázky PNG (cesty relativně k slides.json) vedle sebe
+vlevo a odrážky vpravo; obrázky se vloží do souboru prezentace.
 """
 import json
 import re
+import struct
 import sys
 import zipfile
+from pathlib import Path
 from xml.sax.saxutils import escape
 
 BLUE = "#005490"
@@ -124,6 +129,36 @@ styles[LIST_STYLE] = (
 )
 
 next_id = [1000]
+pictures = {}  # cesta v archivu -> zdrojový soubor
+SOURCE_DIR = [Path(".")]
+
+
+def png_size(path):
+    with open(path, "rb") as f:
+        head = f.read(24)
+    if head[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit(f"{path}: podporované jsou jen obrázky PNG")
+    return struct.unpack(">II", head[16:24])
+
+
+def image_frames(images, x0, y0, width, height, gap=0.12):
+    """Obrázky vedle sebe ve stejné výšce, vycentrované v zadaném obdélníku."""
+    paths = [SOURCE_DIR[0] / src for src in images]
+    ratios = [w / h for w, h in (png_size(p) for p in paths)]
+    h = min(height, (width - gap * (len(paths) - 1)) / sum(ratios))
+    total = h * sum(ratios) + gap * (len(paths) - 1)
+    x, y = x0 + (width - total) / 2, y0 + (height - h) / 2
+    out = []
+    for path, ratio in zip(paths, ratios):
+        inner = f"Pictures/{path.name}"
+        pictures[inner] = path
+        w = h * ratio
+        out.append(
+            f'<draw:frame draw:id="{new_id()}" draw:name="{escape(path.stem)}" svg:x="{x:.4f}in" svg:y="{y:.4f}in" '
+            f'svg:width="{w:.4f}in" svg:height="{h:.4f}in"><draw:image xlink:href="{inner}" xlink:type="simple" '
+            f'xlink:show="embed" xlink:actuate="onLoad"/><svg:title/><svg:desc>Snímek obrazovky prototypu</svg:desc></draw:frame>')
+        x += w + gap
+    return "".join(out)
 
 
 def new_id():
@@ -231,6 +266,16 @@ def build_slide(deck, slide, index):
                     body(slide["right"], size))
             + footer_frames(deck, slide)
         )
+    elif layout == "shots":
+        master, ppl = MASTER_TWO
+        page = page_style("#ffffff")
+        inner = (
+            slide_title(slide)
+            + image_frames(slide["images"], 0.45, 1.0, 4.6, 3.25)
+            + frame("outline", "Obsah vpravo", 5.2, 1.00128, 4.3, 3.7012, frame_style("top", shrink=True),
+                    body(slide["items"], slide.get("size", 15)))
+            + footer_frames(deck, slide)
+        )
     else:
         raise SystemExit(f"Neznámé rozložení snímku: {layout}")
     return (
@@ -245,6 +290,7 @@ def main():
     template, source, output = sys.argv[1:]
     with open(source, encoding="utf-8") as f:
         deck = json.load(f)
+    SOURCE_DIR[0] = Path(source).resolve().parent
 
     pages = "".join(build_slide(deck, slide, n) for n, slide in enumerate(deck["slides"], 1))
     content = (
@@ -266,7 +312,12 @@ def main():
                 data = content.encode("utf-8")
             elif info.filename == "META-INF/manifest.xml":
                 data = re.sub(rb'<manifest:file-entry manifest:full-path="Thumbnails/[^>]*/>', b"", data)
+                entries = "".join(f'<manifest:file-entry manifest:full-path="{name}" manifest:media-type="image/png"/>'
+                                  for name in pictures)
+                data = data.replace(b"</manifest:manifest>", entries.encode() + b"</manifest:manifest>")
             dst.writestr(info.filename, data, zipfile.ZIP_DEFLATED)
+        for name, path in pictures.items():
+            dst.write(path, name, zipfile.ZIP_STORED)
     print(f"{output}: {len(deck['slides'])} snímků")
 
 

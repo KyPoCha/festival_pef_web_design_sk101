@@ -18,8 +18,8 @@ Hard constraints:
 
 | # | Due | Deliverables | Status |
 |---|---|---|---|
-| 1 | Seminar 2 | `project-specification.md`, `data.json` | Drafted – team review pending |
-| 2 | Seminar 3 | `prototype/` (runs without install), `progress-02.md` | Not started |
+| 1 | Seminar 2 | `project-specification.md`, `data.json` | Submitted; data fixed to 1.1.0 in iteration 2 after feedback |
+| 2 | Seminar 3 | `prototype/` (runs without install), `progress-02.md` | Built and tested – team review pending |
 | 3 | Seminar 4 | `web/` first working implementation, `progress-03.md` | Not started |
 | 4 | Seminar 5 | review-ready `web/`, `progress-04.md` | Not started |
 | 5 | Seminar 6 | `review.md` for the project assigned to us | Not started |
@@ -33,7 +33,7 @@ Seminar dates are not in the assignment text – add them here once known.
 /                              ← this is the "projekt/" folder from the assignment
 ├── project-specification.md   submitted (iteration 1, then final)
 ├── data.json                  submitted (iteration 1, then final)
-├── prototype/                 submitted (iteration 2, then final)
+├── prototype/                 submitted (iteration 2, then final); js/data.js and images/ are generated
 ├── web/                       submitted (iterations 3, 4, final)
 │   ├── index.html …
 │   ├── css/  js/  images/
@@ -45,10 +45,16 @@ Seminar dates are not in the assignment text – add them here once known.
 │   ├── ai-usage/iteration-0N.md          what the AI did and checked mechanically
 │   ├── team-work-flow/iteration-0N.md    what the team must do, decide and record
 │   ├── team-work-flow/controls/iteration-0N.md   manual control sheet
-│   └── presentation/iteration-0N/        slides (.odp, .pdf), slides.json, speaker texts
+│   ├── presentation/iteration-0N/        slides (.odp, .pdf), slides.json, speaker texts, img/
+│   └── design-picker/iteration-0N/       design voting page (published as an artifact with shared votes)
 └── tools/                     dev-only scripts (Python stdlib); the site never depends on them
-    ├── validate_data.py
-    └── build_presentation.py  builds the .odp from the KIT template and slides.json
+    ├── validate_data.py       data checks, incl. js/data.js and images in prototype/ and web/
+    ├── build_web_data.py      data.json → <site>/js/data.js
+    ├── generate_images.py     SVG illustrations and area map → <site>/images/
+    ├── build_picker.py        design picker page with the prototype's styles scoped to phone previews
+    ├── test_prototype.js      browser test (Node + playwright-core, dev only)
+    ├── package_submission.py  zip of one iteration's deliverables
+    └── build_presentation.py  builds the .odp from the KIT template and slides.json (text and screenshots)
 ```
 
 ## 4. Iterations
@@ -76,13 +82,24 @@ Rebuild after editing `slides.json`: `python3 tools/build_presentation.py 16-9_b
 
 ### Iteration 2 – UX design and prototype (→ seminar 3)
 
-Goal: a clickable design that follows the specification, is mobile-first, also covers desktop, and lets someone walk through at least two key scenarios.
+- [x] Find and fix what was missing in `data.json` (images, area map, edition history, press contact, ticket link, panellists' tracks) → 1.1.0; spec 1.1 with change log in chapter 8
+- [x] Validator extended (83 errors on 1.0.0, 0 on 1.1.0)
+- [x] Teammate's own prototype (Downloads) reviewed: bottom bar and dark theme adopted as variants; `fetch` from `file://` shows only 16/77 items, so not adopted
+- [x] `prototype/`: 11 pages, mobile-first, F1–F6 working, design variants via `?ui=`
+- [x] Design picker published, vote saved: Kyber · bottom bar · tiles · text button → now the default; Material-style SVG icons and corner badge from the vote note
+- [x] Browser test 168/168, Kyber contrast ≥ 7.4:1, `progress-02.md`, AI log, slides + speaker texts
+- [ ] **Team:** everything in `docs/team-work-flow/iteration-02.md` and `controls/iteration-02.md`; other members vote or confirm on the picker (share it first)
 
-- Format: a hand-coded HTML/CSS/JS prototype in `prototype/` using real data. It opens from the file system, so it meets "runnable without install", and most of it carries over into `web/`.
-- Screens: home, programme with filters, programme item detail, performer list and detail, My programme, search results, practical info. Mobile (360 px) first, then a desktop layout from about 900 px.
-- At least three interactive features, each tied to a user need (see section 5).
-- Verification: walk S1–S3 on a phone and on desktop; hallway test with two or three people outside the team, noting where they hesitate; check navigation and heading hierarchy.
-- `progress-02.md`: list of features, link from each feature to a user need, what was verified and how, AI use.
+Presentation at seminar 3 (about 4 min):
+
+| Speaker | Slides | Topic |
+|---|---|---|
+| 1 | 1–3 | What we did, the data fix |
+| 2 | 4–5 | Mobile-first prototype, design decision |
+| 3 | 6–7 | Scenarios S1 and S2 in the prototype |
+| 4 | 8–9 | Interactive features, AI use and verification |
+
+Rebuild: `python3 tools/generate_images.py prototype && python3 tools/build_web_data.py prototype` after any data change; `python3 tools/build_picker.py 2` after CSS changes; `python3 tools/package_submission.py 2` for the Moodle zip.
 
 ### Iteration 3 – first implementation (→ seminar 4)
 
@@ -130,11 +147,14 @@ The assignment requires at least three; F1–F4 are the core, F5 and F6 follow i
 | # | Decision | Reason |
 |---|---|---|
 | D1 | Vanilla HTML, CSS, JavaScript; no framework, no build | Required by the assignment |
-| D2 | `data.json` is the single source of truth; `web/js/data.js` is generated from it by a script in `tools/` and checked for equality | `fetch()` of a local JSON file fails when the site is opened via `file://`; the assignment allows a JS-friendly copy if it is derivable and consistent |
+| D2 | `data.json` is the single source of truth; `<site>/js/data.js` is generated from it by `tools/build_web_data.py` and checked for equality | `fetch()` of a local JSON file fails when the site is opened via `file://`; the assignment allows a JS-friendly copy if it is derivable and consistent |
 | D3 | Detail pages are one template each, selected by `?id=` and rendered from data | 77 + 67 + 5 detail pages without a build step |
 | D4 | Filters live in the URL query string; saved items live in `localStorage` | Filters survive Back and can be shared; the personal plan survives a browser restart |
 | D5 | Stable IDs (`e001`, `p001`, `v01`) plus readable slugs | IDs never change; slugs are available for readable URLs |
 | D6 | Site language is Czech; identifiers and code comments are English | Czech audience; conventional code style |
+| D7 | Design variants switch with `?ui=` (`data-ui-*` on `<html>`); team picks are the defaults in `UI_DEFAULTS` | Lets the team compare variants on the real pages before deciding |
+| D8 | Classic `<script>` files, no ES modules | Browsers refuse module scripts from `file://` |
+| D9 | Icons are inline SVG with Material Icons shapes (Apache License 2.0) | No icon font or network needed; matches the team's request for MUI-like icons |
 
 Open question for iteration 3: D3 renders detail content with JavaScript, which is weaker for search engines and AI crawlers than static HTML. Options are to keep D3 and inject JSON-LD at runtime, or to pre-generate static detail pages with a `tools/` script and commit them. Decide after the SEO/AEO research; if the URL scheme in the specification changes, log it in section 7.
 
@@ -144,7 +164,9 @@ Every change to the specification or data after seminar 2 goes here, with the va
 
 | Date | What changed | Why | Triggered by |
 |---|---|---|---|
-| – | – | – | – |
+| 2026-11-08 | `data.json` 1.1.0: images, area map, edition history, press contact, ticket link, tracks of three panellists | Spec promised these on pages; assignment requires AI images | Feedback after seminar 2 ("something is missing in data.json"), check of data against spec |
+| 2026-11-08 | Spec 1.1: data model rows and consistency rules updated, chapter 8 added | Follows the data change | Same |
+| 2026-11-08 | Mobile navigation moves to a bottom bar (spec 4.2 says sections are in a collapsible menu on mobile) | Team vote on the design picker | Team vote |
 
 ## 8. Verification approach
 

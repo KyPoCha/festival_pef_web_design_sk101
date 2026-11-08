@@ -4,8 +4,8 @@
 | ------------------- | ------------------------------- |
 | **Tým**             | sk101                           |
 | **Členové**         | Kyrylo Polishchuk, Daniel Šimůnek, Ngoc Tuan Nguyen, David Anderle |
-| **Verze dokumentu** | 1.0                             |
-| **Datová základna** | `data.json`, verze 1.0.0        |
+| **Verze dokumentu** | 1.1 (iterace 2, změny v kapitole 8) |
+| **Datová základna** | `data.json`, verze 1.1.1        |
 
 Festival, všichni účinkující i program jsou fiktivní. Texty v této specifikaci a v datové základně byly vygenerovány AI, za výsledek odpovídá tým (viz kapitola 7).
 
@@ -250,18 +250,18 @@ Program podle dnů: pátek 24, sobota 31, neděle 22 položek. Podle scény: Mai
 
 | Klíč v JSON                                                        | Entita              | Identifikátor             | Hlavní atributy                                                                                            | Vazby                                                                           |
 | ------------------------------------------------------------------ | ------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `festival`                                                         | Festival            | `tranzistor-2027`         | název, slogan, ročník, termín, charakter, popis, adresa, pořadatel                                         | –                                                                               |
+| `festival`                                                         | Festival            | `tranzistor-2027`         | název, slogan, ročník, termín, charakter, popis, adresa, pořadatel, kontakt pro média, odkaz na prodej vstupenek, obrázek, schéma areálu, historie ročníků                                         | –                                                                               |
 | `days`                                                             | Den                 | `d1`–`d3`                 | datum, den v týdnu, provozní doba, téma dne                                                                | –                                                                               |
-| `venues`                                                           | Scéna               | `v01`–`v05`               | název, typ, kapacita, zóna areálu, vybavení, přístupnost                                                   | –                                                                               |
+| `venues`                                                           | Scéna               | `v01`–`v05`               | název, typ, kapacita, zóna areálu, vybavení, přístupnost, obrázek, poloha na schématu areálu                                                   | –                                                                               |
 | `tracks`                                                           | Téma                | `t01`–`t07`               | název, popis                                                                                               | –                                                                               |
-| `performers`                                                       | Účinkující          | `p001`–`p067`             | jméno, typ, země, charakteristika, medailonek, hlavní hvězda                                               | `trackIds` → témata                                                             |
+| `performers`                                                       | Účinkující          | `p001`–`p067`             | jméno, typ, země, charakteristika, medailonek, hlavní hvězda, obrázek                                               | `trackIds` → témata                                                             |
 | `events`                                                           | Položka programu    | `e001`–`e077`             | název, formát, začátek, konec, délka, jazyk, úroveň, popis, štítky, vhodné pro rodiny, rezervace, kapacita | `dayId` → den, `venueId` → scéna, `trackId` → téma, `performerIds` → účinkující |
 | `practical`                                                        | Praktické informace | `tk01`–`tk06` u vstupenek | vstupenky, doprava, přístupnost, služby, časté dotazy, pravidla                                            | `validDayIds` → dny                                                             |
 | `eventTypes`, `performerTypes`, `levels`, `languages`, `countries` | Číselníky           | kód                       | český popisek                                                                                              | odkazují na ně `events` a `performers`                                          |
 
 Účinkující a položky programu mají navíc pole `slug` (čitelný identifikátor bez diakritiky) pro budoucí adresy stránek. Časy jsou ve formátu ISO 8601 s časovým pásmem (`2027-06-05T19:30:00+02:00`).
 
-Obrázky účinkujících a scén budou vygenerovány AI v implementační fázi. Do dat pak přibude pouze cesta k souboru a alternativní text; stávající údaje se tím nemění.
+Obrázky (`image`) mají vždy cestu k souboru v rámci webu a alternativní text. Ilustrace jsou vektorové kresby (SVG), které vytvořila AI; portréty účinkujících jsou abstraktní monogramy, nikoli fotografie. Polohy scén (`mapPosition`) jsou v procentech šířky a výšky schématu areálu, ze kterého se schéma kreslí.
 
 ### Pravidla konzistence
 
@@ -275,7 +275,10 @@ Vazby jsou jednoznačné a jsou strojově kontrolovány skriptem:
 - každá položka leží v provozní době svého dne a datum odpovídá dni,
 - den v týdnu odpovídá datu a časové pásmo odpovídá letnímu času v Praze,
 - kapacita workshopu nepřesahuje kapacitu scény,
-- program venkovní scény končí nejpozději ve 22:00.
+- program venkovní scény končí nejpozději ve 22:00,
+- každý účinkující má mezi svými tématy i témata všech svých vystoupení,
+- každý obrázek má cestu a alternativní text a soubor ve složce webu existuje,
+- historie obsahuje všechny předchozí ročníky a odvozený soubor pro web (`js/data.js`) je shodný s `data.json`.
 
 ---
 

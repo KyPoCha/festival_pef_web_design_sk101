@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Účinkující – Tranzistor 2027</title>
+  <meta name="description" content="Všech 67 účinkujících festivalu Tranzistor 2027: řečníci, lektoři, hudebníci, umělci a e-sportové týmy. Hledejte podle jména, typu a tématu.">
+  <meta name="theme-color" content="#10173a">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="performers">
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+  <header class="site-header">
+    <div class="site-header__bar container">
+      <a class="logo" href="index.html"><span class="logo__mark" aria-hidden="true"></span>Tranzistor <span class="logo__year">2027</span></a>
+      <a class="my-link" href="muj-program.html"><span class="my-link__icon" data-icon="star"></span><span class="my-link__text">Můj program</span> <span class="badge" aria-hidden="true" data-my-count>0</span><span class="visually-hidden" data-my-count-sr></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hlavni-menu" data-icon="menu"><span class="menu-toggle__text">Menu</span></button>
+      <form class="search" action="hledani.html" method="get" role="search">
+        <label for="hledat" class="visually-hidden">Hledat na webu</label>
+        <input id="hledat" name="q" type="search" placeholder="Hledat účinkující, program, scény…" autocomplete="off">
+        <button type="submit" data-icon="search"><span class="search__text">Hledat</span></button>
+      </form>
+    </div>
+    <nav id="hlavni-menu" class="main-nav" aria-label="Hlavní navigace">
+      <ul class="container">
+        <li><a href="program.html">Program</a></li>
+        <li><a href="ucinkujici.html" aria-current="page">Účinkující</a></li>
+        <li><a href="sceny.html">Scény</a></li>
+        <li><a href="prakticke-informace.html">Praktické informace</a></li>
+        <li><a href="o-festivalu.html">O festivalu</a></li>
+      </ul>
+    </nav>
+  </header>
+    <nav class="breadcrumbs container" aria-label="Drobečková navigace"><ol><li><a href="index.html">Úvod</a></li><li aria-current="page">Účinkující</li></ol></nav>
+  <main id="obsah" class="container">
+    <h1>Účinkující</h1>
+    <p class="lead">Řečníci, lektoři, hudebníci, umělci a e-sportové týmy z 19 zemí.</p>
+    <details class="disclosure filters-panel" id="filtry-panel">
+    <summary><span class="disclosure__label">Hledat, filtrovat a řadit<span id="pocet-filtru"></span></span><span class="disclosure__icon" data-icon="expand"></span></summary>
+    <form class="filters" id="filtry-ucinkujici" action="ucinkujici.html" method="get">
+      <label>Jméno obsahuje<input type="text" name="jmeno" autocomplete="off"></label>
+      <label>Typ<select name="typ"><option value="">Všechny typy</option></select></label>
+      <label>Téma<select name="tema"><option value="">Všechna témata</option></select></label>
+      <label>Řazení<select name="razeni"><option value="az">Podle jména A–Z</option><option value="za">Podle jména Z–A</option><option value="hvezdy">Hlavní hvězdy první</option></select></label>
+    </form>
+    </details>
+    <p id="pocet" class="result-count" role="status"></p>
+    <ul id="vypis" class="person-list"><noscript><p class="notice">Tato část stránky se načítá pomocí JavaScriptu. Zapněte ho prosím.</p></noscript></ul>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-block">
+        <h2 id="pata-festival" class="h-small">Tranzistor 2027</h2>
+        <p><time datetime="2027-06-04">4.</time>–<time datetime="2027-06-06">6. června 2027</time></p>
+        <address>Pražská tržnice<br>Bubenské nábřeží 306/13<br>170 00 Praha 7 – Holešovice<br>
+          <a href="mailto:info@tranzistor-festival.cz">info@tranzistor-festival.cz</a></address>
+      </div>
+      <nav aria-labelledby="pata-odkazy">
+        <h2 id="pata-odkazy" class="h-small">Rychlé odkazy</h2>
+        <ul>
+          <li><a href="o-festivalu.html">O festivalu</a></li>
+          <li><a href="prakticke-informace.html#vstupenky">Vstupenky</a></li>
+          <li><a href="prakticke-informace.html#pristupnost">Přístupnost</a></li>
+          <li><a href="prakticke-informace.html#caste-dotazy">Časté dotazy</a></li>
+        </ul>
+      </nav>
+      <div class="footer-block">
+        <h2 id="pata-vstupenky" class="h-small">Vstupenky</h2>
+        <p class="note">Třídenní vstupenka 1 890 Kč, studenti 1 290 Kč, děti do 12 let zdarma.</p>
+        <p><a class="button button--accent button--small" href="prakticke-informace.html#vstupenky">Vybrat vstupenku</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
